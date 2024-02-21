@@ -110,6 +110,7 @@ That is why mandatory input fields require an additional `<span class="visually-
 {{< example >}}
 <form>
   <fieldset>
+    <legend class="visually-hidden">Required fields inside fieldset example</legend>
     <div class="mb-3">
       <label for="requiredTextInput" class="form-label is-required">Required input<span class="visually-hidden"> (required)</span></label>
       <input type="text" id="requiredTextInput" class="form-control" placeholder="Required input" required>

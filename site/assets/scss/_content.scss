@@ -132,8 +132,8 @@
 // Boosted mod: some values have been changed in the following `custom-color-mode` and `.btn-dropdown` is used instead of `.btn-secondary`
 // scss-docs-start custom-color-mode
 [data-bs-theme="blue"] {
-  --bs-body-color: var(--bs-white);
-  --bs-body-color-rgb: #{to-rgb($white)};
+  --bs-body-color: var(--bs-black); // Boosted mod: instead of `var(--bs-white)`
+  --bs-body-color-rgb: #{to-rgb($black)}; // Boosted mod: instead of `#{to-rgb($white)}`
   --bs-body-bg: var(--bs-blue);
   --bs-body-bg-rgb: #{to-rgb($blue)};
   --bs-tertiary-bg: #{$blue-600};

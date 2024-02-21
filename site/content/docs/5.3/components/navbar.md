@@ -44,7 +44,7 @@ Navbars come with built-in support for a handful of sub-components. Choose from 
 
 Here's an example of all the sub-components included in a responsive dark-themed navbar that automatically collapses at the `lg` (large) breakpoint.
 
-{{< example >}}
+{{< example class="exclude-from-pa11y-analysis" >}}
 <nav class="navbar navbar-expand-lg">
   <div class="container-fluid">
     <div class="navbar-brand">
@@ -127,13 +127,13 @@ The `.navbar-brand` can be used to contain most elements, but an anchor works be
 
 ### Nav
 
-Navbar navigation links build on our `.nav` options with their own modifier class and require the use of [toggler classes](#toggler) for proper responsive styling. **Navigation in navbars will also grow to occupy as much horizontal space as possible** to keep your navbar contents securely aligned.
+Navbar navigation links build on our `.nav` options with their own modifier class and require the use of toggler classes for proper responsive styling. **Navigation in navbars will also grow to occupy as much horizontal space as possible** to keep your navbar contents securely aligned.
 
 Add the `.active` class on `.nav-link` to indicate the current page.
 
 Please note that you should also add the `aria-current` attribute on the active `.nav-link`.
 
-{{< example >}}
+{{< example class="exclude-from-pa11y-analysis" >}}
 <nav class="navbar navbar-expand-lg">
   <div class="container-fluid">
     <div class="navbar-brand">
@@ -166,7 +166,7 @@ Please note that you should also add the `aria-current` attribute on the active 
 
 And because we use classes for our navs, you can avoid the list-based approach entirely if you like.
 
-{{< example >}}
+{{< example class="exclude-from-pa11y-analysis" >}}
 <nav class="navbar navbar-expand-lg">
   <div class="container-fluid">
     <div class="navbar-brand">
@@ -191,7 +191,7 @@ And because we use classes for our navs, you can avoid the list-based approach e
 
 You can also use dropdowns in your navbar. Dropdown menus require a wrapping element for positioning, so be sure to use separate and nested elements for `.nav-item` and `.nav-link` as shown below.
 
-{{< example >}}
+{{< example class="exclude-from-pa11y-analysis" >}}
 <nav class="navbar navbar-expand-lg">
   <div class="container-fluid">
     <div class="navbar-brand">
@@ -271,6 +271,7 @@ Input groups work, too. If your navbar is an entire form, or mostly a form, you 
       <span class="input-group-text" id="basic-addon1">@</span>
       <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
     </div>
+    <button class="btn btn-primary btn-inverse" type="submit">Search</button>
   </form>
 </nav>
 {{< /example >}}
@@ -279,10 +280,10 @@ Various buttons are supported as part of these navbar forms, too. This is also a
 
 {{< example >}}
 <nav class="navbar">
-  <form class="container-fluid justify-content-start align-items-center">
+  <div class="container-fluid justify-content-start align-items-center">
     <button class="btn btn-primary me-2" type="button">Main button</button>
     <button class="btn btn-sm btn-primary" type="button">Smaller button</button>
-  </form>
+  </div>
 </nav>
 {{< /example >}}
 
@@ -302,7 +303,7 @@ Navbars may contain bits of text with the help of `.navbar-text`. This class adj
 
 Mix and match with other components and utilities as needed.
 
-{{< example >}}
+{{< example class="exclude-from-pa11y-analysis" >}}
 <nav class="navbar navbar-expand-lg">
   <div class="container-fluid">
     <div class="navbar-brand">
@@ -345,7 +346,7 @@ Mix and match with other components and utilities as needed.
 
 Navbar themes are easier than ever thanks to Bootstrap's combination of Sass and CSS variables. The default is our "light navbar" for use with light background colors, but you can also apply `data-bs-theme="dark"` to the `.navbar` parent for dark background colors. Then, customize with `.bg-*` and additional utilities.
 
-<div class="bd-example">
+<div class="bd-example exclude-from-pa11y-analysis">
   <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
     <div class="container-fluid">
       <div class="navbar-brand">
@@ -586,7 +587,7 @@ Please note that this behavior comes with a potential drawback of `overflow`—w
 
 Here's an example navbar using `.navbar-nav-scroll` with `style="--bs-scroll-height: 100px;"`, with some extra margin utilities for optimum spacing.
 
-{{< example >}}
+{{< example class="exclude-from-pa11y-analysis" >}}
 <nav class="navbar navbar-expand-lg">
   <div class="container-fluid">
     <div class="navbar-brand">
@@ -669,7 +670,7 @@ In the example below, to create an offcanvas navbar that is always collapsed acr
     <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+    <section class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
       <div class="offcanvas-header">
         <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5>
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Close"></button>
@@ -701,7 +702,7 @@ In the example below, to create an offcanvas navbar that is always collapsed acr
           <button class="btn btn-primary" type="submit">Search</button>
         </form>
       </div>
-    </div>
+    </section>
   </div>
 </nav>
 {{< /example >}}
@@ -713,9 +714,9 @@ To create an offcanvas navbar that expands into a normal navbar at a specific br
   <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarOffcanvasLg" aria-controls="navbarOffcanvasLg" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="offcanvas offcanvas-end" tabindex="-1" id="navbarOffcanvasLg" aria-labelledby="navbarOffcanvasLgLabel">
+  <section class="offcanvas offcanvas-end" tabindex="-1" id="navbarOffcanvasLg" aria-labelledby="navbarOffcanvasLgLabel">
     ...
-  </div>
+  </section>
 </nav>
 ```
 
@@ -727,7 +728,7 @@ When using offcanvas in a dark navbar, be aware that you may need to have a dark
     <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+    <section class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
       <div class="offcanvas-header">
         <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Dark offcanvas</h5>
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Close"></button>
@@ -759,7 +760,7 @@ When using offcanvas in a dark navbar, be aware that you may need to have a dark
           <button class="btn btn btn-primary" type="submit">Search</button>
         </form>
       </div>
-    </div>
+    </section>
   </div>
 </nav>
 {{< /example >}}

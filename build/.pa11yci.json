@@ -12,10 +12,11 @@
       ["pa11y-ci-reporter-html", {"destination": ".pa11y", "includeZeroIssues": true}]
     ],
     "runners": [
-      "axe"
+      "axe",
+      "htmlcs"
     ],
     "useIncognitoBrowserContext": false,
-    "hideElements": "iframe, #text-decoration + p + div a.text-decoration-none, .accordion-collapse, #offcanvas, #offcanvasDark, #offcanvasResponsive, #bdSidebar, .overflow-y-scroll, .overflow-y-auto, .overflow-x-scroll, .overflow-x-auto, .table-responsive, fieldset.star-rating[disabled]",
+    "hideElements": "iframe, .table-responsive, a.disabled:not([href]), :disabled + label, .is-disabled, .exclude-from-pa11y-analysis, #text-decoration + p + div a.text-decoration-none",
     "ignore": [
       "color-contrast"
     ]

@@ -59,7 +59,7 @@ If the stretched link doesn't seem to work, the [containing block](https://devel
 - A `will-change` value of `transform` or `perspective`
 - A `filter` value other than `none` or a `will-change` value of `filter` (only works on Firefox)
 
-{{< example >}}
+{{< example class="exclude-from-pa11y-analysis" >}}
 <div class="card" style="width: 18rem;">
   {{< placeholder width="100%" height="180" class="card-img-top" text="false" title="Card icon" >}}
   <div class="card-body">
@@ -68,7 +68,7 @@ If the stretched link doesn't seem to work, the [containing block](https://devel
     <p class="card-text">
       <a href="#" class="stretched-link text-danger" style="position: relative;">Stretched link will not work here, because <code>position: relative</code> is added to the link</a>
     </p>
-    <p class="card-text bg-body-tertiary" style="transform: rotate(0);">
+    <p class="card-text text-bg-dark" style="transform: rotate(0);">
       This <a href="#" class="text-warning stretched-link">stretched link</a> will only be spread over the <code>p</code>-tag, because a transform is applied to it.
     </p>
   </div>

@@ -26,7 +26,7 @@ Colorize text with color utilities. If you want to colorize links, you can use t
 Color utilities like `.text-*` that generated from our original `$theme-colors` Sass map don't yet respond to color modes, however, any `.text-*-emphasis` utility will. This will be resolved in v6.
 {{< /callout >}}
 
-{{< example >}}
+{{< example class="exclude-from-pa11y-analysis" >}}
 {{< colors.inline >}}
 {{- range (index $.Site.Data "theme-colors") }}
 <p class="text-{{ .name }}{{ with .contrast_color }} bg-{{ . }}{{ end }}">.text-{{ .name }}</p>
@@ -139,14 +139,16 @@ When used in dark mode, `--bs-primary-rgb` will use the value of (with the value
 
 To change that opacity, override `--bs-text-opacity` via custom styles or inline styles.
 
-{{< example >}}
+<!-- Boosted mod: exclude-from-pa11y-analysis because the use of `.text-primary` on small texts + opacity leads to insufficient color contrast -->
+{{< example class="exclude-from-pa11y-analysis" >}}
 <div class="text-primary">This is default primary text</div>
 <div class="text-primary" style="--bs-text-opacity: .5;">This is 50% opacity primary text</div>
 {{< /example >}}
 
 Or, choose from any of the `.text-opacity` utilities:
 
-{{< example >}}
+<!-- Boosted mod: exclude-from-pa11y-analysis because the use of `.text-primary` on small texts + opacity leads to insufficient color contrast -->
+{{< example class="exclude-from-pa11y-analysis" >}}
 <div class="text-primary">This is default primary text</div>
 <div class="text-primary text-opacity-75">This is 75% opacity primary text</div>
 <div class="text-primary text-opacity-50">This is 50% opacity primary text</div>

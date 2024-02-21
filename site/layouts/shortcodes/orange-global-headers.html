@@ -90,6 +90,7 @@
 {{- if eq $mode "search" }}
     <form class="d-flex d-none d-lg-flex col-3 navbar-item" role="search">
       <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+      <button type="submit" class="btn btn-primary visually-hidden-focusable">Submit</button>
     </form>
 {{- end }}
     <div id="{{ $id }}.2" class="navbar-collapse collapse{{ cond (not (eq $mode "theme")) " d-sm-flex" " d-lg-flex" }}{{ cond $responsive_logo " ms-lg-3" "" }} {{ $id }}">
