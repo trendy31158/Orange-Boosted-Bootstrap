@@ -739,6 +739,9 @@ Color mode mechanism coming from Bootstrap is available from Boosted v5.3.0. How
   - <span class="badge text-bg-success">New</span> Outlined button `.btn-outline-secondary` is now provided. It is basically `.btn-secondary` with default transparent background.
   - <span class="badge text-bg-success">New</span> TikTok social button.
 
+- **Buttons**
+  - <span class="badge bg-warning">Warning</span> Change icons size in small buttons from `1rem` to `.9375rem`.
+
 - **Cards**
   - Cards now have a `color` set on them to improve rendering across color modes.
 

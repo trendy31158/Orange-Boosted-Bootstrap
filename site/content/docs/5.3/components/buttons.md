@@ -62,29 +62,29 @@ Please refer to the [Buttons](https://system.design.orange.com/0c1af118d/p/278eb
 
 The recommended way of using an icon in a button is [an embedded SVG]({{< docsref "/extend/icons" >}}). You need to:
 
-- set its dimensions to `1.25rem` to  match button size—except for `.btn-sm` where you should use `1rem`,
+- set its dimensions to `1.25rem` to  match button size—except for `.btn-sm` where you should use `.9375rem`,
 - apply `.me-1` on it to get consistent spacing,
 - fill it using `currentColor` to respect button color scheme,
 - finally add `.overflow-visible` utility to prevent SVG content from being cropped.
 
 {{< example >}}
 <button type="button" class="btn btn-primary btn-sm">
-  <svg width="1rem" height="1rem" fill="currentColor" aria-hidden="true" focusable="false" class="me-1 overflow-visible">
+  <svg width=".9375rem" height=".9375rem" fill="currentColor" aria-hidden="true" focusable="false" class="me-1 overflow-visible">
     <use xlink:href="/docs/{{< param docs_version >}}/assets/img/boosted-sprite.svg#success"/>
   </svg>
-  Primary
+  Small button
 </button>
 <button type="button" class="btn btn-primary">
   <svg width="1.25rem" height="1.25rem" fill="currentColor" aria-hidden="true" focusable="false" class="me-1">
     <use xlink:href="/docs/{{< param docs_version >}}/assets/img/boosted-sprite.svg#success"/>
   </svg>
-  Primary
+  Button
 </button>
 <button type="button" class="btn btn-primary btn-lg">
   <svg width="1.25rem" height="1.25rem" fill="currentColor" aria-hidden="true" focusable="false" class="me-1 overflow-visible">
     <use xlink:href="/docs/{{< param docs_version >}}/assets/img/boosted-sprite.svg#success"/>
   </svg>
-  Primary
+  Large button
 </button>
 {{< /example >}}
 
@@ -94,22 +94,35 @@ Add `.btn-icon` to get a squared button, meant to only contain an icon. Make sur
 
 {{< example >}}
 <button type="button" class="btn btn-icon btn-outline-secondary btn-sm">
-  <svg width="1rem" height="1rem" fill="currentColor" aria-hidden="true" focusable="false" class="overflow-visible">
+  <svg width=".9375rem" height=".9375rem" fill="currentColor" aria-hidden="true" focusable="false" class="overflow-visible">
    <use xlink:href="/docs/{{< param docs_version >}}/assets/img/boosted-sprite.svg#success"/>
   </svg>
-  <span class="visually-hidden">Secondary</span>
+  <span class="visually-hidden">Small button with icon only</span>
 </button>
+<button type="button" class="btn btn-icon btn-outline-secondary btn-sm">
+  <svg width=".9375rem" height=".9375rem" fill="currentColor" aria-hidden="true" focusable="false" class="overflow-visible">
+    <use xlink:href="/docs/{{< param docs_version >}}/assets/img/boosted-sprite.svg#success-solaris"/>
+  </svg>
+  <span class="visually-hidden">Small button with icon only</span>
+</button>
+<button type="button" class="btn btn-icon btn-outline-secondary btn-sm">
+  <svg width=".9375rem" height=".9375rem" fill="currentColor" aria-hidden="true" focusable="false" class="overflow-visible">
+    <use xlink:href="/docs/{{< param docs_version >}}/assets/img/boosted-sprite.svg#success-optimized"/>
+  </svg>
+  <span class="visually-hidden">Small button with icon only</span>
+</button>
+<br>
 <button type="button" class="btn btn-icon btn-outline-secondary">
   <svg width="1.25rem" height="1.25rem" fill="currentColor" aria-hidden="true" focusable="false">
     <use xlink:href="/docs/{{< param docs_version >}}/assets/img/boosted-sprite.svg#success"/>
   </svg>
-  <span class="visually-hidden">Secondary</span>
+  <span class="visually-hidden">Button with icon only</span>
 </button>
 <button type="button" class="btn btn-icon btn-outline-secondary btn-lg">
   <svg width="1.25rem" height="1.25rem" fill="currentColor" aria-hidden="true" focusable="false" class="overflow-visible">
     <use xlink:href="/docs/{{< param docs_version >}}/assets/img/boosted-sprite.svg#success"/>
   </svg>
-  <span class="visually-hidden">Secondary</span>
+  <span class="visually-hidden">Large button with icon only</span>
 </button>
 {{< /example >}}
 
@@ -119,22 +132,22 @@ Use `.btn-no-outline` to get a borderless button as default state, and a consist
 
 {{< example >}}
 <button type="button" class="btn btn-icon btn-no-outline btn-sm">
-  <svg width="1rem" height="1rem" fill="currentColor" aria-hidden="true" focusable="false" class="overflow-visible">
+  <svg width=".9375rem" height=".9375rem" fill="currentColor" aria-hidden="true" focusable="false" class="overflow-visible">
     <use xlink:href="/docs/{{< param docs_version >}}/assets/img/boosted-sprite.svg#success"/>
   </svg>
-  <span class="visually-hidden">No outline</span>
+  <span class="visually-hidden">Small button with icon only and no outline</span>
 </button>
 <button type="button" class="btn btn-icon btn-no-outline">
   <svg width="1.25rem" height="1.25rem" fill="currentColor" aria-hidden="true" focusable="false">
     <use xlink:href="/docs/{{< param docs_version >}}/assets/img/boosted-sprite.svg#success"/>
   </svg>
-  <span class="visually-hidden">No outline</span>
+  <span class="visually-hidden">Button with icon only and no outline</span>
 </button>
 <button type="button" class="btn btn-icon btn-no-outline btn-lg">
   <svg width="1.25rem" height="1.25rem" fill="currentColor" aria-hidden="true" focusable="false" class="overflow-visible">
    <use xlink:href="/docs/{{< param docs_version >}}/assets/img/boosted-sprite.svg#success"/>
   </svg>
-  <span class="visually-hidden">No outline</span>
+  <span class="visually-hidden">Large button with icon only and no outline</span>
 </button>
 {{< /example >}}
 
