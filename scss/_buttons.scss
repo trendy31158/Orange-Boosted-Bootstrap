@@ -6,35 +6,34 @@
   // scss-docs-start btn-css-vars
   --#{$prefix}btn-padding-x: #{$btn-padding-x};
   --#{$prefix}btn-padding-y: #{$btn-padding-y};
+  //--#{$prefix}btn-size-min-height: #{$ouds-button-size-min-height}; TODO to add?
+  //--#{$prefix}btn-size-max-height: #{$ouds-button-size-max-height}; TODO to add?
   --#{$prefix}btn-font-family: #{$btn-font-family};
-  @include rfs($btn-font-size, --#{$prefix}btn-font-size);
+  // OUDS mod: no `@include rfs($btn-font-size, --#{$prefix}btn-font-size)`
   --#{$prefix}btn-font-weight: #{$btn-font-weight};
-  --#{$prefix}btn-line-height: #{$btn-line-height};
+  // OUDS mod: no `--#{$prefix}btn-line-height`
   --#{$prefix}btn-color: #{$btn-color};
-  --#{$prefix}btn-letter-spacing: #{$btn-letter-spacing}; // OUDS mod
   --#{$prefix}btn-bg: transparent;
   --#{$prefix}btn-border-width: #{$btn-border-width};
   --#{$prefix}btn-border-color: transparent;
   --#{$prefix}btn-border-radius: #{$btn-border-radius};
   --#{$prefix}btn-hover-color: #{$btn-hover-color}; // OUDS mod
   --#{$prefix}btn-hover-border-color: initial; // OUDS mod
+  --#{$prefix}btn-hover-border-width: #{$btn-default-hover-border-width}; // OUDS mod
   --#{$prefix}btn-box-shadow: #{$btn-box-shadow};
-  --#{$prefix}btn-disabled-opacity: #{$btn-disabled-opacity};
+  --#{$prefix}btn-disabled-opacity: #{$btn-disabled-opacity}; // TODO to check
   --#{$prefix}btn-focus-box-shadow: 0 0 0 #{$btn-focus-width} var(--#{$prefix}btn-focus-shadow-rgb); // OUDS mod
-  --#{$prefix}icon-spacing: #{$btn-icon-padding-x}; // OUDS mod
+  --#{$prefix}icon-spacing: #{$btn-icon-padding-x}; // OUDS mod TODO to check
   // scss-docs-end btn-css-vars
 
-  display: inline-flex; // OUDS mod
-  align-items: center; // OUDS mod: for .badge proper alignment
-  justify-content: center; // OUDS mod
-  padding: subtract(var(--#{$prefix}btn-padding-y), 1px) var(--#{$prefix}btn-padding-x) add(var(--#{$prefix}btn-padding-y), 1px); // OUDS mod
+  padding: subtract(var(--#{$prefix}btn-padding-y), var(--#{$prefix}btn-border-width)) subtract(var(--#{$prefix}btn-padding-x), var(--#{$prefix}btn-border-width)); // OUDS mod
   font-family: var(--#{$prefix}btn-font-family);
-  @include font-size(var(--#{$prefix}btn-font-size));
+  @include get-font-size("label-large");
   font-weight: var(--#{$prefix}btn-font-weight);
-  line-height: var(--#{$prefix}btn-line-height);
+  // OUDS mod: no line-height, already defined by get-font-size
   color: var(--#{$prefix}btn-color);
+  text-align: center;
   text-decoration: if($link-decoration == none, null, none);
-  letter-spacing: var(--#{$prefix}btn-letter-spacing); // OUDS mod
   white-space: $btn-white-space;
   vertical-align: middle;
   cursor: if($enable-button-pointers, pointer, null);
@@ -45,16 +44,20 @@
   @include box-shadow(var(--#{$prefix}btn-box-shadow));
   @include transition($btn-transition);
 
-  &:hover {
+  &:hover,
+  &:focus-visible, // OUDS mod: apply hover styles to focus visible as well
+  &:focus[data-focus-visible-added] { // OUDS mod: apply hover styles to focus visible as well
+    padding: subtract(var(--#{$prefix}btn-padding-y), var(--#{$prefix}btn-hover-border-width)) subtract(var(--#{$prefix}btn-padding-x), var(--#{$prefix}btn-hover-border-width)); // OUDS mod
     color: var(--#{$prefix}btn-hover-color);
     text-decoration: if($link-hover-decoration == underline, none, null);
     background-color: var(--#{$prefix}btn-hover-bg);
     border-color: var(--#{$prefix}btn-hover-border-color);
+    border-width: var(--#{$prefix}btn-hover-border-width);
   }
 
   // OUDS mod: no .btn-check + &:hover
 
-  // OUDS mod: no &:focus-visible to avoid issue in button tags
+  // OUDS mod: no &:focus-visible already handled
 
   // OUDS mod: no .btn-check:focus-visible + &
 
@@ -104,6 +107,25 @@
 //
 
 // scss-docs-start btn-variant-loops
+.btn-default {
+  --#{$prefix}btn-border-width: #{$ouds-button-border-width-default};
+  --#{$prefix}btn-hover-border-width: #{$ouds-button-border-width-default-interaction};
+  @include button-variant(
+    transparent,
+    $black,
+    $black,
+    transparent,
+    $ouds-color-functional-dark-gray-400,
+    $ouds-color-functional-dark-gray-400,
+    transparent,
+    $ouds-color-orange-550,
+    $ouds-color-orange-550,
+    transparent,
+    $ouds-color-content-disabled-light,
+    $ouds-color-content-disabled-light
+  );
+}
+
 .btn-primary {
   @include button-variant($supporting-orange, $supporting-orange, $black, $active-background: var(--#{$prefix}highlight-color), $active-border: var(--#{$prefix}border-color), $active-color: var(--#{$prefix}body-color));
 }
