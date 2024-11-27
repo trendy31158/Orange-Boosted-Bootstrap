@@ -4,14 +4,14 @@
 // Button
 
 // scss-docs-start ouds-component-button
-$ouds-button-size-max-height: $ouds-dimension-600 !default;
+//$ouds-button-size-max-height: $ouds-dimension-600 !default;
 $ouds-button-size-min-height: $ouds-dimension-600 !default;
-// $ouds-button-size-min-width: $ouds-dimension-600 !default;
+$ouds-button-size-min-width: $ouds-dimension-600 !default;
 $ouds-button-border-radius: $ouds-border-radius-none !default;
 $ouds-button-border-width-default: $ouds-border-width-default !default;
 $ouds-button-border-width-default-interaction: $ouds-border-width-medium !default;
-// $ouds-button-border-width-minimal: $ouds-border-width-none !default;
-// $ouds-button-border-width-minimal-interaction: $ouds-border-width-none !default;
+$ouds-button-border-width-minimal: $ouds-border-width-none !default;
+$ouds-button-border-width-minimal-interaction: $ouds-border-width-none !default;
 // $ouds-button-color-background-default-disabled: $ouds-color-transparent-default !default;
 // $ouds-button-color-background-default-disabled-on-bg-emphasized: $ouds-color-transparent-default !default;
 // $ouds-button-color-background-default-enabled: $ouds-color-transparent-default !default;
@@ -80,6 +80,7 @@ $ouds-button-border-width-default-interaction: $ouds-border-width-medium !defaul
 // $ouds-button-color-content-minimal-loading-on-bg-emphasized: $ouds-color-action-primary-loading-on-bg-emphasized !default;
 // $ouds-button-color-content-minimal-pressed: $ouds-color-action-primary-pressed !default;
 // $ouds-button-color-content-minimal-pressed-on-bg-emphasized: $ouds-color-action-primary-pressed-on-bg-emphasized !default;
+
 // $ouds-button-size-icon: $ouds-size-icon-with-label-large-size-shorter !default;
 // $ouds-button-size-icon-only: $ouds-size-icon-with-label-large-size-short !default;
 // $ouds-button-size-loader: $ouds-size-icon-with-label-large-size-shorter !default;

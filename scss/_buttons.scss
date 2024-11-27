@@ -6,8 +6,8 @@
   // scss-docs-start btn-css-vars
   --#{$prefix}btn-padding-x: #{$btn-padding-x};
   --#{$prefix}btn-padding-y: #{$btn-padding-y};
-  //--#{$prefix}btn-size-min-height: #{$ouds-button-size-min-height}; TODO to add?
-  //--#{$prefix}btn-size-max-height: #{$ouds-button-size-max-height}; TODO to add?
+  --#{$prefix}btn-min-width: #{$ouds-button-size-min-width}; // TODO need intermediate sass var?
+  --#{$prefix}btn-min-height: #{$ouds-button-size-min-height}; // TODO need intermediate sass var?
   --#{$prefix}btn-font-family: #{$btn-font-family};
   // OUDS mod: no `@include rfs($btn-font-size, --#{$prefix}btn-font-size)`
   --#{$prefix}btn-font-weight: #{$btn-font-weight};
@@ -26,6 +26,9 @@
   --#{$prefix}icon-spacing: #{$btn-icon-padding-x}; // OUDS mod TODO to check
   // scss-docs-end btn-css-vars
 
+  display: inline-block;
+  min-width: var(--#{$prefix}btn-min-width);
+  min-height: var(--#{$prefix}btn-min-height);
   padding: subtract(var(--#{$prefix}btn-padding-y), var(--#{$prefix}btn-border-width)) subtract(var(--#{$prefix}btn-padding-x), var(--#{$prefix}btn-border-width)); // OUDS mod
   font-family: var(--#{$prefix}btn-font-family);
   @include get-font-size("label-large");
@@ -52,7 +55,7 @@
     text-decoration: if($link-hover-decoration == underline, none, null);
     background-color: var(--#{$prefix}btn-hover-bg);
     border-color: var(--#{$prefix}btn-hover-border-color);
-    border-width: var(--#{$prefix}btn-hover-border-width);
+    border-width: var(--#{$prefix}btn-hover-border-width); // OUDS mod
   }
 
   // OUDS mod: no .btn-check + &:hover
@@ -123,6 +126,63 @@
     transparent,
     $ouds-color-content-disabled-light,
     $ouds-color-content-disabled-light
+  );
+}
+
+.btn-minimal {
+  --#{$prefix}btn-border-width: #{$ouds-button-border-width-minimal};
+  --#{$prefix}btn-hover-border-width: #{$ouds-button-border-width-minimal-interaction};
+  @include button-variant(
+    transparent,
+    transparent,
+    $black,
+    $ouds-color-functional-light-gray-160,
+    transparent,
+    $ouds-color-functional-dark-gray-400,
+    $ouds-color-functional-light-gray-160,
+    transparent,
+    $ouds-color-orange-550,
+    transparent,
+    transparent,
+    $ouds-color-content-disabled-light
+  );
+}
+// normal hover active disabled // bg border color
+.btn-strong {
+  --#{$prefix}btn-border-width: #{$ouds-border-width-none};
+  --#{$prefix}btn-hover-border-width: #{$ouds-border-width-none};
+  @include button-variant(
+    $ouds-color-action-primary-enabled-light,
+    transparent,
+    $ouds-color-content-on-action-primary-enabled-light,
+    $ouds-color-functional-dark-gray-400,
+    transparent,
+    $ouds-color-content-on-action-primary-enabled-light,
+    $ouds-color-orange-550,
+    transparent,
+    $ouds-color-content-on-action-primary-enabled-light,
+    $ouds-color-action-disabled-light,
+    transparent,
+    $ouds-color-content-on-action-disabled-light
+  );
+}
+// normal hover active disabled // bg border color
+.btn-negative {
+  --#{$prefix}btn-border-width: #{$ouds-border-width-none};
+  --#{$prefix}btn-hover-border-width: #{$ouds-border-width-none};
+  @include button-variant(
+    $ouds-color-action-negative-enabled-light,
+    transparent,
+    $ouds-color-content-on-action-primary-enabled-light,
+    $ouds-color-action-negative-hover-light,
+    transparent,
+    $ouds-color-content-on-action-primary-enabled-light,
+    $ouds-color-action-negative-pressed-light,
+    transparent,
+    $ouds-color-content-on-action-primary-enabled-light,
+    $ouds-color-action-disabled-light,
+    transparent,
+    $ouds-color-content-on-action-disabled-light
   );
 }
 
