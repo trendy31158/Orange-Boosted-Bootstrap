@@ -976,16 +976,16 @@ $btn-letter-spacing-lg:       calc(#{$letter-spacing-base} * 2) !default; // sty
 
 $btn-border-width:            $ouds-border-width-default !default;
 
-$btn-default-hover-bg:            var(--#{$prefix}highlight-bg) !default; // OUDS mod
-$btn-default-hover-border:        var(--#{$prefix}border-color) !default; // OUDS mod
 $btn-default-hover-border-width:  $ouds-border-width-default !default; // OUDS mod
-$btn-default-hover-color:         var(--#{$prefix}highlight-color) !default; // OUDS mod
-$btn-default-active-bg:           $supporting-orange !default; // OUDS mod
-$btn-default-active-border:       $supporting-orange !default; // OUDS mod
-$btn-default-active-color:        $black !default; // OUDS mod
-$btn-default-disabled-bg:         var(--#{$prefix}disabled-color) !default; // OUDS mod
-$btn-default-disabled-border:     var(--#{$prefix}disabled-color) !default; // OUDS mod
-$btn-default-disabled-color:      var(--#{$prefix}highlight-color) !default; // OUDS mod
+$btn-default-hover-bg:            transparent !default; // OUDS mod
+$btn-default-hover-border:        $ouds-color-functional-dark-gray-400, !default; // OUDS mod
+$btn-default-hover-color:         $ouds-color-functional-dark-gray-400, !default; // OUDS mod
+$btn-default-active-bg:           transparent !default; // OUDS mod
+$btn-default-active-border:       $ouds-color-orange-550 !default; // OUDS mod
+$btn-default-active-color:        $ouds-color-orange-550 !default; // OUDS mod
+$btn-default-disabled-bg:         transparent !default; // OUDS mod
+$btn-default-disabled-border:     $ouds-color-content-disabled-light !default; // OUDS mod
+$btn-default-disabled-color:      $ouds-color-content-disabled-light !default; // OUDS mod
 
 $btn-outline-default-hover-bg:        var(--#{$prefix}btn-color) !default; // OUDS mod
 $btn-outline-default-hover-border:    var(--#{$prefix}btn-border-color) !default; // OUDS mod

@@ -110,26 +110,17 @@
 //
 
 // scss-docs-start btn-variant-loops
-.btn-default {
+.btn-default { // OUDS mod
   --#{$prefix}btn-border-width: #{$ouds-button-border-width-default};
   --#{$prefix}btn-hover-border-width: #{$ouds-button-border-width-default-interaction};
   @include button-variant(
     transparent,
     $black,
-    $black,
-    transparent,
-    $ouds-color-functional-dark-gray-400,
-    $ouds-color-functional-dark-gray-400,
-    transparent,
-    $ouds-color-orange-550,
-    $ouds-color-orange-550,
-    transparent,
-    $ouds-color-content-disabled-light,
-    $ouds-color-content-disabled-light
+    $black
   );
 }
 
-.btn-minimal {
+.btn-minimal { // OUDS mod
   --#{$prefix}btn-border-width: #{$ouds-button-border-width-minimal};
   --#{$prefix}btn-hover-border-width: #{$ouds-button-border-width-minimal-interaction};
   @include button-variant(
@@ -147,8 +138,8 @@
     $ouds-color-content-disabled-light
   );
 }
-// normal hover active disabled // bg border color
-.btn-strong {
+
+.btn-strong { //OUDS mod
   --#{$prefix}btn-border-width: #{$ouds-border-width-none};
   --#{$prefix}btn-hover-border-width: #{$ouds-border-width-none};
   @include button-variant(
@@ -166,8 +157,8 @@
     $ouds-color-content-on-action-disabled-light
   );
 }
-// normal hover active disabled // bg border color
-.btn-negative {
+
+.btn-negative { // OUDS mod
   --#{$prefix}btn-border-width: #{$ouds-border-width-none};
   --#{$prefix}btn-hover-border-width: #{$ouds-border-width-none};
   @include button-variant(
@@ -186,36 +177,88 @@
   );
 }
 
-.btn-primary {
-  @include button-variant($supporting-orange, $supporting-orange, $black, $active-background: var(--#{$prefix}highlight-color), $active-border: var(--#{$prefix}border-color), $active-color: var(--#{$prefix}body-color));
-}
+@if $enable-bootstrap-compatibility { // OUDS mod
+  .btn-primary { // OUDS mod
+    --#{$prefix}btn-hover-border-width: #{$ouds-border-width-medium};
+    @include button-variant(
+      $supporting-orange,
+      $supporting-orange,
+      $black,
+      $black,
+      $black,
+      $white,
+      $white,
+      $black,
+      $black
+    );
+  }
 
-.btn-success {
-  @include button-variant(var(--#{$prefix}success), var(--#{$prefix}success), var(--#{$prefix}highlight-color));
-}
+  .btn-success { // OUDS mod
+    @include button-variant(
+      $ouds-color-always-positive-light,
+      $ouds-color-always-positive-light,
+      $ouds-color-always-on-positive-light,
+      $ouds-color-functional-malachite-600,
+      $ouds-color-functional-malachite-600,
+      $ouds-color-always-on-positive-light,
+      $ouds-color-functional-malachite-700,
+      $ouds-color-functional-malachite-700,
+      $ouds-color-always-on-positive-light,
+      $ouds-color-action-disabled-light,
+      transparent,
+      $ouds-color-content-on-action-disabled-light
+    );
+  }
 
-.btn-danger {
-  @include button-variant(var(--#{$prefix}danger), var(--#{$prefix}danger), var(--#{$prefix}highlight-color));
-}
+  .btn-danger { // OUDS mod
+    @extend .btn-negative;
+  }
 
-.btn-warning {
-  @include button-variant($warning, $warning, $black);
-}
+  .btn-warning { // OUDS mod
+    @include button-variant(
+      $ouds-color-always-warning-light,
+      $ouds-color-always-warning-light,
+      $ouds-color-always-on-warning-light,
+      $ouds-color-functional-sun-600,
+      $ouds-color-functional-sun-600,
+      $ouds-color-always-on-warning-light,
+      $ouds-color-functional-sun-700,
+      $ouds-color-functional-sun-700,
+      $ouds-color-always-on-warning-light,
+      $ouds-color-action-disabled-light,
+      transparent,
+      $ouds-color-content-on-action-disabled-light
+    );
+  }
 
-.btn-info {
-  @include button-variant(var(--#{$prefix}info), var(--#{$prefix}info), var(--#{$prefix}highlight-color));
-}
+  .btn-info { // OUDS mod
+    @include button-variant(
+      $ouds-color-always-info-light,
+      $ouds-color-always-info-light,
+      $ouds-color-always-on-info-light,
+      $ouds-color-functional-dodger-blue-600,
+      $ouds-color-functional-dodger-blue-600,
+      $ouds-color-always-on-info-light,
+      $ouds-color-functional-dodger-blue-700,
+      $ouds-color-functional-dodger-blue-700,
+      $ouds-color-always-on-info-light,
+      $ouds-color-action-disabled-light,
+      transparent,
+      $ouds-color-content-on-action-disabled-light
+    );
+  }
 
-.btn-light {
-  @include button-variant($light, $light, $black);
-}
+  .btn-light { // OUDS mod
+    @extend .btn-minimal;
+  }
 
-.btn-dark {
-  @include button-variant($dark, $dark, $white, $hover-background: $white, $hover-border: var(--#{$prefix}border-color), $hover-color: $black);
-}
+  .btn-dark { // OUDS mod
+    @extend .btn-strong;
+  }
 
-.btn-secondary {
-  @include button-variant(var(--#{$prefix}secondary), var(--#{$prefix}secondary), var(--#{$prefix}highlight-color), $hover-background: var(--#{$prefix}highlight-color), $hover-border: var(--#{$prefix}border-color), $hover-color: var(--#{$prefix}body-color));
+  .btn-secondary { // OUDS mod
+    @extend .btn-strong;
+  }
 }
 
 @each $color, $value in $theme-colors {

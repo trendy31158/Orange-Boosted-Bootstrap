@@ -33,15 +33,7 @@ Boosted includes several button variants, each serving its own semantic purpose,
 <!-- <button type="button" class="btn btn-link">Link</button> -->
 {{< /example >}}
 
-<details>
-<summary>See Bootstrap examples that are incompatible with Orange Design System.</summary>
-<br>
-{{< design-callout-alert >}}
-Warning, info, light and dark variants should not be used because they do not respect the Orange Design System specifications as they are inherited from Bootstrap.
-
-Please refer to the [Buttons guidelines](https://system.design.orange.com/0c1af118d/p/278ebc-buttons-standard/b/247486) on the Orange Design System website.
-{{< /design-callout-alert >}}
-
+{{< bootstrap-compatibility >}}
 {{< example >}}
 {{< buttons.inline >}}
 {{- range (index $.Site.Data "theme-colors") }}
@@ -49,13 +41,14 @@ Please refer to the [Buttons guidelines](https://system.design.orange.com/0c1af1
 {{- end -}}
 {{< /buttons.inline >}}
 
-<button type="button" class="btn btn-link">Link</button>
+<!-- <button type="button" class="btn btn-link">Link</button> -->
 {{< /example >}}
+{{< /bootstrap-compatibility >}}
 
 {{< callout info >}}
 {{< partial "callouts/warning-color-assistive-technologies.md" >}}
+
 {{< /callout >}}
-</details>
 
 <!-- Boosted mod -->
 ## With icon
