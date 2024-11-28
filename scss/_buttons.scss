@@ -179,35 +179,11 @@
 
 @if $enable-bootstrap-compatibility { // OUDS mod
   .btn-primary { // OUDS mod
-    --#{$prefix}btn-hover-border-width: #{$ouds-border-width-medium};
-    @include button-variant(
-      $ouds-color-orange-500,
-      $ouds-color-orange-500,
-      $black,
-      $black,
-      $black,
-      $white,
-      $white,
-      $black,
-      $black
-    );
+    @extend .btn-default;
   }
 
   .btn-success { // OUDS mod
-    @include button-variant(
-      $ouds-color-always-positive-light,
-      $ouds-color-always-positive-light,
-      $ouds-color-always-on-positive-light,
-      $ouds-color-functional-malachite-600,
-      $ouds-color-functional-malachite-600,
-      $ouds-color-always-on-positive-light,
-      $ouds-color-functional-malachite-700,
-      $ouds-color-functional-malachite-700,
-      $ouds-color-always-on-positive-light,
-      $ouds-color-action-disabled-light,
-      transparent,
-      $ouds-color-content-on-action-disabled-light
-    );
+    @extend .btn-default;
   }
 
   .btn-danger { // OUDS mod
@@ -215,37 +191,11 @@
   }
 
   .btn-warning { // OUDS mod
-    @include button-variant(
-      $ouds-color-always-warning-light,
-      $ouds-color-always-warning-light,
-      $ouds-color-always-on-warning-light,
-      $ouds-color-functional-sun-600,
-      $ouds-color-functional-sun-600,
-      $ouds-color-always-on-warning-light,
-      $ouds-color-functional-sun-700,
-      $ouds-color-functional-sun-700,
-      $ouds-color-always-on-warning-light,
-      $ouds-color-action-disabled-light,
-      transparent,
-      $ouds-color-content-on-action-disabled-light
-    );
+    @extend .btn-negative;
   }
 
   .btn-info { // OUDS mod
-    @include button-variant(
-      $ouds-color-always-info-light,
-      $ouds-color-always-info-light,
-      $ouds-color-always-on-info-light,
-      $ouds-color-functional-dodger-blue-600,
-      $ouds-color-functional-dodger-blue-600,
-      $ouds-color-always-on-info-light,
-      $ouds-color-functional-dodger-blue-700,
-      $ouds-color-functional-dodger-blue-700,
-      $ouds-color-always-on-info-light,
-      $ouds-color-action-disabled-light,
-      transparent,
-      $ouds-color-content-on-action-disabled-light
-    );
+    @extend .btn-minimal;
   }
 
   .btn-light { // OUDS mod
