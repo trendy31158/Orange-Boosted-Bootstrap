@@ -51,34 +51,52 @@ Boosted includes several button variants, each serving its own semantic purpose,
 {{< /callout >}}
 
 <!-- Boosted mod -->
+
+## Loading state
+<!-- TODO -->
+{{< example >}}
+<div class="spinner-border" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+{{< /example >}}
+
 ## With icon
 
 The recommended way of using an icon in a button is [an embedded SVG]({{< docsref "/extend/icons" >}}). You need to:
 
-- set its dimensions to `1.25rem` to  match button size—except for `.btn-sm` where you should use `1rem`,
-- apply `.me-1` on it to get consistent spacing,
-- fill it using `currentColor` to respect button color scheme,
+- set its dimensions to default `1rem` size, the icon will adapt automatically,
+- fill it using `currentColor` to respect button color scheme.
+
+You don't need to apply `.me-shorter` class on the icon to get consistent spacing, as the margin is already handled by Boosted.
 
 Please note that if you experience a problem with a cropped SVG, we recommend using the `.overflow-visible` utility on the SVG to fix its rendering.
 
+If really needed, you can use a font icon associated the `.bm-short-icon` class to explicitly set the size.
+
 {{< example >}}
-<button type="button" class="btn btn-primary btn-sm">
-<svg width="1rem" height="1rem" fill="currentColor" aria-hidden="true" class="me-1">
-<use xlink:href="/docs/{{< param docs_version >}}/assets/img/boosted-sprite.svg#tick-confirmation"/>
-</svg>
-Primary
+<button type="button" class="btn btn-default">
+  <svg width="1rem" height="1rem" fill="currentColor" aria-hidden="true">
+    <use xlink:href="/docs/{{< param docs_version >}}/assets/img/ouds-web-sprite.svg#heart-recommend"/>
+  </svg>Default
 </button>
-<button type="button" class="btn btn-primary">
-<svg width="1.25rem" height="1.25rem" fill="currentColor" aria-hidden="true" class="me-1">
-<use xlink:href="/docs/{{< param docs_version >}}/assets/img/boosted-sprite.svg#tick-confirmation"/>
-</svg>
-Primary
+<button type="button" class="btn btn-strong">
+  <svg width="1rem" height="1rem" fill="currentColor" aria-hidden="true">
+    <use xlink:href="/docs/{{< param docs_version >}}/assets/img/ouds-web-sprite.svg#heart-recommend"/>
+  </svg>Default
 </button>
-<button type="button" class="btn btn-primary btn-lg">
-<svg width="1.25rem" height="1.25rem" fill="currentColor" aria-hidden="true" class="me-1">
-<use xlink:href="/docs/{{< param docs_version >}}/assets/img/boosted-sprite.svg#tick-confirmation"/>
-</svg>
-Primary
+<button type="button" class="btn btn-minimal">
+  <svg width="1rem" height="1rem" fill="currentColor" aria-hidden="true">
+    <use xlink:href="/docs/{{< param docs_version >}}/assets/img/ouds-web-sprite.svg#heart-recommend"/>
+  </svg>Default
+</button>
+<button type="button" class="btn btn-negative">
+  <svg width="1rem" height="1rem" fill="currentColor" aria-hidden="true">
+    <use xlink:href="/docs/{{< param docs_version >}}/assets/img/ouds-web-sprite.svg#heart-recommend"/>
+  </svg>Default
+</button>
+
+<button type="button" class="btn btn-default">
+  <span class="bm-short-icon si si-settings" aria-hidden="true"></span>Default
 </button>
 {{< /example >}}
 
@@ -87,48 +105,34 @@ Primary
 Add `.btn-icon` to get a squared button, meant to only contain an icon. Make sure to provide an accessible name to your button, either using a `.visually-hidden` content or a `aria-label` attribute.
 
 {{< example >}}
-<button type="button" class="btn btn-icon btn-outline-secondary btn-sm">
-<svg width="1rem" height="1rem" fill="currentColor" aria-hidden="true">
-<use xlink:href="/docs/{{< param docs_version >}}/assets/img/boosted-sprite.svg#tick-confirmation"/>
-</svg>
-<span class="visually-hidden">Secondary</span>
+<button type="button" class="btn btn-icon btn-default">
+  <svg width="1rem" height="1rem" fill="currentColor" aria-hidden="true">
+    <use xlink:href="/docs/{{< param docs_version >}}/assets/img/ouds-web-sprite.svg#heart-recommend"/>
+  </svg>
+  <span class="visually-hidden">Default</span>
 </button>
-<button type="button" class="btn btn-icon btn-outline-secondary">
-<svg width="1.25rem" height="1.25rem" fill="currentColor" aria-hidden="true">
-<use xlink:href="/docs/{{< param docs_version >}}/assets/img/boosted-sprite.svg#tick-confirmation"/>
-</svg>
-<span class="visually-hidden">Secondary</span>
+<button type="button" class="btn btn-icon btn-strong">
+  <svg width="1rem" height="1rem" fill="currentColor" aria-hidden="true">
+    <use xlink:href="/docs/{{< param docs_version >}}/assets/img/ouds-web-sprite.svg#heart-recommend"/>
+  </svg>
+  <span class="visually-hidden">Default</span>
 </button>
-<button type="button" class="btn btn-icon btn-outline-secondary btn-lg">
-<svg width="1.25rem" height="1.25rem" fill="currentColor" aria-hidden="true">
-<use xlink:href="/docs/{{< param docs_version >}}/assets/img/boosted-sprite.svg#tick-confirmation"/>
-</svg>
-<span class="visually-hidden">Secondary</span>
+<button type="button" class="btn btn-icon btn-minimal">
+  <svg width="1rem" height="1rem" fill="currentColor" aria-hidden="true">
+    <use xlink:href="/docs/{{< param docs_version >}}/assets/img/ouds-web-sprite.svg#heart-recommend"/>
+  </svg>
+  <span class="visually-hidden">Default</span>
 </button>
-{{< /example >}}
+<button type="button" class="btn btn-icon btn-negative">
+  <svg width="1rem" height="1rem" fill="currentColor" aria-hidden="true">
+    <use xlink:href="/docs/{{< param docs_version >}}/assets/img/ouds-web-sprite.svg#heart-recommend"/>
+  </svg>
+  <span class="visually-hidden">Default</span>
+</button>
 
-### No outline
-
-Use `.btn-no-outline` to get a borderless button as default state, and a consistent gray border for other states.
-
-{{< example >}}
-<button type="button" class="btn btn-icon btn-no-outline btn-sm">
-<svg width="1rem" height="1rem" fill="currentColor" aria-hidden="true">
-<use xlink:href="/docs/{{< param docs_version >}}/assets/img/boosted-sprite.svg#tick-confirmation"/>
-</svg>
-<span class="visually-hidden">No outline</span>
-</button>
-<button type="button" class="btn btn-icon btn-no-outline">
-<svg width="1.25rem" height="1.25rem" fill="currentColor" aria-hidden="true">
-<use xlink:href="/docs/{{< param docs_version >}}/assets/img/boosted-sprite.svg#tick-confirmation"/>
-</svg>
-<span class="visually-hidden">No outline</span>
-</button>
-<button type="button" class="btn btn-icon btn-no-outline btn-lg">
-<svg width="1.25rem" height="1.25rem" fill="currentColor" aria-hidden="true">
-<use xlink:href="/docs/{{< param docs_version >}}/assets/img/boosted-sprite.svg#tick-confirmation"/>
-</svg>
-<span class="visually-hidden">No outline</span>
+<button type="button" class="btn btn-icon btn-default">
+  <span class="bm-medium-icon si si-settings" aria-hidden="true"></span>
+  <span class="visually-hidden">Default</span>
 </button>
 {{< /example >}}
 
@@ -154,11 +158,13 @@ Supported social networks are declared in a dedicated Sass map—meaning you're 
 
 {{< scss-docs name="social-buttons" file="scss/_variables.scss" >}}
 
+<!--
 ## Dark variant
 
 {{< deprecated-in "5.3.3" >}}
 
 {{< callout-deprecated-dark-variants "btn" >}}
+-->
 <!-- End mod -->
 
 ## Disable text wrapping
@@ -172,29 +178,18 @@ The `.btn` classes are designed to be used with the `<button>` element. However,
 When using button classes on `<a>` elements that are used to trigger in-page functionality (like collapsing content), rather than linking to new pages or sections within the current page, these links should be given a `role="button"` to appropriately convey their purpose to assistive technologies such as screen readers.
 
 {{< example >}}
-<a class="btn btn-primary" href="#" role="button">Link</a>
-<button class="btn btn-primary" type="submit">Button</button>
-<input class="btn btn-primary" type="button" value="Input">
-<input class="btn btn-primary" type="submit" value="Submit">
-<input class="btn btn-primary" type="reset" value="Reset">
+<a class="btn btn-default" href="#" role="button">Link</a>
+<button class="btn btn-default" type="submit">Button</button>
+<input class="btn btn-default" type="button" value="Input">
+<input class="btn btn-default" type="submit" value="Submit">
+<input class="btn btn-default" type="reset" value="Reset">
 {{< /example >}}
 
 ## Outline buttons
 
-In need of a button, but not the hefty background colors they bring? Replace the default modifier classes with the `.btn-outline-*` ones to remove all background images and colors on any button.
+{{< bootstrap-compatibility >}}
 
-{{< example >}}
-<button type="button" class="btn btn-outline-secondary">Secondary</button>
-{{< /example >}}
-
-<details>
-<summary>See Bootstrap examples that are incompatible with Orange Design System.</summary>
-<br>
-{{< design-callout-alert >}}
-The only variant of outline buttons that should be used is the `.btn-outline-secondary` one. The other variants should not be used because they do not respect the Orange Design System specifications as they are inherited from Bootstrap.
-
-Please refer to the [Buttons guidelines](https://system.design.orange.com/0c1af118d/p/278ebc-buttons-standard/b/247486) on the Orange Design System website.
-{{< /design-callout-alert >}}
+Outline buttons are now the default ones. For mor convenience in need of `.btn-outline-*` classes, you can simply use them and obtain an equivalent of `.btn-default`.
 
 {{< example >}}
 {{< buttons.inline >}}
@@ -204,23 +199,20 @@ Please refer to the [Buttons guidelines](https://system.design.orange.com/0c1af1
 {{< /buttons.inline >}}
 {{< /example >}}
 
-{{< callout info >}}
-Some of the button styles use a relatively light foreground color, and should only be used on a dark background in order to have sufficient contrast.
-{{< /callout >}}
-</details>
+{{< /bootstrap-compatibility >}}
 
 ## Sizes
 
 Fancy larger or smaller buttons? Add `.btn-lg` or `.btn-sm` for additional sizes.
 
 {{< example >}}
-<button type="button" class="btn btn-primary btn-lg">Large button</button>
-<button type="button" class="btn btn-secondary btn-lg">Large button</button>
+<button type="button" class="btn btn-default btn-lg">Large button</button>
+<button type="button" class="btn btn-strong btn-lg">Large button</button>
 {{< /example >}}
 
 {{< example >}}
-<button type="button" class="btn btn-primary btn-sm">Small button</button>
-<button type="button" class="btn btn-secondary btn-sm">Small button</button>
+<button type="button" class="btn btn-default btn-sm">Small button</button>
+<button type="button" class="btn btn-strong btn-sm">Small button</button>
 {{< /example >}}
 
 You can even roll your own custom sizing with CSS variables:
@@ -235,7 +227,7 @@ Please refer to the [Buttons guidelines](https://system.design.orange.com/0c1af1
 {{< /design-callout-alert >}}
 
 {{< example >}}
-<button type="button" class="btn btn-primary"
+<button type="button" class="btn btn-default"
 style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
 Custom button
 </button>
@@ -248,9 +240,10 @@ Make buttons look inactive by adding the `disabled` boolean attribute to any `<b
 
 <!--Boosted mod: no outline buttons-->
 {{< example >}}
-<button type="button" class="btn btn-primary" disabled>Primary button</button>
-<button type="button" class="btn btn-secondary" disabled>Button</button>
-<button type="button" class="btn btn-outline-secondary" disabled>Button</button>
+<button type="button" class="btn btn-default" disabled>Default</button>
+<button type="button" class="btn btn-strong" disabled>Strong</button>
+<button type="button" class="btn btn-minimal" disabled>Minimal</button>
+<button type="button" class="btn btn-negative" disabled>Negative</button>
 {{< /example >}}
 
 Disabled buttons using the `<a>` element behave a bit different:
@@ -261,8 +254,8 @@ Disabled buttons using the `<a>` element behave a bit different:
 - Disabled buttons using `<a>` *should not* include the `href` attribute.
 
 {{< example >}}
-<a class="btn btn-primary disabled" role="button" aria-disabled="true">Primary link</a>
-<a class="btn btn-secondary disabled" role="button" aria-disabled="true">Link</a>
+<a class="btn btn-default disabled" role="button" aria-disabled="true">Primary link</a>
+<a class="btn btn-strong disabled" role="button" aria-disabled="true">Link</a>
 {{< /example >}}
 
 ### Link functionality caveat
@@ -270,8 +263,8 @@ Disabled buttons using the `<a>` element behave a bit different:
 To cover cases where you have to keep the `href` attribute on a disabled link, the `.disabled` class uses `pointer-events: none` to try to disable the link functionality of `<a>`s. Note that this CSS property is not yet standardized for HTML, but all modern browsers support it. In addition, even in browsers that do support `pointer-events: none`, keyboard navigation remains unaffected, meaning that sighted keyboard users and users of assistive technologies will still be able to activate these links. So to be safe, in addition to `aria-disabled="true"`, also include a `tabindex="-1"` attribute on these links to prevent them from receiving keyboard focus, and use custom JavaScript to disable their functionality altogether.
 
 {{< example >}}
-<a href="#" class="btn btn-primary disabled" tabindex="-1" role="button" aria-disabled="true">Primary link</a>
-<a href="#" class="btn btn-secondary disabled" tabindex="-1" role="button" aria-disabled="true">Link</a>
+<a href="#" class="btn btn-default disabled" tabindex="-1" role="button" aria-disabled="true">Primary link</a>
+<a href="#" class="btn btn-strong disabled" tabindex="-1" role="button" aria-disabled="true">Link</a>
 {{< /example >}}
 
 ## Block buttons
@@ -289,8 +282,8 @@ Please refer to the [Buttons guidelines](https://system.design.orange.com/0c1af1
 
 {{< example >}}
 <div class="d-grid gap-2">
-  <button class="btn btn-primary" type="button">Button</button>
-  <button class="btn btn-primary" type="button">Button</button>
+  <button class="btn btn-default" type="button">Button</button>
+  <button class="btn btn-default" type="button">Button</button>
 </div>
 {{< /example >}}
 </details>
@@ -299,8 +292,8 @@ Here we create a responsive variation, starting with vertically stacked buttons 
 
 {{< example >}}
 <div class="d-grid gap-2 d-md-block">
-  <button class="btn btn-primary" type="button">Button</button>
-  <button class="btn btn-primary" type="button">Button</button>
+  <button class="btn btn-default" type="button">Button</button>
+  <button class="btn btn-default" type="button">Button</button>
 </div>
 {{< /example >}}
 
@@ -308,8 +301,8 @@ You can adjust the width of your block buttons with grid column width classes. F
 
 {{< example >}}
 <div class="d-grid gap-2 col-6 mx-auto">
-  <button class="btn btn-primary" type="button">Button</button>
-  <button class="btn btn-primary" type="button">Button</button>
+  <button class="btn btn-default" type="button">Button</button>
+  <button class="btn btn-default" type="button">Button</button>
 </div>
 {{< /example >}}
 
@@ -317,8 +310,8 @@ Additional utilities can be used to adjust the alignment of buttons when horizon
 
 {{< example >}}
 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-  <button class="btn btn-primary me-md-2" type="button">Button</button>
-  <button class="btn btn-primary" type="button">Button</button>
+  <button class="btn btn-default me-md-2" type="button">Button</button>
+  <button class="btn btn-default" type="button">Button</button>
 </div>
 {{< /example >}}
 
@@ -344,15 +337,15 @@ Instead, consider using our [Checks component]({{< docsref "/forms/checks-radios
 {{< /design-callout-alert >}}
 
 {{< example >}}
-<button type="button" class="btn btn-primary" data-bs-toggle="button">Toggle button</button>
-<button type="button" class="btn btn-primary active" data-bs-toggle="button" aria-pressed="true">Active toggle button</button>
-<button type="button" class="btn btn-primary" disabled data-bs-toggle="button">Disabled toggle button</button>
+<button type="button" class="btn btn-default" data-bs-toggle="button">Toggle button</button>
+<button type="button" class="btn btn-default active" data-bs-toggle="button" aria-pressed="true">Active toggle button</button>
+<button type="button" class="btn btn-default" disabled data-bs-toggle="button">Disabled toggle button</button>
 {{< /example >}}
 
 {{< example >}}
-<a href="#" class="btn btn-primary" role="button" data-bs-toggle="button">Toggle link</a>
-<a href="#" class="btn btn-primary active" role="button" data-bs-toggle="button" aria-pressed="true">Active toggle link</a>
-<a class="btn btn-primary disabled" aria-disabled="true" role="button" data-bs-toggle="button">Disabled toggle link</a>
+<a href="#" class="btn btn-default" role="button" data-bs-toggle="button">Toggle link</a>
+<a href="#" class="btn btn-default active" role="button" data-bs-toggle="button" aria-pressed="true">Active toggle link</a>
+<a class="btn btn-default disabled" aria-disabled="true" role="button" data-bs-toggle="button">Disabled toggle link</a>
 {{< /example >}}
 </details>
 

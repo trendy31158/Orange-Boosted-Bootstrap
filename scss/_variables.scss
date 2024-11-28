@@ -992,9 +992,10 @@ $btn-transition:              $transition-focus !default; // OUDS mod
 // scss-docs-end btn-variables
 
 // OUDS mod: icon button
-$btn-icon-padding-x:          subtract($spacer * .5, var(--#{$prefix}border-width)) !default;
-$btn-icon-padding-x-sm:       $spacer * .25 !default;
-$btn-icon-padding-x-lg:       add($spacer * .5, calc(var(--#{$prefix}border-width) * 1.5)) !default; // stylelint-disable-line function-disallowed-list
+$btn-icon-padding-x:          subtract($ouds-button-space-padding-inline-icon-start, var(--#{$prefix}border-width)) !default;
+$btn-icon-padding-left:       $ouds-button-space-padding-inline-icon-start !default;
+// TODO to confirm to delete $btn-icon-padding-x-sm:       $spacer * .25 !default;
+// TODO to confirm to delete $btn-icon-padding-x-lg:       add($spacer * .5, calc(var(--#{$prefix}border-width) * 1.5)) !default; // stylelint-disable-line function-disallowed-list
 // OUDS mod: social button
 // scss-docs-start social-buttons
 $btn-social-networks: (
@@ -2296,7 +2297,7 @@ $quantity-selector-width:                 7.5rem !default;
 $quantity-selector-sm-width:              5.625rem !default;
 
 $quantity-selector-btn-padding-x:         add($btn-icon-padding-x, 2px) !default;
-$quantity-selector-btn-padding-x-sm:      add($btn-icon-padding-x-sm, 2px) !default;
+$quantity-selector-btn-padding-x-sm:      add($btn-icon-padding-x, 2px) !default;
 $quantity-selector-btn-bg:                var(--#{$prefix}body-bg) !default;
 $quantity-selector-btn-border:            var(--#{$prefix}border-width) solid var(--#{$prefix}color-border-emphasized) !default;
 
