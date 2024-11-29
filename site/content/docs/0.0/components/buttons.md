@@ -55,9 +55,17 @@ Boosted includes several button variants, each serving its own semantic purpose,
 ## Loading state
 <!-- TODO -->
 {{< example >}}
-<div class="spinner-border" role="status">
-  <span class="visually-hidden">Loading...</span>
+<button type="button" class="btn btn-default spinner-undetermined">Default</button>
+<button type="button" class="btn btn-strong spinner-undetermined">Default</button>
+<button type="button" class="btn btn-minimum spinner-undetermined">Default</button>
+<button type="button" class="btn btn-negative spinner-undetermined">Default</button>
+
+<br>
+
+<div class="spinner-undetermined">
 </div>
+
+
 {{< /example >}}
 
 ## With icon
