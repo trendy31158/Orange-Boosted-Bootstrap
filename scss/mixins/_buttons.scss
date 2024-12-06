@@ -63,16 +63,16 @@
 }
 // scss-docs-end btn-outline-variant-mixin
 
-// scss-docs-start btn-size-mixin
-@mixin button-size($padding-y, $padding-x, $font-size, $border-radius, $line-height: null, $icon-spacing: $btn-icon-padding-x, $letter-spacing: $letter-spacing-base) {
-  --#{$prefix}icon-spacing: #{$icon-spacing}; // OUDS mod: used for icons
-  --#{$prefix}btn-padding-y: #{$padding-y};
-  --#{$prefix}btn-padding-x: #{$padding-x};
-  @include rfs($font-size, --#{$prefix}btn-font-size);
-  --#{$prefix}btn-line-height: #{$line-height}; // OUDS mod
-  --#{$prefix}btn-letter-spacing: #{$letter-spacing}; // OUDS mod
-  --#{$prefix}btn-border-radius: #{$border-radius};
-}
+// scss-docs-start btn-size-mixin - not implemented yet
+//@mixin button-size($padding-y, $padding-x, $font-size, $border-radius, $line-height: null, $icon-spacing: $btn-icon-padding-x, $letter-spacing: $letter-spacing-base) {
+//  --#{$prefix}icon-spacing: #{$icon-spacing}; // OUDS mod: used for icons
+//  --#{$prefix}btn-padding-y: #{$padding-y};
+//  --#{$prefix}btn-padding-x: #{$padding-x};
+//  @include rfs($font-size, --#{$prefix}btn-font-size);
+//  --#{$prefix}btn-line-height: #{$line-height}; // OUDS mod
+//  --#{$prefix}btn-letter-spacing: #{$letter-spacing}; // OUDS mod
+//  --#{$prefix}btn-border-radius: #{$border-radius};
+//}
 // scss-docs-end btn-size-mixin
 
 // OUDS mod: embed an icon as mask-image in a button

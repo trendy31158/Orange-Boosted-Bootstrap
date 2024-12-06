@@ -10,7 +10,7 @@ toc: true
 
 ## Base class
 
-Boosted has a base `.btn` class that sets up basic styles such as padding and content alignment. By default, `.btn` controls have a transparent border and background color, and lack any explicit focus and hover styles.
+OUDS Web has a base `.btn` class that sets up basic styles such as padding and content alignment. By default, `.btn` controls have a transparent border and background color, but still defines basic focus and hover styles.
 
 {{< example >}}
 <button type="button" class="btn">Base class</button>
@@ -18,20 +18,19 @@ Boosted has a base `.btn` class that sets up basic styles such as padding and co
 
 The `.btn` class is intended to be used in conjunction with our button variants, or to serve as a basis for your own custom styles.
 
-<!-- Boosted mod: no warning callout about `:focus`/`:focus-visible` since Boosted provides a default visible focus for each focusable element -->
+<!-- OUDS mod: no warning callout about `:focus`/`:focus-visible` since OUDS Web provides a default visible focus for each focusable element -->
 
 ## Standard variants
 
-Boosted includes several button variants, each serving its own semantic purpose, with a few extras thrown in for more control.
+OUDS Web includes several button variants, each serving its own semantic purpose, with a few extras thrown in for more control.
 
 {{< example >}}
 <button type="button" class="btn btn-default">Default</button>
 <button type="button" class="btn btn-strong">Strong</button>
 <button type="button" class="btn btn-minimal">Minimal</button>
 <button type="button" class="btn btn-negative">Negative</button>
-
-<!-- <button type="button" class="btn btn-link">Link</button> -->
 {{< /example >}}
+<!-- <button type="button" class="btn btn-link">Link</button> will be implemented with links -->
 
 {{< bootstrap-compatibility >}}
 {{< example >}}
@@ -45,41 +44,34 @@ Boosted includes several button variants, each serving its own semantic purpose,
 {{< /example >}}
 {{< /bootstrap-compatibility >}}
 
-{{< callout info >}}
-{{< partial "callouts/warning-color-assistive-technologies.md" >}}
+<!-- OUDS mod: no accessibility tip callout about colored buttons since OUDS Web does not provide such buttons -->
 
-{{< /callout >}}
-
-<!-- Boosted mod -->
-
-## Loading state
+<!-- OUDS mod: variants on colored background -->
+## Variants on colored background
 <!-- TODO -->
+OUDS Web proposes some variants to be used on colorful backgrounds (not primary, secondary, tertiary or emphasized).
+
 {{< example >}}
-<button type="button" class="btn btn-default spinner-undetermined">Default</button>
-<button type="button" class="btn btn-strong spinner-undetermined">Default</button>
-<button type="button" class="btn btn-minimum spinner-undetermined">Default</button>
-<button type="button" class="btn btn-negative spinner-undetermined">Default</button>
-
-<br>
-
-<div class="spinner-undetermined">
-</div>
-
-
+<button type="button" class="btn btn-default-on-colored-bg">Default</button>
+<button type="button" class="btn btn-strong-on-colored-bg">Strong</button>
+<button type="button" class="btn btn-minimal-on-colored-bg">Minimal</button>
 {{< /example >}}
 
+<!-- OUDS mod: with icon -->
 ## With icon
 
-The recommended way of using an icon in a button is [an embedded SVG]({{< docsref "/extend/icons" >}}). You need to:
+### Text and icon
+
+The recommended way of using an icon in a button is an embedded SVG<!-- ({{< docsref "/extend/icons" >}}) -->. You need to:
 
 - set its dimensions to default `1rem` size, the icon will adapt automatically,
 - fill it using `currentColor` to respect button color scheme.
 
-You don't need to apply `.me-shorter` class on the icon to get consistent spacing, as the margin is already handled by Boosted.
+You don't need to apply `.me-shorter` class on the icon to get consistent spacing, as the margin is already handled by OUDS Web.
 
 Please note that if you experience a problem with a cropped SVG, we recommend using the `.overflow-visible` utility on the SVG to fix its rendering.
 
-If really needed, you can use a font icon associated the `.bm-short-icon` class to explicitly set the size.
+If really needed, you can use a font icon associated the `.bm-medium-icon` class to explicitly set the size or a `<img>`.
 
 {{< example >}}
 <button type="button" class="btn btn-default">
@@ -104,7 +96,11 @@ If really needed, you can use a font icon associated the `.bm-short-icon` class 
 </button>
 
 <button type="button" class="btn btn-default">
-  <span class="bm-short-icon si si-settings" aria-hidden="true"></span>Default
+  <span class="bm-medium-icon si si-settings" aria-hidden="true"></span>Default
+</button>
+
+<button type="button" class="btn btn-default">
+  <img src="/docs/{{< param docs_version >}}/assets/img/thumbnail.png" alt="">Default
 </button>
 {{< /example >}}
 
@@ -142,8 +138,13 @@ Add `.btn-icon` to get a squared button, meant to only contain an icon. Make sur
   <span class="bm-medium-icon si si-settings" aria-hidden="true"></span>
   <span class="visually-hidden">Default</span>
 </button>
+
+<button type="button" class="btn btn-icon btn-default">
+  <img src="/docs/{{< param docs_version >}}/assets/img/thumbnail.png" alt="">
+</button>
 {{< /example >}}
 
+<!-- not implemented for now
 ### Social buttons
 
 Use `.btn-social` to get a rounded button meant to display contact points links or actions. Use one of our modifier to specify a network. Make sure to provide an accessible name to your button, either using a `.visually-hidden` content or a `aria-label` attribute.
@@ -165,21 +166,13 @@ Use `.btn-social` to get a rounded button meant to display contact points links 
 Supported social networks are declared in a dedicated Sass map—meaning you're able to [add or remove a network from the following map]({{< docsref "/customize/sass#maps-and-loops" >}}).
 
 {{< scss-docs name="social-buttons" file="scss/_variables.scss" >}}
-
-<!--
-## Dark variant
-
-{{< deprecated-in "5.3.3" >}}
-
-{{< callout-deprecated-dark-variants "btn" >}}
 -->
-<!-- End mod -->
 
 ## Disable text wrapping
 
 If you don't want the button text to wrap, you can add the `.text-nowrap` class to the button. In Sass, you can set `$btn-white-space: nowrap` to disable text wrapping for each button.
 
-## Button tags
+## HTML button tags
 
 The `.btn` classes are designed to be used with the `<button>` element. However, you can also use these classes on `<a>` or `<input>` elements (though some browsers may apply a slightly different rendering).
 
@@ -187,9 +180,9 @@ When using button classes on `<a>` elements that are used to trigger in-page fun
 
 {{< example >}}
 <a class="btn btn-default" href="#" role="button">Link</a>
-<button class="btn btn-default" type="submit">Button</button>
-<input class="btn btn-default" type="button" value="Input">
-<input class="btn btn-default" type="submit" value="Submit">
+<button class="btn btn-strong" type="submit">Button</button>
+<input class="btn btn-minimal" type="button" value="Input">
+<input class="btn btn-negative" type="submit" value="Submit">
 <input class="btn btn-default" type="reset" value="Reset">
 {{< /example >}}
 
@@ -197,7 +190,7 @@ When using button classes on `<a>` elements that are used to trigger in-page fun
 
 {{< bootstrap-compatibility >}}
 
-Outline buttons are now the default ones. For mor convenience in need of `.btn-outline-*` classes, you can simply use them and obtain an equivalent of `.btn-default`.
+In need of a button, but not the hefty background colors they bring? Replace the default modifier classes with the `.btn-outline-*` ones to remove all background images and colors on any button.
 
 {{< example >}}
 {{< buttons.inline >}}
@@ -209,6 +202,7 @@ Outline buttons are now the default ones. For mor convenience in need of `.btn-o
 
 {{< /bootstrap-compatibility >}}
 
+<!-- not implemented for now
 ## Sizes
 
 Fancy larger or smaller buttons? Add `.btn-lg` or `.btn-sm` for additional sizes.
@@ -241,6 +235,7 @@ Custom button
 </button>
 {{< /example >}}
 </details>
+-->
 
 ## Disabled state
 
@@ -262,8 +257,8 @@ Disabled buttons using the `<a>` element behave a bit different:
 - Disabled buttons using `<a>` *should not* include the `href` attribute.
 
 {{< example >}}
-<a class="btn btn-default disabled" role="button" aria-disabled="true">Primary link</a>
-<a class="btn btn-strong disabled" role="button" aria-disabled="true">Link</a>
+<a class="btn btn-default disabled" role="button" aria-disabled="true">Default link</a>
+<a class="btn btn-strong disabled" role="button" aria-disabled="true">Strong link</a>
 {{< /example >}}
 
 ### Link functionality caveat
@@ -271,35 +266,56 @@ Disabled buttons using the `<a>` element behave a bit different:
 To cover cases where you have to keep the `href` attribute on a disabled link, the `.disabled` class uses `pointer-events: none` to try to disable the link functionality of `<a>`s. Note that this CSS property is not yet standardized for HTML, but all modern browsers support it. In addition, even in browsers that do support `pointer-events: none`, keyboard navigation remains unaffected, meaning that sighted keyboard users and users of assistive technologies will still be able to activate these links. So to be safe, in addition to `aria-disabled="true"`, also include a `tabindex="-1"` attribute on these links to prevent them from receiving keyboard focus, and use custom JavaScript to disable their functionality altogether.
 
 {{< example >}}
-<a href="#" class="btn btn-default disabled" tabindex="-1" role="button" aria-disabled="true">Primary link</a>
-<a href="#" class="btn btn-strong disabled" tabindex="-1" role="button" aria-disabled="true">Link</a>
+<a href="#" class="btn btn-default disabled" tabindex="-1" role="button" aria-disabled="true">Default link</a>
+<a href="#" class="btn btn-strong disabled" tabindex="-1" role="button" aria-disabled="true">Strong link</a>
 {{< /example >}}
+
+<!-- OUDS mod: loading state -->
+## Loading state
+
+The loading state of a button indicates that an action is in progress. This state provides feedback to users, enhancing user experience.
+For an indeterminate loading time, use the class `.loading-indeterminate` and for a defined loading time, use the class `.loading-determinate`; this will add a visual information of the current state.
+You also have to add an `aria-label` to communicate the loading state to users with assistive technologies. Finally, while loading, the button must be disabled to prevent multiple submissions.
+
+At the end of the loading, don't forget to remove the loading class, and the `disabled` and `aria-label` attributes.
+
+{{< example >}}
+<button type="button" class="btn btn-default loading-indeterminate" disabled aria-label="Default is loading for an indeterminate time...">Default</button>
+<button type="button" class="btn btn-strong loading-indeterminate" disabled aria-label="Strong is loading for an indeterminate time...">Strong</button>
+<button type="button" class="btn btn-minimum loading-indeterminate" disabled aria-label="Minimal is loading for an indeterminate time...">Minimal</button>
+<button type="button" class="btn btn-negative loading-indeterminate" disabled aria-label="Negative is loading for an indeterminate time...">Negative</button>
+<br>
+<button type="button" class="btn btn-default loading-determinate" disabled aria-label="Default is loading...">Default</button>
+<button type="button" class="btn btn-strong loading-determinate" disabled aria-label="Strong is loading...">Strong</button>
+<button type="button" class="btn btn-minimum loading-determinate" disabled aria-label="Minimal is loading...">Minimal</button>
+<button type="button" class="btn btn-negative loading-determinate" disabled aria-label="Negative is loading...">Negative</button>
+
+{{< /example >}}
+
+<!-- OUDS mod: loading state -->
+## Skeleton state
+<!-- TODO -->
+Improves the perceived loading time by providing a visual cue of where elements will appear once fully loaded.
 
 ## Block buttons
 
-Create responsive stacks of full-width, "block buttons" like those in Boosted 4 with a mix of our display and gap utilities. By using utilities instead of button-specific classes, we have much greater control over spacing, alignment, and responsive behaviors.
+Create responsive stacks of full-width, "block buttons" with a mix of our display and gap utilities. By using utilities instead of button-specific classes, we have much greater control over spacing, alignment, and responsive behaviors.
 
-<details class="mb-3">
-<summary>See Bootstrap examples that are incompatible with Orange Design System.</summary>
-<br>
-{{< design-callout-alert >}}
-These **full-width** buttons should not be used on desktop screens because they do not respect the Orange Design System specifications.
-
-Please refer to the [Buttons guidelines](https://system.design.orange.com/0c1af118d/p/278ebc-buttons-standard/b/247486) on the Orange Design System website.
-{{< /design-callout-alert >}}
+Please note that these **full-width** buttons should not be used on desktop screens. <!-- OUDS mod -->
 
 {{< example >}}
-<div class="d-grid gap-2">
+<div class="d-grid gap-short">
   <button class="btn btn-default" type="button">Button</button>
   <button class="btn btn-default" type="button">Button</button>
 </div>
 {{< /example >}}
-</details>
 
-Here we create a responsive variation, starting with vertically stacked buttons until the `md` breakpoint, where `.d-md-block` replaces the `.d-grid` class, thus nullifying the `gap-2` utility. Resize your browser to see them change.
+
+
+Here we create a responsive variation, starting with vertically stacked buttons until the `md` breakpoint, where `.d-md-block` replaces the `.d-grid` class, thus nullifying the `gap-short` utility. Resize your browser to see them change.
 
 {{< example >}}
-<div class="d-grid gap-2 d-md-block">
+<div class="d-grid gap-short d-md-block">
   <button class="btn btn-default" type="button">Button</button>
   <button class="btn btn-default" type="button">Button</button>
 </div>
@@ -308,7 +324,7 @@ Here we create a responsive variation, starting with vertically stacked buttons 
 You can adjust the width of your block buttons with grid column width classes. For example, for a half-width "block button", use `.col-6`. Center it horizontally with `.mx-auto`, too.
 
 {{< example >}}
-<div class="d-grid gap-2 col-6 mx-auto">
+<div class="d-grid gap-short col-6 mx-auto">
   <button class="btn btn-default" type="button">Button</button>
   <button class="btn btn-default" type="button">Button</button>
 </div>
@@ -317,8 +333,8 @@ You can adjust the width of your block buttons with grid column width classes. F
 Additional utilities can be used to adjust the alignment of buttons when horizontal. Here we've taken our previous responsive example and added some flex utilities and a margin utility on the button to right-align the buttons when they're no longer stacked.
 
 {{< example >}}
-<div class="d-grid gap-2 d-md-flex justify-content-md-end">
-  <button class="btn btn-default me-md-2" type="button">Button</button>
+<div class="d-grid gap-short d-md-flex justify-content-md-end">
+  <button class="btn btn-default me-md-shorter" type="button">Button</button>
   <button class="btn btn-default" type="button">Button</button>
 </div>
 {{< /example >}}
@@ -331,6 +347,7 @@ The button plugin allows you to create simple on/off toggle buttons.
 Visually, these toggle buttons are identical to the [checkbox toggle buttons]({{< docsref "/forms/checks-radios#checkbox-toggle-buttons" >}}). However, they are conveyed differently by assistive technologies: the checkbox toggles will be announced by screen readers as "checked"/"not checked" (since, despite their appearance, they are fundamentally still checkboxes), whereas these toggle buttons will be announced as "button"/"button pressed". The choice between these two approaches will depend on the type of toggle you are creating, and whether or not the toggle will make sense to users when announced as a checkbox or as an actual button.
 {{< /callout >}}
 
+<!-- not implemented yet
 ### Toggle states
 
 Add `data-bs-toggle="button"` to toggle a button's `active` state. If you're pre-toggling a button, you must manually add the `.active` class **and** `aria-pressed="true"` to ensure that it is conveyed appropriately to assistive technologies.
@@ -361,6 +378,7 @@ Instead, consider using our [Checks component]({{< docsref "/forms/checks-radios
 
 You can create a button instance with the button constructor, for example:
 
+
 ```js
 const bsButton = new boosted.Button('#myButton')
 ```
@@ -382,21 +400,20 @@ document.querySelectorAll('.btn').forEach(buttonElement => {
   button.toggle()
 })
 ```
+-->
 
 ## CSS
 
 ### Variables
 
-{{< added-in "5.2.0" >}}
-
-As part of Boosted's evolving CSS variables approach, buttons now use local CSS variables on `.btn` for enhanced real-time customization. Values for the CSS variables are set via Sass, so Sass customization is still supported, too.
+As part of OUDS Web's evolving CSS variables approach, buttons now use local CSS variables on `.btn` for enhanced real-time customization. Values for the CSS variables are set via Sass, so Sass customization is still supported, too.
 
 {{< scss-docs name="btn-css-vars" file="scss/_buttons.scss" >}}
 
 <!--Boosted mod: no outline variant-->
 Each `.btn-*` modifier class updates the appropriate CSS variables to minimize additional CSS rules with our `button-variant()` and `button-size()` mixins.
 
-<!--Boosted mod: no custom `.btn-*` modifier class-->
+<!-- OUDS mod: no custom `.btn-*` modifier class-->
 
 ### Sass variables
 
@@ -404,16 +421,16 @@ Each `.btn-*` modifier class updates the appropriate CSS variables to minimize a
 
 ### Sass mixins
 
-There are four mixins for buttons: button and button outline variant mixins (both based on `$theme-colors`), plus a button size mixin, and a button icon mixin.
+There are four mixins for buttons: button and button outline variant mixins (both based on `$theme-colors`).
 
 {{< scss-docs name="btn-variant-mixin" file="scss/mixins/_buttons.scss" >}}
 
 {{< scss-docs name="btn-outline-variant-mixin" file="scss/mixins/_buttons.scss" >}}
 
-{{< scss-docs name="btn-size-mixin" file="scss/mixins/_buttons.scss" >}}
+<!-- OUDS mod: no button-size mixin for now  -->
 
-<!-- Boosted mod: .btn-icon -->
-{{< scss-docs name="btn-icon" file="scss/mixins/_buttons.scss" >}}
+<!-- OUDS mod: button-icon mixin is not documented for now -->
+<!-- {{< scss-docs name="btn-icon" file="scss/mixins/_buttons.scss" >}} -->
 
 ### Sass loops
 
