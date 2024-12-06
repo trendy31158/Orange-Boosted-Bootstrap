@@ -425,7 +425,7 @@ There are four mixins for buttons: button and button outline variant mixins (bot
 
 {{< scss-docs name="btn-variant-mixin" file="scss/mixins/_buttons.scss" >}}
 
-{{< scss-docs name="btn-outline-variant-mixin" file="scss/mixins/_buttons.scss" >}}
+<!-- OUDS mod: button-outline-variant mixin -->
 
 <!-- OUDS mod: no button-size mixin for now  -->
 
