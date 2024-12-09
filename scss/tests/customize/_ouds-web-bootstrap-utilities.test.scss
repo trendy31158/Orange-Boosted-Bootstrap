@@ -114,7 +114,7 @@ $utilities: ();
             property: border-top,
             values: (
               null: var(--#{$prefix}border-width) var(--#{$prefix}border-style) var(--#{$prefix}border-color),
-              "none": strip-units($ouds-border-width-none),
+              "none": 0,
             ),
           ),
           "border-end-ouds": (
@@ -771,97 +771,79 @@ $utilities: ();
       @include expect() {
         :root,
         [data-bs-theme="light"] {
-          --bs-color-transparent-default: rgba(0, 0, 0, 0);
-          --bs-color-action-disabled: #ccc;
+          --bs-color-opacity-invisible-black: rgba(0, 0, 0, 0);
+          --bs-color-opacity-invisible-white: rgba(255, 255, 255, 0);
+          --bs-color-action-disabled: rgba(0, 0, 0, 0.2); // stylelint-disable-line @stylistic/number-leading-zero
+          --bs-color-action-enabled: #000;
+          --bs-color-action-focus: rgba(0, 0, 0, 0.68); // stylelint-disable-line @stylistic/number-leading-zero
+          --bs-color-action-highlighted: #000;
+          --bs-color-action-hover: rgba(0, 0, 0, 0.68); // stylelint-disable-line @stylistic/number-leading-zero
+          --bs-color-action-loading: #f15e00;
           --bs-color-action-negative-enabled: #ea0305;
           --bs-color-action-negative-focus: #b20002;
           --bs-color-action-negative-hover: #b20002;
           --bs-color-action-negative-loading: #800001;
           --bs-color-action-negative-pressed: #800001;
-          --bs-color-action-primary-enabled: #000;
-          --bs-color-action-primary-focus: #555;
-          --bs-color-action-primary-hover: #555;
-          --bs-color-action-primary-loading: #f16e00;
-          --bs-color-action-primary-pressed: #f16e00;
-          --bs-color-action-secondary-enabled: #f4f4f4;
-          --bs-color-action-secondary-focus: #eee;
-          --bs-color-action-secondary-hover: #eee;
-          --bs-color-action-secondary-loading: #eee;
-          --bs-color-action-secondary-pressed: #eee;
-          --bs-color-action-selected: #f16e00;
+          --bs-color-action-pressed: #f15e00;
+          --bs-color-action-selected: #f15e00;
+          --bs-color-action-support-enabled: rgba(0, 0, 0, 0.04); // stylelint-disable-line @stylistic/number-leading-zero
+          --bs-color-action-support-focus: rgba(0, 0, 0, 0.08); // stylelint-disable-line @stylistic/number-leading-zero
+          --bs-color-action-support-hover: rgba(0, 0, 0, 0.08); // stylelint-disable-line @stylistic/number-leading-zero
+          --bs-color-action-support-loading: rgba(0, 0, 0, 0.08); // stylelint-disable-line @stylistic/number-leading-zero
+          --bs-color-action-support-pressed: rgba(0, 0, 0, 0.08); // stylelint-disable-line @stylistic/number-leading-zero
           --bs-color-action-visited: #5b2f98;
-          --bs-color-always-accent: #ffd000;
           --bs-color-always-black: #000;
-          --bs-color-always-info: #26b2ff;
-          --bs-color-always-negative: #ea0305;
-          --bs-color-always-on-accent: #000;
           --bs-color-always-on-black: #fff;
-          --bs-color-always-on-info: #000;
-          --bs-color-always-on-negative: #fff;
-          --bs-color-always-on-positive: #000;
-          --bs-color-always-on-warning: #000;
           --bs-color-always-on-white: #000;
-          --bs-color-always-positive: #3de35a;
-          --bs-color-always-warning: #ffd000;
           --bs-color-always-white: #fff;
-          --bs-color-bg-brand-primary: #f16e00;
+          --bs-color-bg-emphasized: #141414;
           --bs-color-bg-primary: #fff;
           --bs-color-bg-secondary: #f4f4f4;
-          --bs-color-bg-status-accent-emphasized: #ffd000;
-          --bs-color-bg-status-accent-muted: #f9f5f0;
-          --bs-color-bg-status-info-emphasized: #26b2ff;
-          --bs-color-bg-status-info-muted: #f0faff;
-          --bs-color-bg-status-negative-emphasized: #ea0305;
-          --bs-color-bg-status-negative-muted: #ffe5e6;
-          --bs-color-bg-status-neutral: #f4f4f4;
-          --bs-color-bg-status-positive-emphasized: #3de35a;
-          --bs-color-bg-status-positive-muted: #edfcf0;
-          --bs-color-bg-status-warning-emphasized: #ffd000;
-          --bs-color-bg-status-warning-muted: #fff7d6;
           --bs-color-bg-tertiary: #f9f5f0;
-          --bs-color-border-brand-primary: #f16e00;
-          --bs-color-border-default: #ccc;
+          --bs-color-border-brand-primary: #f15e00;
+          --bs-color-border-default: rgba(0, 0, 0, 0.2); // stylelint-disable-line @stylistic/number-leading-zero
           --bs-color-border-emphasized: #000;
           --bs-color-border-focus: #000;
           --bs-color-border-focus-inset: #fff;
-          --bs-color-border-on-brand-primary: #fff;
-          --bs-color-content-brand-primary: #f16e00;
+          --bs-color-border-on-brand-primary: #000;
+          --bs-color-content-brand-primary: #f15e00;
           --bs-color-content-default: #000;
-          --bs-color-content-disabled: #ccc;
-          --bs-color-content-muted: #555;
+          --bs-color-content-disabled: rgba(0, 0, 0, 0.2); // stylelint-disable-line @stylistic/number-leading-zero
+          --bs-color-content-muted: rgba(0, 0, 0, 0.68); // stylelint-disable-line @stylistic/number-leading-zero
           --bs-color-content-on-action-disabled: #fff;
+          --bs-color-content-on-action-enabled: #fff;
+          --bs-color-content-on-action-focus: #fff;
+          --bs-color-content-on-action-highlighted: #fff;
+          --bs-color-content-on-action-hover: #fff;
+          --bs-color-content-on-action-loading: #fff;
           --bs-color-content-on-action-negative: #fff;
-          --bs-color-content-on-action-primary-enabled: #fff;
-          --bs-color-content-on-action-primary-focus: #fff;
-          --bs-color-content-on-action-primary-hover: #fff;
-          --bs-color-content-on-action-primary-loading: #fff;
-          --bs-color-content-on-action-primary-pressed: #fff;
-          --bs-color-content-on-brand-primary: #fff;
-          --bs-color-content-on-status-accent-emphasized: #000;
-          --bs-color-content-on-status-accent-muted: #000;
-          --bs-color-content-on-status-info-emphasized: #000;
-          --bs-color-content-on-status-info-muted: #000;
-          --bs-color-content-on-status-negative-emphasized: #fff;
-          --bs-color-content-on-status-negative-muted: #000;
-          --bs-color-content-on-status-positive-emphasized: #000;
-          --bs-color-content-on-status-positive-muted: #000;
-          --bs-color-content-on-status-warning-emphasized: #000;
-          --bs-color-content-on-status-warning-muted: #000;
+          --bs-color-content-on-action-pressed: #fff;
+          --bs-color-content-on-brand-primary: #000;
+          --bs-color-content-on-overlay-emphasized: #fff;
+          --bs-color-content-on-status-emphasized: #000;
+          --bs-color-content-on-status-emphasized-neutral: #fff;
+          --bs-color-content-on-status-muted: #000;
           --bs-color-content-status-info: #26b2ff;
           --bs-color-content-status-negative: #ea0305;
           --bs-color-content-status-positive: #3de35a;
           --bs-color-content-status-warning: #ffd000;
-          --bs-color-elevation-drag: #f4f4f4;
-          --bs-color-elevation-drag-on-bg-secondary: #f4f4f4;
-          --bs-color-elevation-modal: #fff;
-          --bs-color-elevation-overlay-default: #fff;
-          --bs-color-elevation-overlay-default-on-bg-secondary: #fff;
-          --bs-color-elevation-overlay-emphasized: #333;
-          --bs-color-elevation-overlay-emphasized-on-bg-secondary: #333;
-          --bs-color-elevation-raised: #fff;
-          --bs-color-elevation-raised-on-bg-secondary: #fff;
-          --bs-color-gradient-skeleton-middle: #eee;
-          --bs-color-gradient-skeleton-start-end: #f4f4f4;
+          --bs-color-overlay-default: #fff;
+          --bs-color-overlay-drag: rgba(0, 0, 0, 0.04); // stylelint-disable-line @stylistic/number-leading-zero
+          --bs-color-overlay-emphasized: #272727;
+          --bs-color-overlay-modal: #fff;
+          --bs-color-surface-brand-primary: #ff7900;
+          --bs-color-surface-status-accent-emphasized: #ffd000;
+          --bs-color-surface-status-accent-muted: rgba(255, 208, 0, 0.16); // stylelint-disable-line @stylistic/number-leading-zero
+          --bs-color-surface-status-info-emphasized: #26b2ff;
+          --bs-color-surface-status-info-muted: rgba(38, 178, 255, 0.08); // stylelint-disable-line @stylistic/number-leading-zero
+          --bs-color-surface-status-negative-emphasized: #ea0305;
+          --bs-color-surface-status-negative-muted: rgba(234, 3, 5, 0.08); // stylelint-disable-line @stylistic/number-leading-zero
+          --bs-color-surface-status-neutral-emphasized: rgba(0, 0, 0, 0.84); // stylelint-disable-line @stylistic/number-leading-zero
+          --bs-color-surface-status-neutral-muted: rgba(0, 0, 0, 0.04); // stylelint-disable-line @stylistic/number-leading-zero
+          --bs-color-surface-status-positive-emphasized: #3de35a;
+          --bs-color-surface-status-positive-muted: rgba(61, 227, 90, 0.12); // stylelint-disable-line @stylistic/number-leading-zero
+          --bs-color-surface-status-warning-emphasized: #ffd000;
+          --bs-color-surface-status-warning-muted: rgba(255, 208, 0, 0.16); // stylelint-disable-line @stylistic/number-leading-zero
           --bs-color-decorative-accent-1-default: #50be87;
           --bs-color-decorative-accent-1-emphasized: #2e7b54;
           --bs-color-decorative-accent-1-muted: #c0e8d4;
@@ -892,108 +874,82 @@ $utilities: ();
           --bs-color-decorative-skin-tint-700: #7e4f2a;
           --bs-color-decorative-skin-tint-800: #553720;
           --bs-color-decorative-skin-tint-900: #2e2014;
-          --bs-elevation-color-none: rgba(0, 0, 0, 0);
-          --bs-elevation-color-raised: rgba(0, 0, 0, 0.32); // stylelint-disable-line @stylistic/number-leading-zero
-          --bs-elevation-color-drag: rgba(0, 0, 0, 0.32); // stylelint-disable-line @stylistic/number-leading-zero
-          --bs-elevation-color-overlay-default: rgba(0, 0, 0, 0.24); // stylelint-disable-line @stylistic/number-leading-zero
-          --bs-elevation-color-overlay-emphasized: rgba(0, 0, 0, 0.16); // stylelint-disable-line @stylistic/number-leading-zero
-          --bs-elevation-color-sticky-default: rgba(0, 0, 0, 0.16); // stylelint-disable-line @stylistic/number-leading-zero
-          --bs-elevation-color-sticky-emphasized: rgba(0, 0, 0, 0.16); // stylelint-disable-line @stylistic/number-leading-zero
-          --bs-elevation-color-sticky-navigation-scrolled: rgba(0, 0, 0, 0.16); // stylelint-disable-line @stylistic/number-leading-zero
         }
 
         [data-bs-theme="dark"] {
-          --bs-color-transparent-default: rgba(0, 0, 0, 0);
-          --bs-color-action-disabled: #555;
-          --bs-color-action-negative-enabled: #ea0305;
-          --bs-color-action-negative-focus: #b20002;
-          --bs-color-action-negative-hover: #b20002;
-          --bs-color-action-negative-loading: #800001;
-          --bs-color-action-negative-pressed: #800001;
-          --bs-color-action-primary-enabled: #eee;
-          --bs-color-action-primary-focus: #bbb;
-          --bs-color-action-primary-hover: #bbb;
-          --bs-color-action-primary-loading: #ff7900;
-          --bs-color-action-primary-pressed: #ff7900;
-          --bs-color-action-secondary-enabled: #272727;
-          --bs-color-action-secondary-focus: #333;
-          --bs-color-action-secondary-hover: #333;
-          --bs-color-action-secondary-loading: #333;
-          --bs-color-action-secondary-pressed: #333;
+          --bs-color-opacity-invisible-black: rgba(255, 255, 255, 0);
+          --bs-color-opacity-invisible-white: rgba(255, 255, 255, 0);
+          --bs-color-action-disabled: rgba(255, 255, 255, 0.2); // stylelint-disable-line @stylistic/number-leading-zero
+          --bs-color-action-enabled: #eee;
+          --bs-color-action-focus: rgba(255, 255, 255, 0.64); // stylelint-disable-line @stylistic/number-leading-zero
+          --bs-color-action-highlighted: #eee;
+          --bs-color-action-hover: rgba(255, 255, 255, 0.64); // stylelint-disable-line @stylistic/number-leading-zero
+          --bs-color-action-loading: #ff7900;
+          --bs-color-action-negative-enabled: #ff8081;
+          --bs-color-action-negative-focus: #ffb2b3;
+          --bs-color-action-negative-hover: #ffb2b3;
+          --bs-color-action-negative-loading: #ffe5e6;
+          --bs-color-action-negative-pressed: #ffe5e6;
+          --bs-color-action-pressed: #ff7900;
           --bs-color-action-selected: #ff7900;
+          --bs-color-action-support-enabled: rgba(255, 255, 255, 0.04); // stylelint-disable-line @stylistic/number-leading-zero
+          --bs-color-action-support-focus: rgba(255, 255, 255, 0.08); // stylelint-disable-line @stylistic/number-leading-zero
+          --bs-color-action-support-hover: rgba(255, 255, 255, 0.08); // stylelint-disable-line @stylistic/number-leading-zero
+          --bs-color-action-support-loading: rgba(255, 255, 255, 0.08); // stylelint-disable-line @stylistic/number-leading-zero
+          --bs-color-action-support-pressed: rgba(255, 255, 255, 0.08); // stylelint-disable-line @stylistic/number-leading-zero
           --bs-color-action-visited: #a885d8;
-          --bs-color-always-accent: #ffd000;
           --bs-color-always-black: #000;
-          --bs-color-always-info: #26b2ff;
-          --bs-color-always-negative: #ea0305;
-          --bs-color-always-on-accent: #141414;
           --bs-color-always-on-black: #eee;
-          --bs-color-always-on-info: #141414;
-          --bs-color-always-on-negative: #eee;
-          --bs-color-always-on-positive: #141414;
-          --bs-color-always-on-warning: #141414;
-          --bs-color-always-on-white: #141414;
-          --bs-color-always-positive: #3de35a;
-          --bs-color-always-warning: #ffd000;
+          --bs-color-always-on-white: #000;
           --bs-color-always-white: #fff;
-          --bs-color-bg-brand-primary: #ff7900;
+          --bs-color-bg-emphasized: #333;
           --bs-color-bg-primary: #141414;
           --bs-color-bg-secondary: #1f1f1f;
-          --bs-color-bg-status-accent-emphasized: #ffd000;
-          --bs-color-bg-status-accent-muted: #353228;
-          --bs-color-bg-status-info-emphasized: #26b2ff;
-          --bs-color-bg-status-info-muted: #003857;
-          --bs-color-bg-status-negative-emphasized: #ea0305;
-          --bs-color-bg-status-negative-muted: #4d0001;
-          --bs-color-bg-status-neutral: #272727;
-          --bs-color-bg-status-positive-emphasized: #3de35a;
-          --bs-color-bg-status-positive-muted: #0a4715;
-          --bs-color-bg-status-warning-emphasized: #ffd000;
-          --bs-color-bg-status-warning-muted: #3d3100;
           --bs-color-bg-tertiary: #353228;
           --bs-color-border-brand-primary: #ff7900;
-          --bs-color-border-default: #555;
-          --bs-color-border-emphasized: #eee;
+          --bs-color-border-default: rgba(255, 255, 255, 0.2); // stylelint-disable-line @stylistic/number-leading-zero
+          --bs-color-border-emphasized: rgba(255, 255, 255, 0.92); // stylelint-disable-line @stylistic/number-leading-zero
           --bs-color-border-focus: #eee;
           --bs-color-border-focus-inset: #141414;
           --bs-color-border-on-brand-primary: #000;
           --bs-color-content-brand-primary: #ff7900;
           --bs-color-content-default: #eee;
-          --bs-color-content-disabled: #555;
-          --bs-color-content-muted: #bbb;
+          --bs-color-content-disabled: rgba(255, 255, 255, 0.2); // stylelint-disable-line @stylistic/number-leading-zero
+          --bs-color-content-muted: rgba(255, 255, 255, 0.64); // stylelint-disable-line @stylistic/number-leading-zero
           --bs-color-content-on-action-disabled: #000;
-          --bs-color-content-on-action-negative: #fff;
-          --bs-color-content-on-action-primary-enabled: #000;
-          --bs-color-content-on-action-primary-focus: #000;
-          --bs-color-content-on-action-primary-hover: #000;
-          --bs-color-content-on-action-primary-loading: #000;
-          --bs-color-content-on-action-primary-pressed: #000;
+          --bs-color-content-on-action-enabled: #000;
+          --bs-color-content-on-action-focus: #000;
+          --bs-color-content-on-action-highlighted: #000;
+          --bs-color-content-on-action-hover: #000;
+          --bs-color-content-on-action-loading: #000;
+          --bs-color-content-on-action-negative: #000;
+          --bs-color-content-on-action-pressed: #000;
           --bs-color-content-on-brand-primary: #000;
-          --bs-color-content-on-status-accent-emphasized: #000;
-          --bs-color-content-on-status-accent-muted: #eee;
-          --bs-color-content-on-status-info-emphasized: #000;
-          --bs-color-content-on-status-info-muted: #eee;
-          --bs-color-content-on-status-negative-emphasized: #fff;
-          --bs-color-content-on-status-negative-muted: #eee;
-          --bs-color-content-on-status-positive-emphasized: #000;
-          --bs-color-content-on-status-positive-muted: #eee;
-          --bs-color-content-on-status-warning-emphasized: #000;
-          --bs-color-content-on-status-warning-muted: #eee;
+          --bs-color-content-on-overlay-emphasized: #000;
+          --bs-color-content-on-status-emphasized: #000;
+          --bs-color-content-on-status-emphasized-neutral: #000;
+          --bs-color-content-on-status-muted: #eee;
           --bs-color-content-status-info: #26b2ff;
           --bs-color-content-status-negative: #ea0305;
           --bs-color-content-status-positive: #3de35a;
           --bs-color-content-status-warning: #ffd000;
-          --bs-color-elevation-drag: #272727;
-          --bs-color-elevation-drag-on-bg-secondary: #333;
-          --bs-color-elevation-modal: #333;
-          --bs-color-elevation-overlay-default: #272727;
-          --bs-color-elevation-overlay-default-on-bg-secondary: #333;
-          --bs-color-elevation-overlay-emphasized: #444;
-          --bs-color-elevation-overlay-emphasized-on-bg-secondary: #444;
-          --bs-color-elevation-raised: #1f1f1f;
-          --bs-color-elevation-raised-on-bg-secondary: #272727;
-          --bs-color-gradient-skeleton-middle: #272727;
-          --bs-color-gradient-skeleton-start-end: #1f1f1f;
+          --bs-color-overlay-default: rgba(255, 255, 255, 0.08); // stylelint-disable-line @stylistic/number-leading-zero
+          --bs-color-overlay-drag: rgba(255, 255, 255, 0.2); // stylelint-disable-line @stylistic/number-leading-zero
+          --bs-color-overlay-emphasized: #eee;
+          --bs-color-overlay-modal: #333;
+          --bs-color-surface-brand-primary: #ff7900;
+          --bs-color-surface-status-accent-emphasized: #ffe270;
+          --bs-color-surface-status-accent-muted: #353228;
+          --bs-color-surface-status-info-emphasized: #8ad5ff;
+          --bs-color-surface-status-info-muted: #003857;
+          --bs-color-surface-status-negative-emphasized: #ff8081;
+          --bs-color-surface-status-negative-muted: #4d0001;
+          --bs-color-surface-status-neutral-emphasized: rgba(255, 255, 255, 0.8); // stylelint-disable-line @stylistic/number-leading-zero
+          --bs-color-surface-status-neutral-muted: rgba(255, 255, 255, 0.08); // stylelint-disable-line @stylistic/number-leading-zero
+          --bs-color-surface-status-positive-emphasized: #94f0a4;
+          --bs-color-surface-status-positive-muted: #0a4715;
+          --bs-color-surface-status-warning-emphasized: #ffe270;
+          --bs-color-surface-status-warning-muted: #3d3100;
           --bs-color-decorative-accent-1-default: #50be87;
           --bs-color-decorative-accent-1-emphasized: #2e7b54;
           --bs-color-decorative-accent-1-muted: #c0e8d4;
@@ -1024,17 +980,9 @@ $utilities: ();
           --bs-color-decorative-skin-tint-700: #7e4f2a;
           --bs-color-decorative-skin-tint-800: #553720;
           --bs-color-decorative-skin-tint-900: #2e2014;
-          --bs-elevation-color-none: rgba(0, 0, 0, 0);
-          --bs-elevation-color-raised: rgba(0, 0, 0, 0.32); // stylelint-disable-line @stylistic/number-leading-zero
-          --bs-elevation-color-drag: rgba(0, 0, 0, 0.32); // stylelint-disable-line @stylistic/number-leading-zero
-          --bs-elevation-color-overlay-default: rgba(0, 0, 0, 0.24); // stylelint-disable-line @stylistic/number-leading-zero
-          --bs-elevation-color-overlay-emphasized: rgba(0, 0, 0, 0.16); // stylelint-disable-line @stylistic/number-leading-zero
-          --bs-elevation-color-sticky-default: rgba(0, 0, 0, 0.16); // stylelint-disable-line @stylistic/number-leading-zero
-          --bs-elevation-color-sticky-emphasized: rgba(0, 0, 0, 0.16); // stylelint-disable-line @stylistic/number-leading-zero
-          --bs-elevation-color-sticky-navigation-scrolled: rgba(0, 0, 0, 0.16); // stylelint-disable-line @stylistic/number-leading-zero
         }
 
-        .opacity-transparent {
+        .opacity-invisible {
           opacity: 0 !important;
         }
 
@@ -1098,12 +1046,12 @@ $utilities: ();
 
         .border-light {
           --bs-border-opacity: 1;
-          border-color: rgba(112, 112, 112, var(--bs-border-opacity)) !important;
+          border-color: rgba(85, 85, 85, var(--bs-border-opacity)) !important;
         }
 
         .border-dark {
           --bs-border-opacity: 1;
-          border-color: rgba(68, 68, 68, var(--bs-border-opacity)) !important;
+          border-color: rgba(39, 39, 39, var(--bs-border-opacity)) !important;
         }
 
         .border-black {
@@ -1201,11 +1149,11 @@ $utilities: ();
         }
 
         .rounded {
-          border-radius: 0 !important; // stylelint-disable-line property-disallowed-list
+          border-radius: 0px !important; // stylelint-disable-line property-disallowed-list, length-zero-no-unit
         }
 
         .rounded-none {
-          border-radius: 0 !important; // stylelint-disable-line property-disallowed-list
+          border-radius: 0px !important; // stylelint-disable-line property-disallowed-list, length-zero-no-unit
         }
 
         .rounded-short {
@@ -1229,13 +1177,13 @@ $utilities: ();
         }
 
         .rounded-top {
-          border-top-left-radius: 0 !important; // stylelint-disable-line property-disallowed-list
-          border-top-right-radius: 0 !important; // stylelint-disable-line property-disallowed-list
+          border-top-left-radius: 0px !important; // stylelint-disable-line property-disallowed-list, length-zero-no-unit
+          border-top-right-radius: 0px !important; // stylelint-disable-line property-disallowed-list, length-zero-no-unit
         }
 
         .rounded-top-none {
-          border-top-left-radius: 0 !important; // stylelint-disable-line property-disallowed-list
-          border-top-right-radius: 0 !important; // stylelint-disable-line property-disallowed-list
+          border-top-left-radius: 0px !important; // stylelint-disable-line property-disallowed-list, length-zero-no-unit
+          border-top-right-radius: 0px !important; // stylelint-disable-line property-disallowed-list, length-zero-no-unit
         }
 
         .rounded-top-short {
@@ -1264,13 +1212,13 @@ $utilities: ();
         }
 
         .rounded-end {
-          border-top-right-radius: 0 !important; // stylelint-disable-line property-disallowed-list
-          border-bottom-right-radius: 0 !important; // stylelint-disable-line property-disallowed-list
+          border-top-right-radius: 0px !important; // stylelint-disable-line property-disallowed-list, length-zero-no-unit
+          border-bottom-right-radius: 0px !important; // stylelint-disable-line property-disallowed-list, length-zero-no-unit
         }
 
         .rounded-end-none {
-          border-top-right-radius: 0 !important; // stylelint-disable-line property-disallowed-list
-          border-bottom-right-radius: 0 !important; // stylelint-disable-line property-disallowed-list
+          border-top-right-radius: 0px !important; // stylelint-disable-line property-disallowed-list, length-zero-no-unit
+          border-bottom-right-radius: 0px !important; // stylelint-disable-line property-disallowed-list, length-zero-no-unit
         }
 
         .rounded-end-short {
@@ -1299,13 +1247,13 @@ $utilities: ();
         }
 
         .rounded-bottom {
-          border-bottom-right-radius: 0 !important; // stylelint-disable-line property-disallowed-list
-          border-bottom-left-radius: 0 !important; // stylelint-disable-line property-disallowed-list
+          border-bottom-right-radius: 0px !important; // stylelint-disable-line property-disallowed-list, length-zero-no-unit
+          border-bottom-left-radius: 0px !important; // stylelint-disable-line property-disallowed-list, length-zero-no-unit
         }
 
         .rounded-bottom-none {
-          border-bottom-right-radius: 0 !important; // stylelint-disable-line property-disallowed-list
-          border-bottom-left-radius: 0 !important; // stylelint-disable-line property-disallowed-list
+          border-bottom-right-radius: 0px !important; // stylelint-disable-line property-disallowed-list, length-zero-no-unit
+          border-bottom-left-radius: 0px !important; // stylelint-disable-line property-disallowed-list, length-zero-no-unit
         }
 
         .rounded-bottom-short {
@@ -1334,13 +1282,13 @@ $utilities: ();
         }
 
         .rounded-start {
-          border-bottom-left-radius: 0 !important; // stylelint-disable-line property-disallowed-list
-          border-top-left-radius: 0 !important; // stylelint-disable-line property-disallowed-list, order/properties-order
+          border-bottom-left-radius: 0px !important; // stylelint-disable-line property-disallowed-list, length-zero-no-unit
+          border-top-left-radius: 0px !important; // stylelint-disable-line property-disallowed-list, order/properties-order, length-zero-no-unit
         }
 
         .rounded-start-none {
-          border-bottom-left-radius: 0 !important; // stylelint-disable-line property-disallowed-list
-          border-top-left-radius: 0 !important; // stylelint-disable-line property-disallowed-list, order/properties-order
+          border-bottom-left-radius: 0px !important; // stylelint-disable-line property-disallowed-list, length-zero-no-unit
+          border-top-left-radius: 0px !important; // stylelint-disable-line property-disallowed-list, order/properties-order, length-zero-no-unit
         }
 
         .rounded-start-short {
@@ -1369,7 +1317,7 @@ $utilities: ();
         }
 
         .m-none {
-          margin: 0 !important;
+          margin: 0px !important; // stylelint-disable-line length-zero-no-unit
         }
 
         .m-smash {
@@ -1461,8 +1409,8 @@ $utilities: ();
         }
 
         .mx-none {
-          margin-right: 0 !important;
-          margin-left: 0 !important;
+          margin-right: 0px !important; // stylelint-disable-line length-zero-no-unit
+          margin-left: 0px !important; // stylelint-disable-line length-zero-no-unit
         }
 
         .mx-smash {
@@ -1576,8 +1524,8 @@ $utilities: ();
         }
 
         .my-none {
-          margin-top: 0 !important;
-          margin-bottom: 0 !important;
+          margin-top: 0px !important; // stylelint-disable-line length-zero-no-unit
+          margin-bottom: 0px !important; // stylelint-disable-line length-zero-no-unit
         }
 
         .my-smash {
@@ -1691,7 +1639,7 @@ $utilities: ();
         }
 
         .mt-none {
-          margin-top: 0 !important;
+          margin-top: 0px !important; // stylelint-disable-line length-zero-no-unit
         }
 
         .mt-smash {
@@ -1783,7 +1731,7 @@ $utilities: ();
         }
 
         .me-none {
-          margin-right: 0 !important;
+          margin-right: 0px !important; // stylelint-disable-line length-zero-no-unit
         }
 
         .me-smash {
@@ -1875,7 +1823,7 @@ $utilities: ();
         }
 
         .mb-none {
-          margin-bottom: 0 !important;
+          margin-bottom: 0px !important; // stylelint-disable-line length-zero-no-unit
         }
 
         .mb-smash {
@@ -1967,7 +1915,7 @@ $utilities: ();
         }
 
         .ms-none {
-          margin-left: 0 !important;
+          margin-left: 0px !important; // stylelint-disable-line length-zero-no-unit
         }
 
         .ms-smash {
@@ -2329,7 +2277,7 @@ $utilities: ();
         }
 
         .p-none {
-          padding: 0 !important;
+          padding: 0px !important; // stylelint-disable-line length-zero-no-unit
         }
 
         .p-smash {
@@ -2417,8 +2365,8 @@ $utilities: ();
         }
 
         .px-none {
-          padding-right: 0 !important;
-          padding-left: 0 !important;
+          padding-right: 0px !important; // stylelint-disable-line length-zero-no-unit
+          padding-left: 0px !important; // stylelint-disable-line length-zero-no-unit
         }
 
         .px-smash {
@@ -2527,8 +2475,8 @@ $utilities: ();
         }
 
         .py-none {
-          padding-top: 0 !important;
-          padding-bottom: 0 !important;
+          padding-top: 0px !important; // stylelint-disable-line length-zero-no-unit
+          padding-bottom: 0px !important; // stylelint-disable-line length-zero-no-unit
         }
 
         .py-smash {
@@ -2637,7 +2585,7 @@ $utilities: ();
         }
 
         .pt-none {
-          padding-top: 0 !important;
+          padding-top: 0px !important; // stylelint-disable-line length-zero-no-unit
         }
 
         .pt-smash {
@@ -2725,7 +2673,7 @@ $utilities: ();
         }
 
         .pe-none {
-          padding-right: 0 !important;
+          padding-right: 0px !important; // stylelint-disable-line length-zero-no-unit
         }
 
         .pe-smash {
@@ -2813,7 +2761,7 @@ $utilities: ();
         }
 
         .pb-none {
-          padding-bottom: 0 !important;
+          padding-bottom: 0px !important; // stylelint-disable-line length-zero-no-unit
         }
 
         .pb-smash {
@@ -2901,7 +2849,7 @@ $utilities: ();
         }
 
         .ps-none {
-          padding-left: 0 !important;
+          padding-left: 0px !important; // stylelint-disable-line length-zero-no-unit
         }
 
         .ps-smash {
@@ -2989,7 +2937,7 @@ $utilities: ();
         }
 
         .gap-none {
-          gap: 0 !important;
+          gap: 0px !important; // stylelint-disable-line length-zero-no-unit
         }
 
         .gap-smash {
@@ -3077,7 +3025,7 @@ $utilities: ();
         }
 
         .row-gap-none {
-          row-gap: 0 !important;
+          row-gap: 0px !important; // stylelint-disable-line length-zero-no-unit
         }
 
         .row-gap-smash {
@@ -3165,7 +3113,7 @@ $utilities: ();
         }
 
         .column-gap-none {
-          column-gap: 0 !important;
+          column-gap: 0px !important; // stylelint-disable-line length-zero-no-unit
         }
 
         .column-gap-smash {
@@ -3308,14 +3256,6 @@ $utilities: ();
 
         /* rtl:end:remove */
 
-        .fs-cs {
-          font-size: var(--bs-font-size-code-small);
-          line-height: var(--bs-font-line-height-code-small);
-
-          /* rtl:remove */
-          letter-spacing: var(--bs-font-letter-spacing-code-small);
-        }
-
         .fs-cm {
           font-size: var(--bs-font-size-code-medium);
           line-height: var(--bs-font-line-height-code-medium);
@@ -3422,24 +3362,24 @@ $utilities: ();
           font-weight: 700 !important;
         }
 
-        .shadow-none {
-          box-shadow: 0 0 0 0 var(--bs-elevation-color-none) !important;
-        }
-
-        .shadow-raised {
-          box-shadow: 0 1px 2px 0 var(--bs-elevation-color-raised) !important;
+        .shadow-default {
+          box-shadow: 0 2px 3px -1px var(--bs-elevation-color-default) !important;
         }
 
         .shadow-drag {
           box-shadow: 0 4px 4px -1px  var(--bs-elevation-color-drag) !important;
         }
 
-        .shadow-overlay-default {
-          box-shadow: 0 2px 3px -1px var(--bs-elevation-color-overlay-default) !important;
+        .shadow-emphasized {
+          box-shadow: 0 12px 12px -4px var(--bs-elevation-color-emphasized) !important;
         }
 
-        .shadow-overlay-emphasized {
-          box-shadow: 0 12px 12px -4px var(--bs-elevation-color-overlay-emphasized) !important;
+        .shadow-none {
+          box-shadow: 0 0 0 0 var(--bs-elevation-color-none) !important;
+        }
+
+        .shadow-raised {
+          box-shadow: 0 1px 2px 0 var(--bs-elevation-color-raised) !important;
         }
 
         .shadow-sticky-default {
@@ -3456,7 +3396,7 @@ $utilities: ();
 
         @media (min-width: 390px) {
           .m-xs-none {
-            margin: 0 !important;
+            margin: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .m-xs-smash {
@@ -3508,8 +3448,8 @@ $utilities: ();
           }
 
           .mx-xs-none {
-            margin-right: 0 !important;
-            margin-left: 0 !important;
+            margin-right: 0px !important; // stylelint-disable-line length-zero-no-unit
+            margin-left: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .mx-xs-smash {
@@ -3573,8 +3513,8 @@ $utilities: ();
           }
 
           .my-xs-none {
-            margin-top: 0 !important;
-            margin-bottom: 0 !important;
+            margin-top: 0px !important; // stylelint-disable-line length-zero-no-unit
+            margin-bottom: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .my-xs-smash {
@@ -3638,7 +3578,7 @@ $utilities: ();
           }
 
           .mt-xs-none {
-            margin-top: 0 !important;
+            margin-top: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .mt-xs-smash {
@@ -3690,7 +3630,7 @@ $utilities: ();
           }
 
           .me-xs-none {
-            margin-right: 0 !important;
+            margin-right: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .me-xs-smash {
@@ -3742,7 +3682,7 @@ $utilities: ();
           }
 
           .mb-xs-none {
-            margin-bottom: 0 !important;
+            margin-bottom: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .mb-xs-smash {
@@ -3794,7 +3734,7 @@ $utilities: ();
           }
 
           .ms-xs-none {
-            margin-left: 0 !important;
+            margin-left: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .ms-xs-smash {
@@ -3846,7 +3786,7 @@ $utilities: ();
           }
 
           .p-xs-none {
-            padding: 0 !important;
+            padding: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .p-xs-smash {
@@ -3894,8 +3834,8 @@ $utilities: ();
           }
 
           .px-xs-none {
-            padding-right: 0 !important;
-            padding-left: 0 !important;
+            padding-right: 0px !important; // stylelint-disable-line length-zero-no-unit
+            padding-left: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .px-xs-smash {
@@ -3954,8 +3894,8 @@ $utilities: ();
           }
 
           .py-xs-none {
-            padding-top: 0 !important;
-            padding-bottom: 0 !important;
+            padding-top: 0px !important; // stylelint-disable-line length-zero-no-unit
+            padding-bottom: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .py-xs-smash {
@@ -4014,7 +3954,7 @@ $utilities: ();
           }
 
           .pt-xs-none {
-            padding-top: 0 !important;
+            padding-top: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .pt-xs-smash {
@@ -4062,7 +4002,7 @@ $utilities: ();
           }
 
           .pe-xs-none {
-            padding-right: 0 !important;
+            padding-right: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .pe-xs-smash {
@@ -4110,7 +4050,7 @@ $utilities: ();
           }
 
           .pb-xs-none {
-            padding-bottom: 0 !important;
+            padding-bottom: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .pb-xs-smash {
@@ -4158,7 +4098,7 @@ $utilities: ();
           }
 
           .ps-xs-none {
-            padding-left: 0 !important;
+            padding-left: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .ps-xs-smash {
@@ -4206,7 +4146,7 @@ $utilities: ();
           }
 
           .gap-xs-none {
-            gap: 0 !important;
+            gap: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .gap-xs-smash {
@@ -4254,7 +4194,7 @@ $utilities: ();
           }
 
           .row-gap-xs-none {
-            row-gap: 0 !important;
+            row-gap: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .row-gap-xs-smash {
@@ -4302,7 +4242,7 @@ $utilities: ();
           }
 
           .column-gap-xs-none {
-            column-gap: 0 !important;
+            column-gap: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .column-gap-xs-smash {
@@ -4364,7 +4304,7 @@ $utilities: ();
 
         @media (min-width: 480px) {
           .m-sm-none {
-            margin: 0 !important;
+            margin: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .m-sm-smash {
@@ -4416,8 +4356,8 @@ $utilities: ();
           }
 
           .mx-sm-none {
-            margin-right: 0 !important;
-            margin-left: 0 !important;
+            margin-right: 0px !important; // stylelint-disable-line length-zero-no-unit
+            margin-left: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .mx-sm-smash {
@@ -4481,8 +4421,8 @@ $utilities: ();
           }
 
           .my-sm-none {
-            margin-top: 0 !important;
-            margin-bottom: 0 !important;
+            margin-top: 0px !important; // stylelint-disable-line length-zero-no-unit
+            margin-bottom: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .my-sm-smash {
@@ -4546,7 +4486,7 @@ $utilities: ();
           }
 
           .mt-sm-none {
-            margin-top: 0 !important;
+            margin-top: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .mt-sm-smash {
@@ -4598,7 +4538,7 @@ $utilities: ();
           }
 
           .me-sm-none {
-            margin-right: 0 !important;
+            margin-right: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .me-sm-smash {
@@ -4650,7 +4590,7 @@ $utilities: ();
           }
 
           .mb-sm-none {
-            margin-bottom: 0 !important;
+            margin-bottom: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .mb-sm-smash {
@@ -4702,7 +4642,7 @@ $utilities: ();
           }
 
           .ms-sm-none {
-            margin-left: 0 !important;
+            margin-left: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .ms-sm-smash {
@@ -4754,7 +4694,7 @@ $utilities: ();
           }
 
           .p-sm-none {
-            padding: 0 !important;
+            padding: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .p-sm-smash {
@@ -4802,8 +4742,8 @@ $utilities: ();
           }
 
           .px-sm-none {
-            padding-right: 0 !important;
-            padding-left: 0 !important;
+            padding-right: 0px !important; // stylelint-disable-line length-zero-no-unit
+            padding-left: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .px-sm-smash {
@@ -4862,8 +4802,8 @@ $utilities: ();
           }
 
           .py-sm-none {
-            padding-top: 0 !important;
-            padding-bottom: 0 !important;
+            padding-top: 0px !important; // stylelint-disable-line length-zero-no-unit
+            padding-bottom: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .py-sm-smash {
@@ -4922,7 +4862,7 @@ $utilities: ();
           }
 
           .pt-sm-none {
-            padding-top: 0 !important;
+            padding-top: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .pt-sm-smash {
@@ -4970,7 +4910,7 @@ $utilities: ();
           }
 
           .pe-sm-none {
-            padding-right: 0 !important;
+            padding-right: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .pe-sm-smash {
@@ -5018,7 +4958,7 @@ $utilities: ();
           }
 
           .pb-sm-none {
-            padding-bottom: 0 !important;
+            padding-bottom: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .pb-sm-smash {
@@ -5066,7 +5006,7 @@ $utilities: ();
           }
 
           .ps-sm-none {
-            padding-left: 0 !important;
+            padding-left: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .ps-sm-smash {
@@ -5114,7 +5054,7 @@ $utilities: ();
           }
 
           .gap-sm-none {
-            gap: 0 !important;
+            gap: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .gap-sm-smash {
@@ -5162,7 +5102,7 @@ $utilities: ();
           }
 
           .row-gap-sm-none {
-            row-gap: 0 !important;
+            row-gap: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .row-gap-sm-smash {
@@ -5210,7 +5150,7 @@ $utilities: ();
           }
 
           .column-gap-sm-none {
-            column-gap: 0 !important;
+            column-gap: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .column-gap-sm-smash {
@@ -5272,7 +5212,7 @@ $utilities: ();
 
         @media (min-width: 736px) {
           .m-md-none {
-            margin: 0 !important;
+            margin: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .m-md-smash {
@@ -5324,8 +5264,8 @@ $utilities: ();
           }
 
           .mx-md-none {
-            margin-right: 0 !important;
-            margin-left: 0 !important;
+            margin-right: 0px !important; // stylelint-disable-line length-zero-no-unit
+            margin-left: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .mx-md-smash {
@@ -5389,8 +5329,8 @@ $utilities: ();
           }
 
           .my-md-none {
-            margin-top: 0 !important;
-            margin-bottom: 0 !important;
+            margin-top: 0px !important; // stylelint-disable-line length-zero-no-unit
+            margin-bottom: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .my-md-smash {
@@ -5454,7 +5394,7 @@ $utilities: ();
           }
 
           .mt-md-none {
-            margin-top: 0 !important;
+            margin-top: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .mt-md-smash {
@@ -5506,7 +5446,7 @@ $utilities: ();
           }
 
           .me-md-none {
-            margin-right: 0 !important;
+            margin-right: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .me-md-smash {
@@ -5558,7 +5498,7 @@ $utilities: ();
           }
 
           .mb-md-none {
-            margin-bottom: 0 !important;
+            margin-bottom: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .mb-md-smash {
@@ -5610,7 +5550,7 @@ $utilities: ();
           }
 
           .ms-md-none {
-            margin-left: 0 !important;
+            margin-left: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .ms-md-smash {
@@ -5662,7 +5602,7 @@ $utilities: ();
           }
 
           .p-md-none {
-            padding: 0 !important;
+            padding: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .p-md-smash {
@@ -5710,8 +5650,8 @@ $utilities: ();
           }
 
           .px-md-none {
-            padding-right: 0 !important;
-            padding-left: 0 !important;
+            padding-right: 0px !important; // stylelint-disable-line length-zero-no-unit
+            padding-left: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .px-md-smash {
@@ -5770,8 +5710,8 @@ $utilities: ();
           }
 
           .py-md-none {
-            padding-top: 0 !important;
-            padding-bottom: 0 !important;
+            padding-top: 0px !important; // stylelint-disable-line length-zero-no-unit
+            padding-bottom: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .py-md-smash {
@@ -5830,7 +5770,7 @@ $utilities: ();
           }
 
           .pt-md-none {
-            padding-top: 0 !important;
+            padding-top: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .pt-md-smash {
@@ -5878,7 +5818,7 @@ $utilities: ();
           }
 
           .pe-md-none {
-            padding-right: 0 !important;
+            padding-right: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .pe-md-smash {
@@ -5926,7 +5866,7 @@ $utilities: ();
           }
 
           .pb-md-none {
-            padding-bottom: 0 !important;
+            padding-bottom: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .pb-md-smash {
@@ -5974,7 +5914,7 @@ $utilities: ();
           }
 
           .ps-md-none {
-            padding-left: 0 !important;
+            padding-left: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .ps-md-smash {
@@ -6022,7 +5962,7 @@ $utilities: ();
           }
 
           .gap-md-none {
-            gap: 0 !important;
+            gap: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .gap-md-smash {
@@ -6070,7 +6010,7 @@ $utilities: ();
           }
 
           .row-gap-md-none {
-            row-gap: 0 !important;
+            row-gap: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .row-gap-md-smash {
@@ -6118,7 +6058,7 @@ $utilities: ();
           }
 
           .column-gap-md-none {
-            column-gap: 0 !important;
+            column-gap: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .column-gap-md-smash {
@@ -6180,7 +6120,7 @@ $utilities: ();
 
         @media (min-width: 1024px) {
           .m-lg-none {
-            margin: 0 !important;
+            margin: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .m-lg-smash {
@@ -6232,8 +6172,8 @@ $utilities: ();
           }
 
           .mx-lg-none {
-            margin-right: 0 !important;
-            margin-left: 0 !important;
+            margin-right: 0px !important; // stylelint-disable-line length-zero-no-unit
+            margin-left: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .mx-lg-smash {
@@ -6297,8 +6237,8 @@ $utilities: ();
           }
 
           .my-lg-none {
-            margin-top: 0 !important;
-            margin-bottom: 0 !important;
+            margin-top: 0px !important; // stylelint-disable-line length-zero-no-unit
+            margin-bottom: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .my-lg-smash {
@@ -6362,7 +6302,7 @@ $utilities: ();
           }
 
           .mt-lg-none {
-            margin-top: 0 !important;
+            margin-top: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .mt-lg-smash {
@@ -6414,7 +6354,7 @@ $utilities: ();
           }
 
           .me-lg-none {
-            margin-right: 0 !important;
+            margin-right: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .me-lg-smash {
@@ -6466,7 +6406,7 @@ $utilities: ();
           }
 
           .mb-lg-none {
-            margin-bottom: 0 !important;
+            margin-bottom: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .mb-lg-smash {
@@ -6518,7 +6458,7 @@ $utilities: ();
           }
 
           .ms-lg-none {
-            margin-left: 0 !important;
+            margin-left: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .ms-lg-smash {
@@ -6570,7 +6510,7 @@ $utilities: ();
           }
 
           .p-lg-none {
-            padding: 0 !important;
+            padding: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .p-lg-smash {
@@ -6618,8 +6558,8 @@ $utilities: ();
           }
 
           .px-lg-none {
-            padding-right: 0 !important;
-            padding-left: 0 !important;
+            padding-right: 0px !important; // stylelint-disable-line length-zero-no-unit
+            padding-left: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .px-lg-smash {
@@ -6678,8 +6618,8 @@ $utilities: ();
           }
 
           .py-lg-none {
-            padding-top: 0 !important;
-            padding-bottom: 0 !important;
+            padding-top: 0px !important; // stylelint-disable-line length-zero-no-unit
+            padding-bottom: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .py-lg-smash {
@@ -6738,7 +6678,7 @@ $utilities: ();
           }
 
           .pt-lg-none {
-            padding-top: 0 !important;
+            padding-top: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .pt-lg-smash {
@@ -6786,7 +6726,7 @@ $utilities: ();
           }
 
           .pe-lg-none {
-            padding-right: 0 !important;
+            padding-right: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .pe-lg-smash {
@@ -6834,7 +6774,7 @@ $utilities: ();
           }
 
           .pb-lg-none {
-            padding-bottom: 0 !important;
+            padding-bottom: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .pb-lg-smash {
@@ -6882,7 +6822,7 @@ $utilities: ();
           }
 
           .ps-lg-none {
-            padding-left: 0 !important;
+            padding-left: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .ps-lg-smash {
@@ -6930,7 +6870,7 @@ $utilities: ();
           }
 
           .gap-lg-none {
-            gap: 0 !important;
+            gap: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .gap-lg-smash {
@@ -6978,7 +6918,7 @@ $utilities: ();
           }
 
           .row-gap-lg-none {
-            row-gap: 0 !important;
+            row-gap: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .row-gap-lg-smash {
@@ -7026,7 +6966,7 @@ $utilities: ();
           }
 
           .column-gap-lg-none {
-            column-gap: 0 !important;
+            column-gap: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .column-gap-lg-smash {
@@ -7088,7 +7028,7 @@ $utilities: ();
 
         @media (min-width: 1320px) {
           .m-xl-none {
-            margin: 0 !important;
+            margin: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .m-xl-smash {
@@ -7140,8 +7080,8 @@ $utilities: ();
           }
 
           .mx-xl-none {
-            margin-right: 0 !important;
-            margin-left: 0 !important;
+            margin-right: 0px !important; // stylelint-disable-line length-zero-no-unit
+            margin-left: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .mx-xl-smash {
@@ -7205,8 +7145,8 @@ $utilities: ();
           }
 
           .my-xl-none {
-            margin-top: 0 !important;
-            margin-bottom: 0 !important;
+            margin-top: 0px !important; // stylelint-disable-line length-zero-no-unit
+            margin-bottom: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .my-xl-smash {
@@ -7270,7 +7210,7 @@ $utilities: ();
           }
 
           .mt-xl-none {
-            margin-top: 0 !important;
+            margin-top: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .mt-xl-smash {
@@ -7322,7 +7262,7 @@ $utilities: ();
           }
 
           .me-xl-none {
-            margin-right: 0 !important;
+            margin-right: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .me-xl-smash {
@@ -7374,7 +7314,7 @@ $utilities: ();
           }
 
           .mb-xl-none {
-            margin-bottom: 0 !important;
+            margin-bottom: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .mb-xl-smash {
@@ -7426,7 +7366,7 @@ $utilities: ();
           }
 
           .ms-xl-none {
-            margin-left: 0 !important;
+            margin-left: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .ms-xl-smash {
@@ -7478,7 +7418,7 @@ $utilities: ();
           }
 
           .p-xl-none {
-            padding: 0 !important;
+            padding: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .p-xl-smash {
@@ -7526,8 +7466,8 @@ $utilities: ();
           }
 
           .px-xl-none {
-            padding-right: 0 !important;
-            padding-left: 0 !important;
+            padding-right: 0px !important; // stylelint-disable-line length-zero-no-unit
+            padding-left: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .px-xl-smash {
@@ -7586,8 +7526,8 @@ $utilities: ();
           }
 
           .py-xl-none {
-            padding-top: 0 !important;
-            padding-bottom: 0 !important;
+            padding-top: 0px !important; // stylelint-disable-line length-zero-no-unit
+            padding-bottom: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .py-xl-smash {
@@ -7646,7 +7586,7 @@ $utilities: ();
           }
 
           .pt-xl-none {
-            padding-top: 0 !important;
+            padding-top: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .pt-xl-smash {
@@ -7694,7 +7634,7 @@ $utilities: ();
           }
 
           .pe-xl-none {
-            padding-right: 0 !important;
+            padding-right: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .pe-xl-smash {
@@ -7742,7 +7682,7 @@ $utilities: ();
           }
 
           .pb-xl-none {
-            padding-bottom: 0 !important;
+            padding-bottom: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .pb-xl-smash {
@@ -7790,7 +7730,7 @@ $utilities: ();
           }
 
           .ps-xl-none {
-            padding-left: 0 !important;
+            padding-left: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .ps-xl-smash {
@@ -7838,7 +7778,7 @@ $utilities: ();
           }
 
           .gap-xl-none {
-            gap: 0 !important;
+            gap: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .gap-xl-smash {
@@ -7886,7 +7826,7 @@ $utilities: ();
           }
 
           .row-gap-xl-none {
-            row-gap: 0 !important;
+            row-gap: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .row-gap-xl-smash {
@@ -7934,7 +7874,7 @@ $utilities: ();
           }
 
           .column-gap-xl-none {
-            column-gap: 0 !important;
+            column-gap: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .column-gap-xl-smash {
@@ -7996,7 +7936,7 @@ $utilities: ();
 
         @media (min-width: 1640px) {
           .m-2xl-none {
-            margin: 0 !important;
+            margin: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .m-2xl-smash {
@@ -8048,8 +7988,8 @@ $utilities: ();
           }
 
           .mx-2xl-none {
-            margin-right: 0 !important;
-            margin-left: 0 !important;
+            margin-right: 0px !important; // stylelint-disable-line length-zero-no-unit
+            margin-left: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .mx-2xl-smash {
@@ -8113,8 +8053,8 @@ $utilities: ();
           }
 
           .my-2xl-none {
-            margin-top: 0 !important;
-            margin-bottom: 0 !important;
+            margin-top: 0px !important; // stylelint-disable-line length-zero-no-unit
+            margin-bottom: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .my-2xl-smash {
@@ -8178,7 +8118,7 @@ $utilities: ();
           }
 
           .mt-2xl-none {
-            margin-top: 0 !important;
+            margin-top: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .mt-2xl-smash {
@@ -8230,7 +8170,7 @@ $utilities: ();
           }
 
           .me-2xl-none {
-            margin-right: 0 !important;
+            margin-right: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .me-2xl-smash {
@@ -8282,7 +8222,7 @@ $utilities: ();
           }
 
           .mb-2xl-none {
-            margin-bottom: 0 !important;
+            margin-bottom: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .mb-2xl-smash {
@@ -8334,7 +8274,7 @@ $utilities: ();
           }
 
           .ms-2xl-none {
-            margin-left: 0 !important;
+            margin-left: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .ms-2xl-smash {
@@ -8386,7 +8326,7 @@ $utilities: ();
           }
 
           .p-2xl-none {
-            padding: 0 !important;
+            padding: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .p-2xl-smash {
@@ -8434,8 +8374,8 @@ $utilities: ();
           }
 
           .px-2xl-none {
-            padding-right: 0 !important;
-            padding-left: 0 !important;
+            padding-right: 0px !important; // stylelint-disable-line length-zero-no-unit
+            padding-left: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .px-2xl-smash {
@@ -8494,8 +8434,8 @@ $utilities: ();
           }
 
           .py-2xl-none {
-            padding-top: 0 !important;
-            padding-bottom: 0 !important;
+            padding-top: 0px !important; // stylelint-disable-line length-zero-no-unit
+            padding-bottom: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .py-2xl-smash {
@@ -8554,7 +8494,7 @@ $utilities: ();
           }
 
           .pt-2xl-none {
-            padding-top: 0 !important;
+            padding-top: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .pt-2xl-smash {
@@ -8602,7 +8542,7 @@ $utilities: ();
           }
 
           .pe-2xl-none {
-            padding-right: 0 !important;
+            padding-right: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .pe-2xl-smash {
@@ -8650,7 +8590,7 @@ $utilities: ();
           }
 
           .pb-2xl-none {
-            padding-bottom: 0 !important;
+            padding-bottom: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .pb-2xl-smash {
@@ -8698,7 +8638,7 @@ $utilities: ();
           }
 
           .ps-2xl-none {
-            padding-left: 0 !important;
+            padding-left: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .ps-2xl-smash {
@@ -8746,7 +8686,7 @@ $utilities: ();
           }
 
           .gap-2xl-none {
-            gap: 0 !important;
+            gap: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .gap-2xl-smash {
@@ -8794,7 +8734,7 @@ $utilities: ();
           }
 
           .row-gap-2xl-none {
-            row-gap: 0 !important;
+            row-gap: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .row-gap-2xl-smash {
@@ -8842,7 +8782,7 @@ $utilities: ();
           }
 
           .column-gap-2xl-none {
-            column-gap: 0 !important;
+            column-gap: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .column-gap-2xl-smash {
@@ -8904,7 +8844,7 @@ $utilities: ();
 
         @media (min-width: 1880px) {
           .m-3xl-none {
-            margin: 0 !important;
+            margin: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .m-3xl-smash {
@@ -8956,8 +8896,8 @@ $utilities: ();
           }
 
           .mx-3xl-none {
-            margin-right: 0 !important;
-            margin-left: 0 !important;
+            margin-right: 0px !important; // stylelint-disable-line length-zero-no-unit
+            margin-left: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .mx-3xl-smash {
@@ -9021,8 +8961,8 @@ $utilities: ();
           }
 
           .my-3xl-none {
-            margin-top: 0 !important;
-            margin-bottom: 0 !important;
+            margin-top: 0px !important; // stylelint-disable-line length-zero-no-unit
+            margin-bottom: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .my-3xl-smash {
@@ -9086,7 +9026,7 @@ $utilities: ();
           }
 
           .mt-3xl-none {
-            margin-top: 0 !important;
+            margin-top: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .mt-3xl-smash {
@@ -9138,7 +9078,7 @@ $utilities: ();
           }
 
           .me-3xl-none {
-            margin-right: 0 !important;
+            margin-right: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .me-3xl-smash {
@@ -9190,7 +9130,7 @@ $utilities: ();
           }
 
           .mb-3xl-none {
-            margin-bottom: 0 !important;
+            margin-bottom: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .mb-3xl-smash {
@@ -9242,7 +9182,7 @@ $utilities: ();
           }
 
           .ms-3xl-none {
-            margin-left: 0 !important;
+            margin-left: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .ms-3xl-smash {
@@ -9294,7 +9234,7 @@ $utilities: ();
           }
 
           .p-3xl-none {
-            padding: 0 !important;
+            padding: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .p-3xl-smash {
@@ -9342,8 +9282,8 @@ $utilities: ();
           }
 
           .px-3xl-none {
-            padding-right: 0 !important;
-            padding-left: 0 !important;
+            padding-right: 0px !important; // stylelint-disable-line length-zero-no-unit
+            padding-left: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .px-3xl-smash {
@@ -9402,8 +9342,8 @@ $utilities: ();
           }
 
           .py-3xl-none {
-            padding-top: 0 !important;
-            padding-bottom: 0 !important;
+            padding-top: 0px !important; // stylelint-disable-line length-zero-no-unit
+            padding-bottom: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .py-3xl-smash {
@@ -9462,7 +9402,7 @@ $utilities: ();
           }
 
           .pt-3xl-none {
-            padding-top: 0 !important;
+            padding-top: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .pt-3xl-smash {
@@ -9510,7 +9450,7 @@ $utilities: ();
           }
 
           .pe-3xl-none {
-            padding-right: 0 !important;
+            padding-right: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .pe-3xl-smash {
@@ -9558,7 +9498,7 @@ $utilities: ();
           }
 
           .pb-3xl-none {
-            padding-bottom: 0 !important;
+            padding-bottom: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .pb-3xl-smash {
@@ -9606,7 +9546,7 @@ $utilities: ();
           }
 
           .ps-3xl-none {
-            padding-left: 0 !important;
+            padding-left: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .ps-3xl-smash {
@@ -9654,7 +9594,7 @@ $utilities: ();
           }
 
           .gap-3xl-none {
-            gap: 0 !important;
+            gap: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .gap-3xl-smash {
@@ -9702,7 +9642,7 @@ $utilities: ();
           }
 
           .row-gap-3xl-none {
-            row-gap: 0 !important;
+            row-gap: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .row-gap-3xl-smash {
@@ -9750,7 +9690,7 @@ $utilities: ();
           }
 
           .column-gap-3xl-none {
-            column-gap: 0 !important;
+            column-gap: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .column-gap-3xl-smash {
@@ -9923,7 +9863,7 @@ $utilities: ();
             property: border-top,
             values: (
               null: var(--#{$prefix}border-width) var(--#{$prefix}border-style) var(--#{$prefix}border-color),
-              "none": strip-units($ouds-border-width-none),
+              "none": 0,
             ),
           ),
           "border-end-ouds": (
@@ -10580,97 +10520,79 @@ $utilities: ();
       @include expect() {
         :root,
         [data-bs-theme="light"] {
-          --bs-color-transparent-default: rgba(0, 0, 0, 0);
-          --bs-color-action-disabled: #ccc;
+          --bs-color-opacity-invisible-black: rgba(0, 0, 0, 0);
+          --bs-color-opacity-invisible-white: rgba(255, 255, 255, 0);
+          --bs-color-action-disabled: rgba(0, 0, 0, 0.2); // stylelint-disable-line @stylistic/number-leading-zero
+          --bs-color-action-enabled: #000;
+          --bs-color-action-focus: rgba(0, 0, 0, 0.68); // stylelint-disable-line @stylistic/number-leading-zero
+          --bs-color-action-highlighted: #000;
+          --bs-color-action-hover: rgba(0, 0, 0, 0.68); // stylelint-disable-line @stylistic/number-leading-zero
+          --bs-color-action-loading: #f15e00;
           --bs-color-action-negative-enabled: #ea0305;
           --bs-color-action-negative-focus: #b20002;
           --bs-color-action-negative-hover: #b20002;
           --bs-color-action-negative-loading: #800001;
           --bs-color-action-negative-pressed: #800001;
-          --bs-color-action-primary-enabled: #000;
-          --bs-color-action-primary-focus: #555;
-          --bs-color-action-primary-hover: #555;
-          --bs-color-action-primary-loading: #f16e00;
-          --bs-color-action-primary-pressed: #f16e00;
-          --bs-color-action-secondary-enabled: #f4f4f4;
-          --bs-color-action-secondary-focus: #eee;
-          --bs-color-action-secondary-hover: #eee;
-          --bs-color-action-secondary-loading: #eee;
-          --bs-color-action-secondary-pressed: #eee;
-          --bs-color-action-selected: #f16e00;
+          --bs-color-action-pressed: #f15e00;
+          --bs-color-action-selected: #f15e00;
+          --bs-color-action-support-enabled: rgba(0, 0, 0, 0.04); // stylelint-disable-line @stylistic/number-leading-zero
+          --bs-color-action-support-focus: rgba(0, 0, 0, 0.08); // stylelint-disable-line @stylistic/number-leading-zero
+          --bs-color-action-support-hover: rgba(0, 0, 0, 0.08); // stylelint-disable-line @stylistic/number-leading-zero
+          --bs-color-action-support-loading: rgba(0, 0, 0, 0.08); // stylelint-disable-line @stylistic/number-leading-zero
+          --bs-color-action-support-pressed: rgba(0, 0, 0, 0.08); // stylelint-disable-line @stylistic/number-leading-zero
           --bs-color-action-visited: #5b2f98;
-          --bs-color-always-accent: #ffd000;
           --bs-color-always-black: #000;
-          --bs-color-always-info: #26b2ff;
-          --bs-color-always-negative: #ea0305;
-          --bs-color-always-on-accent: #000;
           --bs-color-always-on-black: #fff;
-          --bs-color-always-on-info: #000;
-          --bs-color-always-on-negative: #fff;
-          --bs-color-always-on-positive: #000;
-          --bs-color-always-on-warning: #000;
           --bs-color-always-on-white: #000;
-          --bs-color-always-positive: #3de35a;
-          --bs-color-always-warning: #ffd000;
           --bs-color-always-white: #fff;
-          --bs-color-bg-brand-primary: #f16e00;
+          --bs-color-bg-emphasized: #141414;
           --bs-color-bg-primary: #fff;
           --bs-color-bg-secondary: #f4f4f4;
-          --bs-color-bg-status-accent-emphasized: #ffd000;
-          --bs-color-bg-status-accent-muted: #f9f5f0;
-          --bs-color-bg-status-info-emphasized: #26b2ff;
-          --bs-color-bg-status-info-muted: #f0faff;
-          --bs-color-bg-status-negative-emphasized: #ea0305;
-          --bs-color-bg-status-negative-muted: #ffe5e6;
-          --bs-color-bg-status-neutral: #f4f4f4;
-          --bs-color-bg-status-positive-emphasized: #3de35a;
-          --bs-color-bg-status-positive-muted: #edfcf0;
-          --bs-color-bg-status-warning-emphasized: #ffd000;
-          --bs-color-bg-status-warning-muted: #fff7d6;
           --bs-color-bg-tertiary: #f9f5f0;
-          --bs-color-border-brand-primary: #f16e00;
-          --bs-color-border-default: #ccc;
+          --bs-color-border-brand-primary: #f15e00;
+          --bs-color-border-default: rgba(0, 0, 0, 0.2); // stylelint-disable-line @stylistic/number-leading-zero
           --bs-color-border-emphasized: #000;
           --bs-color-border-focus: #000;
           --bs-color-border-focus-inset: #fff;
-          --bs-color-border-on-brand-primary: #fff;
-          --bs-color-content-brand-primary: #f16e00;
+          --bs-color-border-on-brand-primary: #000;
+          --bs-color-content-brand-primary: #f15e00;
           --bs-color-content-default: #000;
-          --bs-color-content-disabled: #ccc;
-          --bs-color-content-muted: #555;
+          --bs-color-content-disabled: rgba(0, 0, 0, 0.2); // stylelint-disable-line @stylistic/number-leading-zero
+          --bs-color-content-muted: rgba(0, 0, 0, 0.68); // stylelint-disable-line @stylistic/number-leading-zero
           --bs-color-content-on-action-disabled: #fff;
+          --bs-color-content-on-action-enabled: #fff;
+          --bs-color-content-on-action-focus: #fff;
+          --bs-color-content-on-action-highlighted: #fff;
+          --bs-color-content-on-action-hover: #fff;
+          --bs-color-content-on-action-loading: #fff;
           --bs-color-content-on-action-negative: #fff;
-          --bs-color-content-on-action-primary-enabled: #fff;
-          --bs-color-content-on-action-primary-focus: #fff;
-          --bs-color-content-on-action-primary-hover: #fff;
-          --bs-color-content-on-action-primary-loading: #fff;
-          --bs-color-content-on-action-primary-pressed: #fff;
-          --bs-color-content-on-brand-primary: #fff;
-          --bs-color-content-on-status-accent-emphasized: #000;
-          --bs-color-content-on-status-accent-muted: #000;
-          --bs-color-content-on-status-info-emphasized: #000;
-          --bs-color-content-on-status-info-muted: #000;
-          --bs-color-content-on-status-negative-emphasized: #fff;
-          --bs-color-content-on-status-negative-muted: #000;
-          --bs-color-content-on-status-positive-emphasized: #000;
-          --bs-color-content-on-status-positive-muted: #000;
-          --bs-color-content-on-status-warning-emphasized: #000;
-          --bs-color-content-on-status-warning-muted: #000;
+          --bs-color-content-on-action-pressed: #fff;
+          --bs-color-content-on-brand-primary: #000;
+          --bs-color-content-on-overlay-emphasized: #fff;
+          --bs-color-content-on-status-emphasized: #000;
+          --bs-color-content-on-status-emphasized-neutral: #fff;
+          --bs-color-content-on-status-muted: #000;
           --bs-color-content-status-info: #26b2ff;
           --bs-color-content-status-negative: #ea0305;
           --bs-color-content-status-positive: #3de35a;
           --bs-color-content-status-warning: #ffd000;
-          --bs-color-elevation-drag: #f4f4f4;
-          --bs-color-elevation-drag-on-bg-secondary: #f4f4f4;
-          --bs-color-elevation-modal: #fff;
-          --bs-color-elevation-overlay-default: #fff;
-          --bs-color-elevation-overlay-default-on-bg-secondary: #fff;
-          --bs-color-elevation-overlay-emphasized: #333;
-          --bs-color-elevation-overlay-emphasized-on-bg-secondary: #333;
-          --bs-color-elevation-raised: #fff;
-          --bs-color-elevation-raised-on-bg-secondary: #fff;
-          --bs-color-gradient-skeleton-middle: #eee;
-          --bs-color-gradient-skeleton-start-end: #f4f4f4;
+          --bs-color-overlay-default: #fff;
+          --bs-color-overlay-drag: rgba(0, 0, 0, 0.04); // stylelint-disable-line @stylistic/number-leading-zero
+          --bs-color-overlay-emphasized: #272727;
+          --bs-color-overlay-modal: #fff;
+          --bs-color-surface-brand-primary: #ff7900;
+          --bs-color-surface-status-accent-emphasized: #ffd000;
+          --bs-color-surface-status-accent-muted: rgba(255, 208, 0, 0.16); // stylelint-disable-line @stylistic/number-leading-zero
+          --bs-color-surface-status-info-emphasized: #26b2ff;
+          --bs-color-surface-status-info-muted: rgba(38, 178, 255, 0.08); // stylelint-disable-line @stylistic/number-leading-zero
+          --bs-color-surface-status-negative-emphasized: #ea0305;
+          --bs-color-surface-status-negative-muted: rgba(234, 3, 5, 0.08); // stylelint-disable-line @stylistic/number-leading-zero
+          --bs-color-surface-status-neutral-emphasized: rgba(0, 0, 0, 0.84); // stylelint-disable-line @stylistic/number-leading-zero
+          --bs-color-surface-status-neutral-muted: rgba(0, 0, 0, 0.04); // stylelint-disable-line @stylistic/number-leading-zero
+          --bs-color-surface-status-positive-emphasized: #3de35a;
+          --bs-color-surface-status-positive-muted: rgba(61, 227, 90, 0.12); // stylelint-disable-line @stylistic/number-leading-zero
+          --bs-color-surface-status-warning-emphasized: #ffd000;
+          --bs-color-surface-status-warning-muted: rgba(255, 208, 0, 0.16); // stylelint-disable-line @stylistic/number-leading-zero
           --bs-color-decorative-accent-1-default: #50be87;
           --bs-color-decorative-accent-1-emphasized: #2e7b54;
           --bs-color-decorative-accent-1-muted: #c0e8d4;
@@ -10701,108 +10623,82 @@ $utilities: ();
           --bs-color-decorative-skin-tint-700: #7e4f2a;
           --bs-color-decorative-skin-tint-800: #553720;
           --bs-color-decorative-skin-tint-900: #2e2014;
-          --bs-elevation-color-none: rgba(0, 0, 0, 0);
-          --bs-elevation-color-raised: rgba(0, 0, 0, 0.32); // stylelint-disable-line @stylistic/number-leading-zero
-          --bs-elevation-color-drag: rgba(0, 0, 0, 0.32); // stylelint-disable-line @stylistic/number-leading-zero
-          --bs-elevation-color-overlay-default: rgba(0, 0, 0, 0.24); // stylelint-disable-line @stylistic/number-leading-zero
-          --bs-elevation-color-overlay-emphasized: rgba(0, 0, 0, 0.16); // stylelint-disable-line @stylistic/number-leading-zero
-          --bs-elevation-color-sticky-default: rgba(0, 0, 0, 0.16); // stylelint-disable-line @stylistic/number-leading-zero
-          --bs-elevation-color-sticky-emphasized: rgba(0, 0, 0, 0.16); // stylelint-disable-line @stylistic/number-leading-zero
-          --bs-elevation-color-sticky-navigation-scrolled: rgba(0, 0, 0, 0.16); // stylelint-disable-line @stylistic/number-leading-zero
         }
 
         [data-bs-theme="dark"] {
-          --bs-color-transparent-default: rgba(0, 0, 0, 0);
-          --bs-color-action-disabled: #555;
-          --bs-color-action-negative-enabled: #ea0305;
-          --bs-color-action-negative-focus: #b20002;
-          --bs-color-action-negative-hover: #b20002;
-          --bs-color-action-negative-loading: #800001;
-          --bs-color-action-negative-pressed: #800001;
-          --bs-color-action-primary-enabled: #eee;
-          --bs-color-action-primary-focus: #bbb;
-          --bs-color-action-primary-hover: #bbb;
-          --bs-color-action-primary-loading: #ff7900;
-          --bs-color-action-primary-pressed: #ff7900;
-          --bs-color-action-secondary-enabled: #272727;
-          --bs-color-action-secondary-focus: #333;
-          --bs-color-action-secondary-hover: #333;
-          --bs-color-action-secondary-loading: #333;
-          --bs-color-action-secondary-pressed: #333;
+          --bs-color-opacity-invisible-black: rgba(255, 255, 255, 0);
+          --bs-color-opacity-invisible-white: rgba(255, 255, 255, 0);
+          --bs-color-action-disabled: rgba(255, 255, 255, 0.2); // stylelint-disable-line @stylistic/number-leading-zero
+          --bs-color-action-enabled: #eee;
+          --bs-color-action-focus: rgba(255, 255, 255, 0.64); // stylelint-disable-line @stylistic/number-leading-zero
+          --bs-color-action-highlighted: #eee;
+          --bs-color-action-hover: rgba(255, 255, 255, 0.64); // stylelint-disable-line @stylistic/number-leading-zero
+          --bs-color-action-loading: #ff7900;
+          --bs-color-action-negative-enabled: #ff8081;
+          --bs-color-action-negative-focus: #ffb2b3;
+          --bs-color-action-negative-hover: #ffb2b3;
+          --bs-color-action-negative-loading: #ffe5e6;
+          --bs-color-action-negative-pressed: #ffe5e6;
+          --bs-color-action-pressed: #ff7900;
           --bs-color-action-selected: #ff7900;
+          --bs-color-action-support-enabled: rgba(255, 255, 255, 0.04); // stylelint-disable-line @stylistic/number-leading-zero
+          --bs-color-action-support-focus: rgba(255, 255, 255, 0.08); // stylelint-disable-line @stylistic/number-leading-zero
+          --bs-color-action-support-hover: rgba(255, 255, 255, 0.08); // stylelint-disable-line @stylistic/number-leading-zero
+          --bs-color-action-support-loading: rgba(255, 255, 255, 0.08); // stylelint-disable-line @stylistic/number-leading-zero
+          --bs-color-action-support-pressed: rgba(255, 255, 255, 0.08); // stylelint-disable-line @stylistic/number-leading-zero
           --bs-color-action-visited: #a885d8;
-          --bs-color-always-accent: #ffd000;
           --bs-color-always-black: #000;
-          --bs-color-always-info: #26b2ff;
-          --bs-color-always-negative: #ea0305;
-          --bs-color-always-on-accent: #141414;
           --bs-color-always-on-black: #eee;
-          --bs-color-always-on-info: #141414;
-          --bs-color-always-on-negative: #eee;
-          --bs-color-always-on-positive: #141414;
-          --bs-color-always-on-warning: #141414;
-          --bs-color-always-on-white: #141414;
-          --bs-color-always-positive: #3de35a;
-          --bs-color-always-warning: #ffd000;
+          --bs-color-always-on-white: #000;
           --bs-color-always-white: #fff;
-          --bs-color-bg-brand-primary: #ff7900;
+          --bs-color-bg-emphasized: #333;
           --bs-color-bg-primary: #141414;
           --bs-color-bg-secondary: #1f1f1f;
-          --bs-color-bg-status-accent-emphasized: #ffd000;
-          --bs-color-bg-status-accent-muted: #353228;
-          --bs-color-bg-status-info-emphasized: #26b2ff;
-          --bs-color-bg-status-info-muted: #003857;
-          --bs-color-bg-status-negative-emphasized: #ea0305;
-          --bs-color-bg-status-negative-muted: #4d0001;
-          --bs-color-bg-status-neutral: #272727;
-          --bs-color-bg-status-positive-emphasized: #3de35a;
-          --bs-color-bg-status-positive-muted: #0a4715;
-          --bs-color-bg-status-warning-emphasized: #ffd000;
-          --bs-color-bg-status-warning-muted: #3d3100;
           --bs-color-bg-tertiary: #353228;
           --bs-color-border-brand-primary: #ff7900;
-          --bs-color-border-default: #555;
-          --bs-color-border-emphasized: #eee;
+          --bs-color-border-default: rgba(255, 255, 255, 0.2); // stylelint-disable-line @stylistic/number-leading-zero
+          --bs-color-border-emphasized: rgba(255, 255, 255, 0.92); // stylelint-disable-line @stylistic/number-leading-zero
           --bs-color-border-focus: #eee;
           --bs-color-border-focus-inset: #141414;
           --bs-color-border-on-brand-primary: #000;
           --bs-color-content-brand-primary: #ff7900;
           --bs-color-content-default: #eee;
-          --bs-color-content-disabled: #555;
-          --bs-color-content-muted: #bbb;
+          --bs-color-content-disabled: rgba(255, 255, 255, 0.2); // stylelint-disable-line @stylistic/number-leading-zero
+          --bs-color-content-muted: rgba(255, 255, 255, 0.64); // stylelint-disable-line @stylistic/number-leading-zero
           --bs-color-content-on-action-disabled: #000;
-          --bs-color-content-on-action-negative: #fff;
-          --bs-color-content-on-action-primary-enabled: #000;
-          --bs-color-content-on-action-primary-focus: #000;
-          --bs-color-content-on-action-primary-hover: #000;
-          --bs-color-content-on-action-primary-loading: #000;
-          --bs-color-content-on-action-primary-pressed: #000;
+          --bs-color-content-on-action-enabled: #000;
+          --bs-color-content-on-action-focus: #000;
+          --bs-color-content-on-action-highlighted: #000;
+          --bs-color-content-on-action-hover: #000;
+          --bs-color-content-on-action-loading: #000;
+          --bs-color-content-on-action-negative: #000;
+          --bs-color-content-on-action-pressed: #000;
           --bs-color-content-on-brand-primary: #000;
-          --bs-color-content-on-status-accent-emphasized: #000;
-          --bs-color-content-on-status-accent-muted: #eee;
-          --bs-color-content-on-status-info-emphasized: #000;
-          --bs-color-content-on-status-info-muted: #eee;
-          --bs-color-content-on-status-negative-emphasized: #fff;
-          --bs-color-content-on-status-negative-muted: #eee;
-          --bs-color-content-on-status-positive-emphasized: #000;
-          --bs-color-content-on-status-positive-muted: #eee;
-          --bs-color-content-on-status-warning-emphasized: #000;
-          --bs-color-content-on-status-warning-muted: #eee;
+          --bs-color-content-on-overlay-emphasized: #000;
+          --bs-color-content-on-status-emphasized: #000;
+          --bs-color-content-on-status-emphasized-neutral: #000;
+          --bs-color-content-on-status-muted: #eee;
           --bs-color-content-status-info: #26b2ff;
           --bs-color-content-status-negative: #ea0305;
           --bs-color-content-status-positive: #3de35a;
           --bs-color-content-status-warning: #ffd000;
-          --bs-color-elevation-drag: #272727;
-          --bs-color-elevation-drag-on-bg-secondary: #333;
-          --bs-color-elevation-modal: #333;
-          --bs-color-elevation-overlay-default: #272727;
-          --bs-color-elevation-overlay-default-on-bg-secondary: #333;
-          --bs-color-elevation-overlay-emphasized: #444;
-          --bs-color-elevation-overlay-emphasized-on-bg-secondary: #444;
-          --bs-color-elevation-raised: #1f1f1f;
-          --bs-color-elevation-raised-on-bg-secondary: #272727;
-          --bs-color-gradient-skeleton-middle: #272727;
-          --bs-color-gradient-skeleton-start-end: #1f1f1f;
+          --bs-color-overlay-default: rgba(255, 255, 255, 0.08); // stylelint-disable-line @stylistic/number-leading-zero
+          --bs-color-overlay-drag: rgba(255, 255, 255, 0.2); // stylelint-disable-line @stylistic/number-leading-zero
+          --bs-color-overlay-emphasized: #eee;
+          --bs-color-overlay-modal: #333;
+          --bs-color-surface-brand-primary: #ff7900;
+          --bs-color-surface-status-accent-emphasized: #ffe270;
+          --bs-color-surface-status-accent-muted: #353228;
+          --bs-color-surface-status-info-emphasized: #8ad5ff;
+          --bs-color-surface-status-info-muted: #003857;
+          --bs-color-surface-status-negative-emphasized: #ff8081;
+          --bs-color-surface-status-negative-muted: #4d0001;
+          --bs-color-surface-status-neutral-emphasized: rgba(255, 255, 255, 0.8); // stylelint-disable-line @stylistic/number-leading-zero
+          --bs-color-surface-status-neutral-muted: rgba(255, 255, 255, 0.08); // stylelint-disable-line @stylistic/number-leading-zero
+          --bs-color-surface-status-positive-emphasized: #94f0a4;
+          --bs-color-surface-status-positive-muted: #0a4715;
+          --bs-color-surface-status-warning-emphasized: #ffe270;
+          --bs-color-surface-status-warning-muted: #3d3100;
           --bs-color-decorative-accent-1-default: #50be87;
           --bs-color-decorative-accent-1-emphasized: #2e7b54;
           --bs-color-decorative-accent-1-muted: #c0e8d4;
@@ -10833,14 +10729,6 @@ $utilities: ();
           --bs-color-decorative-skin-tint-700: #7e4f2a;
           --bs-color-decorative-skin-tint-800: #553720;
           --bs-color-decorative-skin-tint-900: #2e2014;
-          --bs-elevation-color-none: rgba(0, 0, 0, 0);
-          --bs-elevation-color-raised: rgba(0, 0, 0, 0.32); // stylelint-disable-line @stylistic/number-leading-zero
-          --bs-elevation-color-drag: rgba(0, 0, 0, 0.32); // stylelint-disable-line @stylistic/number-leading-zero
-          --bs-elevation-color-overlay-default: rgba(0, 0, 0, 0.24); // stylelint-disable-line @stylistic/number-leading-zero
-          --bs-elevation-color-overlay-emphasized: rgba(0, 0, 0, 0.16); // stylelint-disable-line @stylistic/number-leading-zero
-          --bs-elevation-color-sticky-default: rgba(0, 0, 0, 0.16); // stylelint-disable-line @stylistic/number-leading-zero
-          --bs-elevation-color-sticky-emphasized: rgba(0, 0, 0, 0.16); // stylelint-disable-line @stylistic/number-leading-zero
-          --bs-elevation-color-sticky-navigation-scrolled: rgba(0, 0, 0, 0.16); // stylelint-disable-line @stylistic/number-leading-zero
         }
 
         .opacity-0 {
@@ -10863,7 +10751,7 @@ $utilities: ();
           opacity: 1 !important;
         }
 
-        .opacity-transparent {
+        .opacity-invisible {
           opacity: 0 !important;
         }
 
@@ -10947,12 +10835,12 @@ $utilities: ();
 
         .border-light {
           --bs-border-opacity: 1;
-          border-color: rgba(112, 112, 112, var(--bs-border-opacity)) !important;
+          border-color: rgba(85, 85, 85, var(--bs-border-opacity)) !important;
         }
 
         .border-dark {
           --bs-border-opacity: 1;
-          border-color: rgba(68, 68, 68, var(--bs-border-opacity)) !important;
+          border-color: rgba(39, 39, 39, var(--bs-border-opacity)) !important;
         }
 
         .border-black {
@@ -11242,11 +11130,11 @@ $utilities: ();
         }
 
         .rounded {
-          border-radius: 0 !important; // stylelint-disable-line property-disallowed-list
+          border-radius: 0px !important; // stylelint-disable-line property-disallowed-list, length-zero-no-unit
         }
 
         .rounded-none {
-          border-radius: 0 !important; // stylelint-disable-line property-disallowed-list
+          border-radius: 0px !important; // stylelint-disable-line property-disallowed-list, length-zero-no-unit
         }
 
         .rounded-short {
@@ -11270,13 +11158,13 @@ $utilities: ();
         }
 
         .rounded-top {
-          border-top-left-radius: 0 !important; // stylelint-disable-line property-disallowed-list
-          border-top-right-radius: 0 !important; // stylelint-disable-line property-disallowed-list
+          border-top-left-radius: 0px !important; // stylelint-disable-line property-disallowed-list, length-zero-no-unit
+          border-top-right-radius: 0px !important; // stylelint-disable-line property-disallowed-list, length-zero-no-unit
         }
 
         .rounded-top-none {
-          border-top-left-radius: 0 !important; // stylelint-disable-line property-disallowed-list
-          border-top-right-radius: 0 !important; // stylelint-disable-line property-disallowed-list
+          border-top-left-radius: 0px !important; // stylelint-disable-line property-disallowed-list, length-zero-no-unit
+          border-top-right-radius: 0px !important; // stylelint-disable-line property-disallowed-list, length-zero-no-unit
         }
 
         .rounded-top-short {
@@ -11305,13 +11193,13 @@ $utilities: ();
         }
 
         .rounded-end {
-          border-top-right-radius: 0 !important; // stylelint-disable-line property-disallowed-list
-          border-bottom-right-radius: 0 !important; // stylelint-disable-line property-disallowed-list
+          border-top-right-radius: 0px !important; // stylelint-disable-line property-disallowed-list, length-zero-no-unit
+          border-bottom-right-radius: 0px !important; // stylelint-disable-line property-disallowed-list, length-zero-no-unit
         }
 
         .rounded-end-none {
-          border-top-right-radius: 0 !important; // stylelint-disable-line property-disallowed-list
-          border-bottom-right-radius: 0 !important; // stylelint-disable-line property-disallowed-list
+          border-top-right-radius: 0px !important; // stylelint-disable-line property-disallowed-list, length-zero-no-unit
+          border-bottom-right-radius: 0px !important; // stylelint-disable-line property-disallowed-list, length-zero-no-unit
         }
 
         .rounded-end-short {
@@ -11340,13 +11228,13 @@ $utilities: ();
         }
 
         .rounded-bottom {
-          border-bottom-right-radius: 0 !important; // stylelint-disable-line property-disallowed-list
-          border-bottom-left-radius: 0 !important; // stylelint-disable-line property-disallowed-list
+          border-bottom-right-radius: 0px !important; // stylelint-disable-line property-disallowed-list, length-zero-no-unit
+          border-bottom-left-radius: 0px !important; // stylelint-disable-line property-disallowed-list, length-zero-no-unit
         }
 
         .rounded-bottom-none {
-          border-bottom-right-radius: 0 !important; // stylelint-disable-line property-disallowed-list
-          border-bottom-left-radius: 0 !important; // stylelint-disable-line property-disallowed-list
+          border-bottom-right-radius: 0px !important; // stylelint-disable-line property-disallowed-list, length-zero-no-unit
+          border-bottom-left-radius: 0px !important; // stylelint-disable-line property-disallowed-list, length-zero-no-unit
         }
 
         .rounded-bottom-short {
@@ -11375,13 +11263,13 @@ $utilities: ();
         }
 
         .rounded-start {
-          border-bottom-left-radius: 0 !important; // stylelint-disable-line property-disallowed-list
-          border-top-left-radius: 0 !important; // stylelint-disable-line property-disallowed-list, order/properties-order
+          border-bottom-left-radius: 0px !important; // stylelint-disable-line property-disallowed-list, length-zero-no-unit
+          border-top-left-radius: 0px !important; // stylelint-disable-line property-disallowed-list, order/properties-order, length-zero-no-unit
         }
 
         .rounded-start-none {
-          border-bottom-left-radius: 0 !important; // stylelint-disable-line property-disallowed-list
-          border-top-left-radius: 0 !important; // stylelint-disable-line property-disallowed-list, order/properties-order
+          border-bottom-left-radius: 0px !important; // stylelint-disable-line property-disallowed-list, length-zero-no-unit
+          border-top-left-radius: 0px !important; // stylelint-disable-line property-disallowed-list, order/properties-order, length-zero-no-unit
         }
 
         .rounded-start-short {
@@ -11842,7 +11730,7 @@ $utilities: ();
         }
 
         .m-none {
-          margin: 0 !important;
+          margin: 0px !important; // stylelint-disable-line length-zero-no-unit
         }
 
         .m-smash {
@@ -11934,8 +11822,8 @@ $utilities: ();
         }
 
         .mx-none {
-          margin-right: 0 !important;
-          margin-left: 0 !important;
+          margin-right: 0px !important; // stylelint-disable-line length-zero-no-unit
+          margin-left: 0px !important; // stylelint-disable-line length-zero-no-unit
         }
 
         .mx-smash {
@@ -12049,8 +11937,8 @@ $utilities: ();
         }
 
         .my-none {
-          margin-top: 0 !important;
-          margin-bottom: 0 !important;
+          margin-top: 0px !important; // stylelint-disable-line length-zero-no-unit
+          margin-bottom: 0px !important; // stylelint-disable-line length-zero-no-unit
         }
 
         .my-smash {
@@ -12164,7 +12052,7 @@ $utilities: ();
         }
 
         .mt-none {
-          margin-top: 0 !important;
+          margin-top: 0px !important; // stylelint-disable-line length-zero-no-unit
         }
 
         .mt-smash {
@@ -12256,7 +12144,7 @@ $utilities: ();
         }
 
         .me-none {
-          margin-right: 0 !important;
+          margin-right: 0px !important; // stylelint-disable-line length-zero-no-unit
         }
 
         .me-smash {
@@ -12348,7 +12236,7 @@ $utilities: ();
         }
 
         .mb-none {
-          margin-bottom: 0 !important;
+          margin-bottom: 0px !important; // stylelint-disable-line length-zero-no-unit
         }
 
         .mb-smash {
@@ -12440,7 +12328,7 @@ $utilities: ();
         }
 
         .ms-none {
-          margin-left: 0 !important;
+          margin-left: 0px !important; // stylelint-disable-line length-zero-no-unit
         }
 
         .ms-smash {
@@ -12802,7 +12690,7 @@ $utilities: ();
         }
 
         .p-none {
-          padding: 0 !important;
+          padding: 0px !important; // stylelint-disable-line length-zero-no-unit
         }
 
         .p-smash {
@@ -12890,8 +12778,8 @@ $utilities: ();
         }
 
         .px-none {
-          padding-right: 0 !important;
-          padding-left: 0 !important;
+          padding-right: 0px !important; // stylelint-disable-line length-zero-no-unit
+          padding-left: 0px !important; // stylelint-disable-line length-zero-no-unit
         }
 
         .px-smash {
@@ -13000,8 +12888,8 @@ $utilities: ();
         }
 
         .py-none {
-          padding-top: 0 !important;
-          padding-bottom: 0 !important;
+          padding-top: 0px !important; // stylelint-disable-line length-zero-no-unit
+          padding-bottom: 0px !important; // stylelint-disable-line length-zero-no-unit
         }
 
         .py-smash {
@@ -13110,7 +12998,7 @@ $utilities: ();
         }
 
         .pt-none {
-          padding-top: 0 !important;
+          padding-top: 0px !important; // stylelint-disable-line length-zero-no-unit
         }
 
         .pt-smash {
@@ -13198,7 +13086,7 @@ $utilities: ();
         }
 
         .pe-none {
-          padding-right: 0 !important;
+          padding-right: 0px !important; // stylelint-disable-line length-zero-no-unit
         }
 
         .pe-smash {
@@ -13286,7 +13174,7 @@ $utilities: ();
         }
 
         .pb-none {
-          padding-bottom: 0 !important;
+          padding-bottom: 0px !important; // stylelint-disable-line length-zero-no-unit
         }
 
         .pb-smash {
@@ -13374,7 +13262,7 @@ $utilities: ();
         }
 
         .ps-none {
-          padding-left: 0 !important;
+          padding-left: 0px !important; // stylelint-disable-line length-zero-no-unit
         }
 
         .ps-smash {
@@ -13462,7 +13350,7 @@ $utilities: ();
         }
 
         .gap-none {
-          gap: 0 !important;
+          gap: 0px !important; // stylelint-disable-line length-zero-no-unit
         }
 
         .gap-smash {
@@ -13550,7 +13438,7 @@ $utilities: ();
         }
 
         .row-gap-none {
-          row-gap: 0 !important;
+          row-gap: 0px !important; // stylelint-disable-line length-zero-no-unit
         }
 
         .row-gap-smash {
@@ -13638,7 +13526,7 @@ $utilities: ();
         }
 
         .column-gap-none {
-          column-gap: 0 !important;
+          column-gap: 0px !important; // stylelint-disable-line length-zero-no-unit
         }
 
         .column-gap-smash {
@@ -13821,14 +13709,6 @@ $utilities: ();
 
         /* rtl:end:remove */
 
-        .fs-cs {
-          font-size: var(--bs-font-size-code-small);
-          line-height: var(--bs-font-line-height-code-small);
-
-          /* rtl:remove */
-          letter-spacing: var(--bs-font-letter-spacing-code-small);
-        }
-
         .fs-cm {
           font-size: var(--bs-font-size-code-medium);
           line-height: var(--bs-font-line-height-code-medium);
@@ -13947,24 +13827,24 @@ $utilities: ();
           box-shadow: var(--bs-box-shadow-lg) !important;
         }
 
-        .shadow-none {
-          box-shadow: 0 0 0 0 var(--bs-elevation-color-none) !important;
-        }
-
-        .shadow-raised {
-          box-shadow: 0 1px 2px 0 var(--bs-elevation-color-raised) !important;
+        .shadow-default {
+          box-shadow: 0 2px 3px -1px var(--bs-elevation-color-default) !important;
         }
 
         .shadow-drag {
           box-shadow: 0 4px 4px -1px  var(--bs-elevation-color-drag) !important;
         }
 
-        .shadow-overlay-default {
-          box-shadow: 0 2px 3px -1px var(--bs-elevation-color-overlay-default) !important;
+        .shadow-emphasized {
+          box-shadow: 0 12px 12px -4px var(--bs-elevation-color-emphasized) !important;
         }
 
-        .shadow-overlay-emphasized {
-          box-shadow: 0 12px 12px -4px var(--bs-elevation-color-overlay-emphasized) !important;
+        .shadow-none {
+          box-shadow: 0 0 0 0 var(--bs-elevation-color-none) !important;
+        }
+
+        .shadow-raised {
+          box-shadow: 0 1px 2px 0 var(--bs-elevation-color-raised) !important;
         }
 
         .shadow-sticky-default {
@@ -14413,7 +14293,7 @@ $utilities: ();
           }
 
           .m-xs-none {
-            margin: 0 !important;
+            margin: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .m-xs-smash {
@@ -14465,8 +14345,8 @@ $utilities: ();
           }
 
           .mx-xs-none {
-            margin-right: 0 !important;
-            margin-left: 0 !important;
+            margin-right: 0px !important; // stylelint-disable-line length-zero-no-unit
+            margin-left: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .mx-xs-smash {
@@ -14530,8 +14410,8 @@ $utilities: ();
           }
 
           .my-xs-none {
-            margin-top: 0 !important;
-            margin-bottom: 0 !important;
+            margin-top: 0px !important; // stylelint-disable-line length-zero-no-unit
+            margin-bottom: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .my-xs-smash {
@@ -14595,7 +14475,7 @@ $utilities: ();
           }
 
           .mt-xs-none {
-            margin-top: 0 !important;
+            margin-top: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .mt-xs-smash {
@@ -14647,7 +14527,7 @@ $utilities: ();
           }
 
           .me-xs-none {
-            margin-right: 0 !important;
+            margin-right: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .me-xs-smash {
@@ -14699,7 +14579,7 @@ $utilities: ();
           }
 
           .mb-xs-none {
-            margin-bottom: 0 !important;
+            margin-bottom: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .mb-xs-smash {
@@ -14751,7 +14631,7 @@ $utilities: ();
           }
 
           .ms-xs-none {
-            margin-left: 0 !important;
+            margin-left: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .ms-xs-smash {
@@ -14803,7 +14683,7 @@ $utilities: ();
           }
 
           .p-xs-none {
-            padding: 0 !important;
+            padding: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .p-xs-smash {
@@ -14851,8 +14731,8 @@ $utilities: ();
           }
 
           .px-xs-none {
-            padding-right: 0 !important;
-            padding-left: 0 !important;
+            padding-right: 0px !important; // stylelint-disable-line length-zero-no-unit
+            padding-left: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .px-xs-smash {
@@ -14911,8 +14791,8 @@ $utilities: ();
           }
 
           .py-xs-none {
-            padding-top: 0 !important;
-            padding-bottom: 0 !important;
+            padding-top: 0px !important; // stylelint-disable-line length-zero-no-unit
+            padding-bottom: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .py-xs-smash {
@@ -14971,7 +14851,7 @@ $utilities: ();
           }
 
           .pt-xs-none {
-            padding-top: 0 !important;
+            padding-top: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .pt-xs-smash {
@@ -15019,7 +14899,7 @@ $utilities: ();
           }
 
           .pe-xs-none {
-            padding-right: 0 !important;
+            padding-right: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .pe-xs-smash {
@@ -15067,7 +14947,7 @@ $utilities: ();
           }
 
           .pb-xs-none {
-            padding-bottom: 0 !important;
+            padding-bottom: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .pb-xs-smash {
@@ -15115,7 +14995,7 @@ $utilities: ();
           }
 
           .ps-xs-none {
-            padding-left: 0 !important;
+            padding-left: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .ps-xs-smash {
@@ -15163,7 +15043,7 @@ $utilities: ();
           }
 
           .gap-xs-none {
-            gap: 0 !important;
+            gap: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .gap-xs-smash {
@@ -15211,7 +15091,7 @@ $utilities: ();
           }
 
           .row-gap-xs-none {
-            row-gap: 0 !important;
+            row-gap: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .row-gap-xs-smash {
@@ -15259,7 +15139,7 @@ $utilities: ();
           }
 
           .column-gap-xs-none {
-            column-gap: 0 !important;
+            column-gap: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .column-gap-xs-smash {
@@ -15753,7 +15633,7 @@ $utilities: ();
           }
 
           .m-sm-none {
-            margin: 0 !important;
+            margin: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .m-sm-smash {
@@ -15805,8 +15685,8 @@ $utilities: ();
           }
 
           .mx-sm-none {
-            margin-right: 0 !important;
-            margin-left: 0 !important;
+            margin-right: 0px !important; // stylelint-disable-line length-zero-no-unit
+            margin-left: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .mx-sm-smash {
@@ -15870,8 +15750,8 @@ $utilities: ();
           }
 
           .my-sm-none {
-            margin-top: 0 !important;
-            margin-bottom: 0 !important;
+            margin-top: 0px !important; // stylelint-disable-line length-zero-no-unit
+            margin-bottom: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .my-sm-smash {
@@ -15935,7 +15815,7 @@ $utilities: ();
           }
 
           .mt-sm-none {
-            margin-top: 0 !important;
+            margin-top: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .mt-sm-smash {
@@ -15987,7 +15867,7 @@ $utilities: ();
           }
 
           .me-sm-none {
-            margin-right: 0 !important;
+            margin-right: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .me-sm-smash {
@@ -16039,7 +15919,7 @@ $utilities: ();
           }
 
           .mb-sm-none {
-            margin-bottom: 0 !important;
+            margin-bottom: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .mb-sm-smash {
@@ -16091,7 +15971,7 @@ $utilities: ();
           }
 
           .ms-sm-none {
-            margin-left: 0 !important;
+            margin-left: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .ms-sm-smash {
@@ -16143,7 +16023,7 @@ $utilities: ();
           }
 
           .p-sm-none {
-            padding: 0 !important;
+            padding: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .p-sm-smash {
@@ -16191,8 +16071,8 @@ $utilities: ();
           }
 
           .px-sm-none {
-            padding-right: 0 !important;
-            padding-left: 0 !important;
+            padding-right: 0px !important; // stylelint-disable-line length-zero-no-unit
+            padding-left: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .px-sm-smash {
@@ -16251,8 +16131,8 @@ $utilities: ();
           }
 
           .py-sm-none {
-            padding-top: 0 !important;
-            padding-bottom: 0 !important;
+            padding-top: 0px !important; // stylelint-disable-line length-zero-no-unit
+            padding-bottom: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .py-sm-smash {
@@ -16311,7 +16191,7 @@ $utilities: ();
           }
 
           .pt-sm-none {
-            padding-top: 0 !important;
+            padding-top: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .pt-sm-smash {
@@ -16359,7 +16239,7 @@ $utilities: ();
           }
 
           .pe-sm-none {
-            padding-right: 0 !important;
+            padding-right: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .pe-sm-smash {
@@ -16407,7 +16287,7 @@ $utilities: ();
           }
 
           .pb-sm-none {
-            padding-bottom: 0 !important;
+            padding-bottom: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .pb-sm-smash {
@@ -16455,7 +16335,7 @@ $utilities: ();
           }
 
           .ps-sm-none {
-            padding-left: 0 !important;
+            padding-left: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .ps-sm-smash {
@@ -16503,7 +16383,7 @@ $utilities: ();
           }
 
           .gap-sm-none {
-            gap: 0 !important;
+            gap: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .gap-sm-smash {
@@ -16551,7 +16431,7 @@ $utilities: ();
           }
 
           .row-gap-sm-none {
-            row-gap: 0 !important;
+            row-gap: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .row-gap-sm-smash {
@@ -16599,7 +16479,7 @@ $utilities: ();
           }
 
           .column-gap-sm-none {
-            column-gap: 0 !important;
+            column-gap: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .column-gap-sm-smash {
@@ -17093,7 +16973,7 @@ $utilities: ();
           }
 
           .m-md-none {
-            margin: 0 !important;
+            margin: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .m-md-smash {
@@ -17145,8 +17025,8 @@ $utilities: ();
           }
 
           .mx-md-none {
-            margin-right: 0 !important;
-            margin-left: 0 !important;
+            margin-right: 0px !important; // stylelint-disable-line length-zero-no-unit
+            margin-left: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .mx-md-smash {
@@ -17210,8 +17090,8 @@ $utilities: ();
           }
 
           .my-md-none {
-            margin-top: 0 !important;
-            margin-bottom: 0 !important;
+            margin-top: 0px !important; // stylelint-disable-line length-zero-no-unit
+            margin-bottom: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .my-md-smash {
@@ -17275,7 +17155,7 @@ $utilities: ();
           }
 
           .mt-md-none {
-            margin-top: 0 !important;
+            margin-top: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .mt-md-smash {
@@ -17327,7 +17207,7 @@ $utilities: ();
           }
 
           .me-md-none {
-            margin-right: 0 !important;
+            margin-right: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .me-md-smash {
@@ -17379,7 +17259,7 @@ $utilities: ();
           }
 
           .mb-md-none {
-            margin-bottom: 0 !important;
+            margin-bottom: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .mb-md-smash {
@@ -17431,7 +17311,7 @@ $utilities: ();
           }
 
           .ms-md-none {
-            margin-left: 0 !important;
+            margin-left: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .ms-md-smash {
@@ -17483,7 +17363,7 @@ $utilities: ();
           }
 
           .p-md-none {
-            padding: 0 !important;
+            padding: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .p-md-smash {
@@ -17531,8 +17411,8 @@ $utilities: ();
           }
 
           .px-md-none {
-            padding-right: 0 !important;
-            padding-left: 0 !important;
+            padding-right: 0px !important; // stylelint-disable-line length-zero-no-unit
+            padding-left: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .px-md-smash {
@@ -17591,8 +17471,8 @@ $utilities: ();
           }
 
           .py-md-none {
-            padding-top: 0 !important;
-            padding-bottom: 0 !important;
+            padding-top: 0px !important; // stylelint-disable-line length-zero-no-unit
+            padding-bottom: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .py-md-smash {
@@ -17651,7 +17531,7 @@ $utilities: ();
           }
 
           .pt-md-none {
-            padding-top: 0 !important;
+            padding-top: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .pt-md-smash {
@@ -17699,7 +17579,7 @@ $utilities: ();
           }
 
           .pe-md-none {
-            padding-right: 0 !important;
+            padding-right: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .pe-md-smash {
@@ -17747,7 +17627,7 @@ $utilities: ();
           }
 
           .pb-md-none {
-            padding-bottom: 0 !important;
+            padding-bottom: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .pb-md-smash {
@@ -17795,7 +17675,7 @@ $utilities: ();
           }
 
           .ps-md-none {
-            padding-left: 0 !important;
+            padding-left: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .ps-md-smash {
@@ -17843,7 +17723,7 @@ $utilities: ();
           }
 
           .gap-md-none {
-            gap: 0 !important;
+            gap: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .gap-md-smash {
@@ -17891,7 +17771,7 @@ $utilities: ();
           }
 
           .row-gap-md-none {
-            row-gap: 0 !important;
+            row-gap: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .row-gap-md-smash {
@@ -17939,7 +17819,7 @@ $utilities: ();
           }
 
           .column-gap-md-none {
-            column-gap: 0 !important;
+            column-gap: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .column-gap-md-smash {
@@ -18433,7 +18313,7 @@ $utilities: ();
           }
 
           .m-lg-none {
-            margin: 0 !important;
+            margin: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .m-lg-smash {
@@ -18485,8 +18365,8 @@ $utilities: ();
           }
 
           .mx-lg-none {
-            margin-right: 0 !important;
-            margin-left: 0 !important;
+            margin-right: 0px !important; // stylelint-disable-line length-zero-no-unit
+            margin-left: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .mx-lg-smash {
@@ -18550,8 +18430,8 @@ $utilities: ();
           }
 
           .my-lg-none {
-            margin-top: 0 !important;
-            margin-bottom: 0 !important;
+            margin-top: 0px !important; // stylelint-disable-line length-zero-no-unit
+            margin-bottom: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .my-lg-smash {
@@ -18615,7 +18495,7 @@ $utilities: ();
           }
 
           .mt-lg-none {
-            margin-top: 0 !important;
+            margin-top: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .mt-lg-smash {
@@ -18667,7 +18547,7 @@ $utilities: ();
           }
 
           .me-lg-none {
-            margin-right: 0 !important;
+            margin-right: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .me-lg-smash {
@@ -18719,7 +18599,7 @@ $utilities: ();
           }
 
           .mb-lg-none {
-            margin-bottom: 0 !important;
+            margin-bottom: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .mb-lg-smash {
@@ -18771,7 +18651,7 @@ $utilities: ();
           }
 
           .ms-lg-none {
-            margin-left: 0 !important;
+            margin-left: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .ms-lg-smash {
@@ -18823,7 +18703,7 @@ $utilities: ();
           }
 
           .p-lg-none {
-            padding: 0 !important;
+            padding: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .p-lg-smash {
@@ -18871,8 +18751,8 @@ $utilities: ();
           }
 
           .px-lg-none {
-            padding-right: 0 !important;
-            padding-left: 0 !important;
+            padding-right: 0px !important; // stylelint-disable-line length-zero-no-unit
+            padding-left: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .px-lg-smash {
@@ -18931,8 +18811,8 @@ $utilities: ();
           }
 
           .py-lg-none {
-            padding-top: 0 !important;
-            padding-bottom: 0 !important;
+            padding-top: 0px !important; // stylelint-disable-line length-zero-no-unit
+            padding-bottom: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .py-lg-smash {
@@ -18991,7 +18871,7 @@ $utilities: ();
           }
 
           .pt-lg-none {
-            padding-top: 0 !important;
+            padding-top: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .pt-lg-smash {
@@ -19039,7 +18919,7 @@ $utilities: ();
           }
 
           .pe-lg-none {
-            padding-right: 0 !important;
+            padding-right: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .pe-lg-smash {
@@ -19087,7 +18967,7 @@ $utilities: ();
           }
 
           .pb-lg-none {
-            padding-bottom: 0 !important;
+            padding-bottom: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .pb-lg-smash {
@@ -19135,7 +19015,7 @@ $utilities: ();
           }
 
           .ps-lg-none {
-            padding-left: 0 !important;
+            padding-left: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .ps-lg-smash {
@@ -19183,7 +19063,7 @@ $utilities: ();
           }
 
           .gap-lg-none {
-            gap: 0 !important;
+            gap: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .gap-lg-smash {
@@ -19231,7 +19111,7 @@ $utilities: ();
           }
 
           .row-gap-lg-none {
-            row-gap: 0 !important;
+            row-gap: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .row-gap-lg-smash {
@@ -19279,7 +19159,7 @@ $utilities: ();
           }
 
           .column-gap-lg-none {
-            column-gap: 0 !important;
+            column-gap: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .column-gap-lg-smash {
@@ -19773,7 +19653,7 @@ $utilities: ();
           }
 
           .m-xl-none {
-            margin: 0 !important;
+            margin: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .m-xl-smash {
@@ -19825,8 +19705,8 @@ $utilities: ();
           }
 
           .mx-xl-none {
-            margin-right: 0 !important;
-            margin-left: 0 !important;
+            margin-right: 0px !important; // stylelint-disable-line length-zero-no-unit
+            margin-left: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .mx-xl-smash {
@@ -19890,8 +19770,8 @@ $utilities: ();
           }
 
           .my-xl-none {
-            margin-top: 0 !important;
-            margin-bottom: 0 !important;
+            margin-top: 0px !important; // stylelint-disable-line length-zero-no-unit
+            margin-bottom: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .my-xl-smash {
@@ -19955,7 +19835,7 @@ $utilities: ();
           }
 
           .mt-xl-none {
-            margin-top: 0 !important;
+            margin-top: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .mt-xl-smash {
@@ -20007,7 +19887,7 @@ $utilities: ();
           }
 
           .me-xl-none {
-            margin-right: 0 !important;
+            margin-right: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .me-xl-smash {
@@ -20059,7 +19939,7 @@ $utilities: ();
           }
 
           .mb-xl-none {
-            margin-bottom: 0 !important;
+            margin-bottom: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .mb-xl-smash {
@@ -20111,7 +19991,7 @@ $utilities: ();
           }
 
           .ms-xl-none {
-            margin-left: 0 !important;
+            margin-left: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .ms-xl-smash {
@@ -20163,7 +20043,7 @@ $utilities: ();
           }
 
           .p-xl-none {
-            padding: 0 !important;
+            padding: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .p-xl-smash {
@@ -20211,8 +20091,8 @@ $utilities: ();
           }
 
           .px-xl-none {
-            padding-right: 0 !important;
-            padding-left: 0 !important;
+            padding-right: 0px !important; // stylelint-disable-line length-zero-no-unit
+            padding-left: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .px-xl-smash {
@@ -20271,8 +20151,8 @@ $utilities: ();
           }
 
           .py-xl-none {
-            padding-top: 0 !important;
-            padding-bottom: 0 !important;
+            padding-top: 0px !important; // stylelint-disable-line length-zero-no-unit
+            padding-bottom: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .py-xl-smash {
@@ -20331,7 +20211,7 @@ $utilities: ();
           }
 
           .pt-xl-none {
-            padding-top: 0 !important;
+            padding-top: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .pt-xl-smash {
@@ -20379,7 +20259,7 @@ $utilities: ();
           }
 
           .pe-xl-none {
-            padding-right: 0 !important;
+            padding-right: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .pe-xl-smash {
@@ -20427,7 +20307,7 @@ $utilities: ();
           }
 
           .pb-xl-none {
-            padding-bottom: 0 !important;
+            padding-bottom: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .pb-xl-smash {
@@ -20475,7 +20355,7 @@ $utilities: ();
           }
 
           .ps-xl-none {
-            padding-left: 0 !important;
+            padding-left: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .ps-xl-smash {
@@ -20523,7 +20403,7 @@ $utilities: ();
           }
 
           .gap-xl-none {
-            gap: 0 !important;
+            gap: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .gap-xl-smash {
@@ -20571,7 +20451,7 @@ $utilities: ();
           }
 
           .row-gap-xl-none {
-            row-gap: 0 !important;
+            row-gap: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .row-gap-xl-smash {
@@ -20619,7 +20499,7 @@ $utilities: ();
           }
 
           .column-gap-xl-none {
-            column-gap: 0 !important;
+            column-gap: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .column-gap-xl-smash {
@@ -21113,7 +20993,7 @@ $utilities: ();
           }
 
           .m-xxl-none {
-            margin: 0 !important;
+            margin: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .m-xxl-smash {
@@ -21165,8 +21045,8 @@ $utilities: ();
           }
 
           .mx-xxl-none {
-            margin-right: 0 !important;
-            margin-left: 0 !important;
+            margin-right: 0px !important; // stylelint-disable-line length-zero-no-unit
+            margin-left: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .mx-xxl-smash {
@@ -21230,8 +21110,8 @@ $utilities: ();
           }
 
           .my-xxl-none {
-            margin-top: 0 !important;
-            margin-bottom: 0 !important;
+            margin-top: 0px !important; // stylelint-disable-line length-zero-no-unit
+            margin-bottom: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .my-xxl-smash {
@@ -21295,7 +21175,7 @@ $utilities: ();
           }
 
           .mt-xxl-none {
-            margin-top: 0 !important;
+            margin-top: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .mt-xxl-smash {
@@ -21347,7 +21227,7 @@ $utilities: ();
           }
 
           .me-xxl-none {
-            margin-right: 0 !important;
+            margin-right: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .me-xxl-smash {
@@ -21399,7 +21279,7 @@ $utilities: ();
           }
 
           .mb-xxl-none {
-            margin-bottom: 0 !important;
+            margin-bottom: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .mb-xxl-smash {
@@ -21451,7 +21331,7 @@ $utilities: ();
           }
 
           .ms-xxl-none {
-            margin-left: 0 !important;
+            margin-left: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .ms-xxl-smash {
@@ -21503,7 +21383,7 @@ $utilities: ();
           }
 
           .p-xxl-none {
-            padding: 0 !important;
+            padding: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .p-xxl-smash {
@@ -21551,8 +21431,8 @@ $utilities: ();
           }
 
           .px-xxl-none {
-            padding-right: 0 !important;
-            padding-left: 0 !important;
+            padding-right: 0px !important; // stylelint-disable-line length-zero-no-unit
+            padding-left: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .px-xxl-smash {
@@ -21611,8 +21491,8 @@ $utilities: ();
           }
 
           .py-xxl-none {
-            padding-top: 0 !important;
-            padding-bottom: 0 !important;
+            padding-top: 0px !important; // stylelint-disable-line length-zero-no-unit
+            padding-bottom: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .py-xxl-smash {
@@ -21671,7 +21551,7 @@ $utilities: ();
           }
 
           .pt-xxl-none {
-            padding-top: 0 !important;
+            padding-top: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .pt-xxl-smash {
@@ -21719,7 +21599,7 @@ $utilities: ();
           }
 
           .pe-xxl-none {
-            padding-right: 0 !important;
+            padding-right: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .pe-xxl-smash {
@@ -21767,7 +21647,7 @@ $utilities: ();
           }
 
           .pb-xxl-none {
-            padding-bottom: 0 !important;
+            padding-bottom: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .pb-xxl-smash {
@@ -21815,7 +21695,7 @@ $utilities: ();
           }
 
           .ps-xxl-none {
-            padding-left: 0 !important;
+            padding-left: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .ps-xxl-smash {
@@ -21863,7 +21743,7 @@ $utilities: ();
           }
 
           .gap-xxl-none {
-            gap: 0 !important;
+            gap: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .gap-xxl-smash {
@@ -21911,7 +21791,7 @@ $utilities: ();
           }
 
           .row-gap-xxl-none {
-            row-gap: 0 !important;
+            row-gap: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .row-gap-xxl-smash {
@@ -21959,7 +21839,7 @@ $utilities: ();
           }
 
           .column-gap-xxl-none {
-            column-gap: 0 !important;
+            column-gap: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .column-gap-xxl-smash {
@@ -22453,7 +22333,7 @@ $utilities: ();
           }
 
           .m-2xl-none {
-            margin: 0 !important;
+            margin: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .m-2xl-smash {
@@ -22505,8 +22385,8 @@ $utilities: ();
           }
 
           .mx-2xl-none {
-            margin-right: 0 !important;
-            margin-left: 0 !important;
+            margin-right: 0px !important; // stylelint-disable-line length-zero-no-unit
+            margin-left: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .mx-2xl-smash {
@@ -22570,8 +22450,8 @@ $utilities: ();
           }
 
           .my-2xl-none {
-            margin-top: 0 !important;
-            margin-bottom: 0 !important;
+            margin-top: 0px !important; // stylelint-disable-line length-zero-no-unit
+            margin-bottom: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .my-2xl-smash {
@@ -22635,7 +22515,7 @@ $utilities: ();
           }
 
           .mt-2xl-none {
-            margin-top: 0 !important;
+            margin-top: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .mt-2xl-smash {
@@ -22687,7 +22567,7 @@ $utilities: ();
           }
 
           .me-2xl-none {
-            margin-right: 0 !important;
+            margin-right: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .me-2xl-smash {
@@ -22739,7 +22619,7 @@ $utilities: ();
           }
 
           .mb-2xl-none {
-            margin-bottom: 0 !important;
+            margin-bottom: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .mb-2xl-smash {
@@ -22791,7 +22671,7 @@ $utilities: ();
           }
 
           .ms-2xl-none {
-            margin-left: 0 !important;
+            margin-left: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .ms-2xl-smash {
@@ -22843,7 +22723,7 @@ $utilities: ();
           }
 
           .p-2xl-none {
-            padding: 0 !important;
+            padding: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .p-2xl-smash {
@@ -22891,8 +22771,8 @@ $utilities: ();
           }
 
           .px-2xl-none {
-            padding-right: 0 !important;
-            padding-left: 0 !important;
+            padding-right: 0px !important; // stylelint-disable-line length-zero-no-unit
+            padding-left: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .px-2xl-smash {
@@ -22951,8 +22831,8 @@ $utilities: ();
           }
 
           .py-2xl-none {
-            padding-top: 0 !important;
-            padding-bottom: 0 !important;
+            padding-top: 0px !important; // stylelint-disable-line length-zero-no-unit
+            padding-bottom: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .py-2xl-smash {
@@ -23011,7 +22891,7 @@ $utilities: ();
           }
 
           .pt-2xl-none {
-            padding-top: 0 !important;
+            padding-top: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .pt-2xl-smash {
@@ -23059,7 +22939,7 @@ $utilities: ();
           }
 
           .pe-2xl-none {
-            padding-right: 0 !important;
+            padding-right: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .pe-2xl-smash {
@@ -23107,7 +22987,7 @@ $utilities: ();
           }
 
           .pb-2xl-none {
-            padding-bottom: 0 !important;
+            padding-bottom: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .pb-2xl-smash {
@@ -23155,7 +23035,7 @@ $utilities: ();
           }
 
           .ps-2xl-none {
-            padding-left: 0 !important;
+            padding-left: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .ps-2xl-smash {
@@ -23203,7 +23083,7 @@ $utilities: ();
           }
 
           .gap-2xl-none {
-            gap: 0 !important;
+            gap: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .gap-2xl-smash {
@@ -23251,7 +23131,7 @@ $utilities: ();
           }
 
           .row-gap-2xl-none {
-            row-gap: 0 !important;
+            row-gap: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .row-gap-2xl-smash {
@@ -23299,7 +23179,7 @@ $utilities: ();
           }
 
           .column-gap-2xl-none {
-            column-gap: 0 !important;
+            column-gap: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .column-gap-2xl-smash {
@@ -23793,7 +23673,7 @@ $utilities: ();
           }
 
           .m-3xl-none {
-            margin: 0 !important;
+            margin: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .m-3xl-smash {
@@ -23845,8 +23725,8 @@ $utilities: ();
           }
 
           .mx-3xl-none {
-            margin-right: 0 !important;
-            margin-left: 0 !important;
+            margin-right: 0px !important; // stylelint-disable-line length-zero-no-unit
+            margin-left: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .mx-3xl-smash {
@@ -23910,8 +23790,8 @@ $utilities: ();
           }
 
           .my-3xl-none {
-            margin-top: 0 !important;
-            margin-bottom: 0 !important;
+            margin-top: 0px !important; // stylelint-disable-line length-zero-no-unit
+            margin-bottom: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .my-3xl-smash {
@@ -23975,7 +23855,7 @@ $utilities: ();
           }
 
           .mt-3xl-none {
-            margin-top: 0 !important;
+            margin-top: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .mt-3xl-smash {
@@ -24027,7 +23907,7 @@ $utilities: ();
           }
 
           .me-3xl-none {
-            margin-right: 0 !important;
+            margin-right: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .me-3xl-smash {
@@ -24079,7 +23959,7 @@ $utilities: ();
           }
 
           .mb-3xl-none {
-            margin-bottom: 0 !important;
+            margin-bottom: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .mb-3xl-smash {
@@ -24131,7 +24011,7 @@ $utilities: ();
           }
 
           .ms-3xl-none {
-            margin-left: 0 !important;
+            margin-left: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .ms-3xl-smash {
@@ -24183,7 +24063,7 @@ $utilities: ();
           }
 
           .p-3xl-none {
-            padding: 0 !important;
+            padding: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .p-3xl-smash {
@@ -24231,8 +24111,8 @@ $utilities: ();
           }
 
           .px-3xl-none {
-            padding-right: 0 !important;
-            padding-left: 0 !important;
+            padding-right: 0px !important; // stylelint-disable-line length-zero-no-unit
+            padding-left: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .px-3xl-smash {
@@ -24291,8 +24171,8 @@ $utilities: ();
           }
 
           .py-3xl-none {
-            padding-top: 0 !important;
-            padding-bottom: 0 !important;
+            padding-top: 0px !important; // stylelint-disable-line length-zero-no-unit
+            padding-bottom: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .py-3xl-smash {
@@ -24351,7 +24231,7 @@ $utilities: ();
           }
 
           .pt-3xl-none {
-            padding-top: 0 !important;
+            padding-top: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .pt-3xl-smash {
@@ -24399,7 +24279,7 @@ $utilities: ();
           }
 
           .pe-3xl-none {
-            padding-right: 0 !important;
+            padding-right: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .pe-3xl-smash {
@@ -24447,7 +24327,7 @@ $utilities: ();
           }
 
           .pb-3xl-none {
-            padding-bottom: 0 !important;
+            padding-bottom: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .pb-3xl-smash {
@@ -24495,7 +24375,7 @@ $utilities: ();
           }
 
           .ps-3xl-none {
-            padding-left: 0 !important;
+            padding-left: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .ps-3xl-smash {
@@ -24543,7 +24423,7 @@ $utilities: ();
           }
 
           .gap-3xl-none {
-            gap: 0 !important;
+            gap: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .gap-3xl-smash {
@@ -24591,7 +24471,7 @@ $utilities: ();
           }
 
           .row-gap-3xl-none {
-            row-gap: 0 !important;
+            row-gap: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .row-gap-3xl-smash {
@@ -24639,7 +24519,7 @@ $utilities: ();
           }
 
           .column-gap-3xl-none {
-            column-gap: 0 !important;
+            column-gap: 0px !important; // stylelint-disable-line length-zero-no-unit
           }
 
           .column-gap-3xl-smash {
