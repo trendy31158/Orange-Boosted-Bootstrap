@@ -48,10 +48,10 @@ OUDS Web includes several button variants, each serving its own semantic purpose
 
 <!-- OUDS mod: variants on colored background -->
 ## Variants on colored background
-<!-- TODO -->
+
 OUDS Web proposes some variants to be used on colorful backgrounds (not primary, secondary, tertiary or emphasized).
 
-{{< example >}}
+{{< example class="bg-primary">}} <!-- TODO change background-color -->
 <button type="button" class="btn btn-default-on-colored-bg">Default</button>
 <button type="button" class="btn btn-strong-on-colored-bg">Strong</button>
 <button type="button" class="btn btn-minimal-on-colored-bg">Minimal</button>
@@ -71,7 +71,9 @@ You don't need to apply `.me-shorter` class on the icon to get consistent spacin
 
 Please note that if you experience a problem with a cropped SVG, we recommend using the `.overflow-visible` utility on the SVG to fix its rendering.
 
-If really needed, you can use a font icon associated the `.bm-medium-icon` class to explicitly set the size or a `<img>`.
+If really needed, you can use a font icon associated the `.icon` class to set correct parameters for the `font-size` and `line-height`.
+
+We strongly advise using a `<img>`, in particular because the icon will not benefit from dynamic color changes on states (hover, focus, active) and the color mode system won't work.
 
 {{< example >}}
 <button type="button" class="btn btn-default">
@@ -82,24 +84,50 @@ If really needed, you can use a font icon associated the `.bm-medium-icon` class
 <button type="button" class="btn btn-strong">
   <svg width="1rem" height="1rem" fill="currentColor" aria-hidden="true">
     <use xlink:href="/docs/{{< param docs_version >}}/assets/img/ouds-web-sprite.svg#heart-recommend"/>
-  </svg>Default
+  </svg>Strong
 </button>
 <button type="button" class="btn btn-minimal">
   <svg width="1rem" height="1rem" fill="currentColor" aria-hidden="true">
     <use xlink:href="/docs/{{< param docs_version >}}/assets/img/ouds-web-sprite.svg#heart-recommend"/>
-  </svg>Default
+  </svg>Minimal
 </button>
 <button type="button" class="btn btn-negative">
   <svg width="1rem" height="1rem" fill="currentColor" aria-hidden="true">
     <use xlink:href="/docs/{{< param docs_version >}}/assets/img/ouds-web-sprite.svg#heart-recommend"/>
+  </svg>Negative
+</button>
+
+<button type="button" class="btn btn-default">
+  <span class="icon si si-settings" aria-hidden="true"></span>Default
+</button>
+
+<button type="button" class="btn btn-default">
+  <img src="/docs/{{< param docs_version >}}/assets/img/thumbnail.png" alt="">Default
+</button>
+{{< /example >}}
+
+{{< example class="bg-primary">}}
+<button type="button" class="btn btn-default-on-colored-bg">
+  <svg width="1rem" height="1rem" fill="currentColor" aria-hidden="true">
+    <use xlink:href="/docs/{{< param docs_version >}}/assets/img/ouds-web-sprite.svg#heart-recommend"/>
   </svg>Default
 </button>
-
-<button type="button" class="btn btn-default">
-  <span class="bm-medium-icon si si-settings" aria-hidden="true"></span>Default
+<button type="button" class="btn btn-strong-on-colored-bg">
+  <svg width="1rem" height="1rem" fill="currentColor" aria-hidden="true">
+    <use xlink:href="/docs/{{< param docs_version >}}/assets/img/ouds-web-sprite.svg#heart-recommend"/>
+  </svg>Strong
+</button>
+<button type="button" class="btn btn-minimal-on-colored-bg">
+  <svg width="1rem" height="1rem" fill="currentColor" aria-hidden="true">
+    <use xlink:href="/docs/{{< param docs_version >}}/assets/img/ouds-web-sprite.svg#heart-recommend"/>
+  </svg>Minimal
 </button>
 
-<button type="button" class="btn btn-default">
+<button type="button" class="btn btn-default-on-colored-bg">
+  <span class="icon si si-settings" aria-hidden="true"></span>Default
+</button>
+
+<button type="button" class="btn btn-default-on-colored-bg">
   <img src="/docs/{{< param docs_version >}}/assets/img/thumbnail.png" alt="">Default
 </button>
 {{< /example >}}
@@ -119,28 +147,60 @@ Add `.btn-icon` to get a squared button, meant to only contain an icon. Make sur
   <svg width="1rem" height="1rem" fill="currentColor" aria-hidden="true">
     <use xlink:href="/docs/{{< param docs_version >}}/assets/img/ouds-web-sprite.svg#heart-recommend"/>
   </svg>
-  <span class="visually-hidden">Default</span>
+  <span class="visually-hidden">Strong</span>
 </button>
 <button type="button" class="btn btn-icon btn-minimal">
   <svg width="1rem" height="1rem" fill="currentColor" aria-hidden="true">
     <use xlink:href="/docs/{{< param docs_version >}}/assets/img/ouds-web-sprite.svg#heart-recommend"/>
   </svg>
-  <span class="visually-hidden">Default</span>
+  <span class="visually-hidden">Minimal</span>
 </button>
 <button type="button" class="btn btn-icon btn-negative">
   <svg width="1rem" height="1rem" fill="currentColor" aria-hidden="true">
     <use xlink:href="/docs/{{< param docs_version >}}/assets/img/ouds-web-sprite.svg#heart-recommend"/>
   </svg>
-  <span class="visually-hidden">Default</span>
+  <span class="visually-hidden">Negative</span>
 </button>
 
 <button type="button" class="btn btn-icon btn-default">
-  <span class="bm-medium-icon si si-settings" aria-hidden="true"></span>
+  <span class="icon si si-settings" aria-hidden="true"></span>
   <span class="visually-hidden">Default</span>
 </button>
 
 <button type="button" class="btn btn-icon btn-default">
   <img src="/docs/{{< param docs_version >}}/assets/img/thumbnail.png" alt="">
+  <span class="visually-hidden">Default</span>
+</button>
+{{< /example >}}
+
+{{< example class="bg-primary">}}
+<button type="button" class="btn btn-icon btn-default-on-colored-bg">
+  <svg width="1rem" height="1rem" fill="currentColor" aria-hidden="true">
+    <use xlink:href="/docs/{{< param docs_version >}}/assets/img/ouds-web-sprite.svg#heart-recommend"/>
+  </svg>
+  <span class="visually-hidden">Default</span>
+</button>
+<button type="button" class="btn btn-icon btn-strong-on-colored-bg">
+  <svg width="1rem" height="1rem" fill="currentColor" aria-hidden="true">
+    <use xlink:href="/docs/{{< param docs_version >}}/assets/img/ouds-web-sprite.svg#heart-recommend"/>
+  </svg>
+  <span class="visually-hidden">Strong</span>
+</button>
+<button type="button" class="btn btn-icon btn-minimal-on-colored-bg">
+  <svg width="1rem" height="1rem" fill="currentColor" aria-hidden="true">
+    <use xlink:href="/docs/{{< param docs_version >}}/assets/img/ouds-web-sprite.svg#heart-recommend"/>
+  </svg>
+  <span class="visually-hidden">Minimal</span>
+</button>
+
+<button type="button" class="btn btn-icon btn-default-on-colored-bg">
+  <span class="icon si si-settings" aria-hidden="true"></span>
+  <span class="visually-hidden">Default</span>
+</button>
+
+<button type="button" class="btn btn-icon btn-default-on-colored-bg">
+  <img src="/docs/{{< param docs_version >}}/assets/img/thumbnail.png" alt="">
+  <span class="visually-hidden">Default</span>
 </button>
 {{< /example >}}
 
@@ -249,6 +309,12 @@ Make buttons look inactive by adding the `disabled` boolean attribute to any `<b
 <button type="button" class="btn btn-negative" disabled>Negative</button>
 {{< /example >}}
 
+{{< example class="bg-primary">}}
+<button type="button" class="btn btn-default-on-colored-bg" disabled>Default</button>
+<button type="button" class="btn btn-strong-on-colored-bg" disabled>Strong</button>
+<button type="button" class="btn btn-minimal-on-colored-bg" disabled>Minimal</button>
+{{< /example >}}
+
 Disabled buttons using the `<a>` element behave a bit different:
 
 - `<a>`s don't support the `disabled` attribute, so you must add the `.disabled` class to make it visually appear disabled.
@@ -257,8 +323,16 @@ Disabled buttons using the `<a>` element behave a bit different:
 - Disabled buttons using `<a>` *should not* include the `href` attribute.
 
 {{< example >}}
-<a class="btn btn-default disabled" role="button" aria-disabled="true">Default link</a>
-<a class="btn btn-strong disabled" role="button" aria-disabled="true">Strong link</a>
+<div class="row">
+  <div class="col p-medium">
+    <a class="btn btn-default disabled" role="button" aria-disabled="true">Default link</a>
+    <a class="btn btn-strong disabled" role="button" aria-disabled="true">Strong link</a>
+  </div>
+  <div class="col bg-primary p-medium">
+    <a class="btn btn-default-on-colored-bg disabled" role="button" aria-disabled="true">Default link</a>
+    <a class="btn btn-strong-on-colored-bg disabled" role="button" aria-disabled="true">Strong link</a>
+  </div>
+</div>
 {{< /example >}}
 
 ### Link functionality caveat
@@ -289,13 +363,28 @@ At the end of the loading, don't forget to remove the loading class, and the `di
 <button type="button" class="btn btn-strong loading-determinate" disabled aria-label="Strong is loading...">Strong</button>
 <button type="button" class="btn btn-minimum loading-determinate" disabled aria-label="Minimal is loading...">Minimal</button>
 <button type="button" class="btn btn-negative loading-determinate" disabled aria-label="Negative is loading...">Negative</button>
-
 {{< /example >}}
 
-<!-- OUDS mod: loading state -->
+{{< example class="bg-primary">}}
+<button type="button" class="btn btn-default-on-colored-bg loading-indeterminate" disabled>Default</button>
+<button type="button" class="btn btn-strong-on-colored-bg loading-indeterminate" disabled>Strong</button>
+<button type="button" class="btn btn-minimal-on-colored-bg loading-indeterminate" disabled>Minimal</button>
+<br>
+<button type="button" class="btn btn-default-on-colored-bg loading-determinate" disabled>Default</button>
+<button type="button" class="btn btn-strong-on-colored-bg loading-determinate" disabled>Strong</button>
+<button type="button" class="btn btn-minimal-on-colored-bg loading-determinate" disabled>Minimal</button>
+{{< /example >}}
+
+<!-- OUDS mod: skeleton state -->
 ## Skeleton state
 <!-- TODO -->
 Improves the perceived loading time by providing a visual cue of where elements will appear once fully loaded.
+
+{{< example >}}
+
+<button class="btn btn-default skeleton" disabled>Default</button>
+
+{{< /example >}}
 
 ## Block buttons
 
