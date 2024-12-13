@@ -104,7 +104,7 @@ $ouds-button-color-content-minimal-loading: var(--#{$prefix}color-action-loading
 $ouds-button-color-content-minimal-pressed: var(--#{$prefix}color-action-pressed) !default;
 $ouds-button-size-icon: $ouds-size-icon-with-label-large-size-xs !default;
 $ouds-button-size-icon-only: $ouds-size-icon-with-label-large-size-sm !default;
-// $ouds-button-size-loader: $ouds-size-icon-with-label-large-size-xs !default;
+$ouds-button-size-loader: $ouds-size-icon-with-label-large-size-xs !default;
 // $ouds-button-space-column-gap-arrow: $ouds-space-column-gap-shorter !default;
 $ouds-button-space-column-gap-icon: $ouds-space-column-gap-short !default;
 $ouds-button-space-inset-icon-alone: $ouds-space-inset-medium !default;
