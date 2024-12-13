@@ -73,36 +73,36 @@ Please note that if you experience a problem with a cropped SVG, we recommend us
 
 If really needed, you can use a font icon associated the `.icon` class to set correct parameters for the `font-size` and `line-height`.
 
-We strongly advise using a `<img>`, in particular because the icon will not benefit from dynamic color changes on states (hover, focus, active) and the color mode system won't work.
+We strongly advise not using a `<img>`, in particular because the icon will not benefit from dynamic color changes on states (hover, focus, active) and the color mode system won't work.
 
 {{< example >}}
 <button type="button" class="btn btn-default">
   <svg width="1rem" height="1rem" fill="currentColor" aria-hidden="true">
     <use xlink:href="/docs/{{< param docs_version >}}/assets/img/ouds-web-sprite.svg#heart-recommend"/>
-  </svg>Default
+  </svg>
+  Default
 </button>
 <button type="button" class="btn btn-strong">
   <svg width="1rem" height="1rem" fill="currentColor" aria-hidden="true">
     <use xlink:href="/docs/{{< param docs_version >}}/assets/img/ouds-web-sprite.svg#heart-recommend"/>
-  </svg>Strong
+  </svg>
+  Strong
 </button>
 <button type="button" class="btn btn-minimal">
   <svg width="1rem" height="1rem" fill="currentColor" aria-hidden="true">
     <use xlink:href="/docs/{{< param docs_version >}}/assets/img/ouds-web-sprite.svg#heart-recommend"/>
-  </svg>Minimal
+  </svg>
+  Minimal
 </button>
 <button type="button" class="btn btn-negative">
   <svg width="1rem" height="1rem" fill="currentColor" aria-hidden="true">
     <use xlink:href="/docs/{{< param docs_version >}}/assets/img/ouds-web-sprite.svg#heart-recommend"/>
-  </svg>Negative
+  </svg>
+  Negative
 </button>
 
 <button type="button" class="btn btn-default">
   <span class="icon si si-settings" aria-hidden="true"></span>Default
-</button>
-
-<button type="button" class="btn btn-default">
-  <img src="/docs/{{< param docs_version >}}/assets/img/thumbnail.png" alt="">Default
 </button>
 {{< /example >}}
 
@@ -110,25 +110,25 @@ We strongly advise using a `<img>`, in particular because the icon will not bene
 <button type="button" class="btn btn-default-on-colored-bg">
   <svg width="1rem" height="1rem" fill="currentColor" aria-hidden="true">
     <use xlink:href="/docs/{{< param docs_version >}}/assets/img/ouds-web-sprite.svg#heart-recommend"/>
-  </svg>Default
+  </svg>
+  Default
 </button>
 <button type="button" class="btn btn-strong-on-colored-bg">
   <svg width="1rem" height="1rem" fill="currentColor" aria-hidden="true">
     <use xlink:href="/docs/{{< param docs_version >}}/assets/img/ouds-web-sprite.svg#heart-recommend"/>
-  </svg>Strong
+  </svg>
+  Strong
 </button>
 <button type="button" class="btn btn-minimal-on-colored-bg">
   <svg width="1rem" height="1rem" fill="currentColor" aria-hidden="true">
     <use xlink:href="/docs/{{< param docs_version >}}/assets/img/ouds-web-sprite.svg#heart-recommend"/>
-  </svg>Minimal
+  </svg>
+  Minimal
 </button>
 
 <button type="button" class="btn btn-default-on-colored-bg">
-  <span class="icon si si-settings" aria-hidden="true"></span>Default
-</button>
-
-<button type="button" class="btn btn-default-on-colored-bg">
-  <img src="/docs/{{< param docs_version >}}/assets/img/thumbnail.png" alt="">Default
+  <span class="icon si si-settings" aria-hidden="true"></span>
+  Default
 </button>
 {{< /example >}}
 
@@ -166,11 +166,6 @@ Add `.btn-icon` to get a squared button, meant to only contain an icon. Make sur
   <span class="icon si si-settings" aria-hidden="true"></span>
   <span class="visually-hidden">Default</span>
 </button>
-
-<button type="button" class="btn btn-icon btn-default">
-  <img src="/docs/{{< param docs_version >}}/assets/img/thumbnail.png" alt="">
-  <span class="visually-hidden">Default</span>
-</button>
 {{< /example >}}
 
 {{< example class="bg-primary">}}
@@ -195,11 +190,6 @@ Add `.btn-icon` to get a squared button, meant to only contain an icon. Make sur
 
 <button type="button" class="btn btn-icon btn-default-on-colored-bg">
   <span class="icon si si-settings" aria-hidden="true"></span>
-  <span class="visually-hidden">Default</span>
-</button>
-
-<button type="button" class="btn btn-icon btn-default-on-colored-bg">
-  <img src="/docs/{{< param docs_version >}}/assets/img/thumbnail.png" alt="">
   <span class="visually-hidden">Default</span>
 </button>
 {{< /example >}}
@@ -290,7 +280,7 @@ Please refer to the [Buttons guidelines](https://system.design.orange.com/0c1af1
 
 {{< example >}}
 <button type="button" class="btn btn-default"
-style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+style="-bs-btn-padding-y: .25rem; -bs-btn-padding-x: .5rem; -bs-btn-font-size: .75rem;">
 Custom button
 </button>
 {{< /example >}}
@@ -356,12 +346,12 @@ At the end of the loading, don't forget to remove the loading class, and the `di
 {{< example >}}
 <button type="button" class="btn btn-default loading-indeterminate" disabled aria-label="Default is loading for an indeterminate time...">Default</button>
 <button type="button" class="btn btn-strong loading-indeterminate" disabled aria-label="Strong is loading for an indeterminate time...">Strong</button>
-<button type="button" class="btn btn-minimum loading-indeterminate" disabled aria-label="Minimal is loading for an indeterminate time...">Minimal</button>
+<button type="button" class="btn btn-minimal loading-indeterminate" disabled aria-label="Minimal is loading for an indeterminate time...">Minimal</button>
 <button type="button" class="btn btn-negative loading-indeterminate" disabled aria-label="Negative is loading for an indeterminate time...">Negative</button>
 <br>
 <button type="button" class="btn btn-default loading-determinate" disabled aria-label="Default is loading...">Default</button>
 <button type="button" class="btn btn-strong loading-determinate" disabled aria-label="Strong is loading...">Strong</button>
-<button type="button" class="btn btn-minimum loading-determinate" disabled aria-label="Minimal is loading...">Minimal</button>
+<button type="button" class="btn btn-minimal loading-determinate" disabled aria-label="Minimal is loading...">Minimal</button>
 <button type="button" class="btn btn-negative loading-determinate" disabled aria-label="Negative is loading...">Negative</button>
 {{< /example >}}
 
