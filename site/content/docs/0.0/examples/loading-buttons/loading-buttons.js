@@ -7,7 +7,7 @@
   loadingButton.addEventListener('click', () => {
     // Change button's look by adding a loading icon and disable it
     loadingButton.classList.add('loading-indeterminate')
-    loadingButton.setAttribute('disabled', 'true')
+    loadingButton.setAttribute('disabled', '')
     // Update indeterminate loading status every 3 seconds
     statusMessage.innerHTML = 'Downloading file 1'
     updateStatusMessageCall = setInterval(() => {
@@ -33,7 +33,7 @@
   loadingButton2.addEventListener('click', () => {
     // Change button's look by adding a loading icon and disable it
     loadingButton2.classList.add('loading-determinate')
-    loadingButton2.setAttribute('disabled', 'true')
+    loadingButton2.setAttribute('disabled', '')
     // Update indeterminate loading status every 3 seconds
     statusMessage2.innerHTML = 'Downloading file 2 0%'
     updateStatusMessageCall2 = setInterval(() => {

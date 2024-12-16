@@ -6,8 +6,8 @@
   // scss-docs-start btn-css-vars
   --#{$prefix}btn-padding-x: #{$btn-padding-x};
   --#{$prefix}btn-padding-y: #{$btn-padding-y};
-  --#{$prefix}btn-min-width: #{$ouds-button-size-min-width};  // OUDS mod // TODO need intermediate sass var?
-  --#{$prefix}btn-min-height: #{$ouds-button-size-min-height};  // OUDS mod // TODO need intermediate sass var?
+  --#{$prefix}btn-min-width: #{$ouds-button-size-min-width}; // OUDS mod // TODO need intermediate sass var?
+  --#{$prefix}btn-min-height: #{$ouds-button-size-min-height}; // OUDS mod // TODO need intermediate sass var?
   --#{$prefix}btn-font-family: #{$btn-font-family};
   // OUDS mod: no `@include rfs($btn-font-size, --#{$prefix}btn-font-size)`
   --#{$prefix}btn-font-weight: #{$btn-font-weight};
@@ -24,7 +24,7 @@
   --#{$prefix}btn-disabled-opacity: #{$btn-disabled-opacity}; // TODO to check
   --#{$prefix}btn-focus-box-shadow: 0 0 0 #{$btn-focus-width} var(--#{$prefix}btn-focus-shadow-rgb); // OUDS mod
   --#{$prefix}icon-spacing: #{$btn-icon-padding-left}; // OUDS mod TODO to check, maybe $btn-icon-padding-x?
-  --#{$prefix}loading-indeterminate-icon: #{escape-svg(url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path d='M20 10C20 11.9778 19.4135 13.9112 18.3147 15.5557C17.2159 17.2002 15.6541 18.4819 13.8268 19.2388C11.9996 19.9957 9.98891 20.1937 8.0491 19.8079C6.10929 19.422 4.32746 18.4696 2.92893 17.0711C1.53041 15.6725 0.577999 13.8907 0.192147 11.9509C-0.193705 10.0111 0.00432836 8.00043 0.761205 6.17317C1.51808 4.3459 2.79981 2.78412 4.4443 1.6853C6.08879 0.58649 8.02219 -2.35852e-08 10 0V3C8.61553 3 7.26215 3.41054 6.11101 4.17971C4.95986 4.94888 4.06266 6.04213 3.53284 7.32122C3.00303 8.6003 2.86441 10.0078 3.1345 11.3656C3.4046 12.7235 4.07128 13.9708 5.05025 14.9497C6.02922 15.9287 7.2765 16.5954 8.63437 16.8655C9.99224 17.1356 11.3997 16.997 12.6788 16.4672C13.9579 15.9373 15.0511 15.0401 15.8203 13.889C16.5895 12.7378 17 11.3845 17 10H20Z'/></svg>"))};  // OUDS mod
+  --#{$prefix}loading-indeterminate-icon: #{escape-svg(url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path d='M20 10C20 11.9778 19.4135 13.9112 18.3147 15.5557C17.2159 17.2002 15.6541 18.4819 13.8268 19.2388C11.9996 19.9957 9.98891 20.1937 8.0491 19.8079C6.10929 19.422 4.32746 18.4696 2.92893 17.0711C1.53041 15.6725 0.577999 13.8907 0.192147 11.9509C-0.193705 10.0111 0.00432836 8.00043 0.761205 6.17317C1.51808 4.3459 2.79981 2.78412 4.4443 1.6853C6.08879 0.58649 8.02219 -2.35852e-08 10 0V3C8.61553 3 7.26215 3.41054 6.11101 4.17971C4.95986 4.94888 4.06266 6.04213 3.53284 7.32122C3.00303 8.6003 2.86441 10.0078 3.1345 11.3656C3.4046 12.7235 4.07128 13.9708 5.05025 14.9497C6.02922 15.9287 7.2765 16.5954 8.63437 16.8655C9.99224 17.1356 11.3997 16.997 12.6788 16.4672C13.9579 15.9373 15.0511 15.0401 15.8203 13.889C16.5895 12.7378 17 11.3845 17 10H20Z'/></svg>"))}; // OUDS mod
   --#{$prefix}btn-focus-bg: var(--#{$prefix}btn-hover-bg); // OUDS mod
   --#{$prefix}btn-focus-border-color: var(--#{$prefix}btn-hover-border-color); // OUDS mod
   --#{$prefix}btn-focus-color: var(--#{$prefix}btn-hover-color); // OUDs mod
@@ -33,11 +33,11 @@
   display: inline-flex; // OUDS mod: instead of inline-block
   align-items: center; // OUDS mod
   justify-content: center; // OUDS mod
-  min-width: var(--#{$prefix}btn-min-width);  // OUDS mod
-  min-height: var(--#{$prefix}btn-min-height);  // OUDS mod
+  min-width: var(--#{$prefix}btn-min-width); // OUDS mod
+  min-height: var(--#{$prefix}btn-min-height); // OUDS mod
   padding: subtract(var(--#{$prefix}btn-padding-y), var(--#{$prefix}btn-border-width)) subtract(var(--#{$prefix}btn-padding-x), var(--#{$prefix}btn-border-width)); // OUDS mod
   font-family: var(--#{$prefix}btn-font-family);
-  @include get-font-size("label-large");  // OUDS mod
+  @include get-font-size("label-large"); // OUDS mod
   font-weight: var(--#{$prefix}btn-font-weight);
   // OUDS mod: no line-height, already defined by get-font-size
   color: var(--#{$prefix}btn-color);
@@ -86,6 +86,7 @@
     // OUDS mod: no box shadow modification for the active state
     // OUDS mod: no &:focus-visible
   }
+
   // End mod
 
   // OUDS mod: no `.btn-check:checked:focus-visible + &` to handle box shadow
@@ -93,7 +94,7 @@
   // OUDS mod: selectors are slightly different to handle `.btn-check`
   // TODO how to handle to disable links with aria-disabled only
   .btn-check:disabled + &,
-  &:disabled:not(.loading-indeterminate):not(.loading-determinate),
+  &:disabled:not(.loading-indeterminate):not(.loading-determinate):not(.skeleton),
   &.disabled,
   fieldset:disabled & {
     color: var(--#{$prefix}btn-disabled-color);
@@ -110,6 +111,7 @@
   fieldset:disabled & {
     pointer-events: none;
   }
+
   // End mod
 
   // OUDS mod: buttons with icon and text
@@ -124,10 +126,13 @@
     font-size: $ouds-button-size-icon;
     line-height: $ouds-button-size-icon;
   }
+
   // End mod
 
   // OUDS mod: loading buttons
-  &.loading-indeterminate {
+
+  &.loading-indeterminate,
+  &.loading-determinate {
     position: relative;
     z-index: 0;
     overflow: hidden;
@@ -158,39 +163,13 @@
     }
   }
 
+  &.loading-determinate::before {
+    animation: none;
+  }
+
   @keyframes loading-indeterminate-rotate {
     100% {
       transform: rotate(360deg);
-    }
-  }
-
-  &.loading-determinate {
-    position: relative;
-    z-index: 0;
-    overflow: hidden;
-    color: transparent;
-
-    &:hover,
-    &:active,
-    &:focus-visible,
-    &:disabled {
-      color: transparent;
-    }
-
-    &::before {
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: -1;
-      width: 100%;
-      height: 100%;
-      color: var(--#{$prefix}btn-color);
-      content: "";
-      background-color: currentcolor;
-      mask-image: var(--#{$prefix}loading-indeterminate-icon);
-      mask-repeat: no-repeat;
-      mask-position: 50% 50%;
-      mask-size: px-to-rem($ouds-button-size-loader);
     }
   }
 
@@ -240,19 +219,17 @@
 
   &.skeleton {
     color: transparent;
-    mask-image: linear-gradient(90deg, $ouds-indicator-skeleton-color-bg, rgba(0, 0, 0, (1 - $placeholder-opacity-min)) 75%, $black 95%);
-    mask-size: 200% 100%;
-    animation: placeholder-wave 2s linear infinite;
+    background-color: $ouds-indicator-skeleton-color-bg;
+    border: #{$ouds-border-width-none};
+    animation: skeleton-loading 1s linear infinite alternate;
+  }
 
-    ::before {
-      display: inline-block;
-      content: "";
+  @keyframes skeleton-loading {
+    0% {
+      background-color: $ouds-indicator-skeleton-color-bg;
     }
-
-    @keyframes placeholder-wave {
-      100% {
-        mask-position: -200% 0%;
-      }
+    100% {
+      background-color: $ouds-indicator-skeleton-color-gradient-middle;
     }
   }
   // End mod

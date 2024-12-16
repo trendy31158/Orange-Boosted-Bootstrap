@@ -121,7 +121,7 @@ $ouds-button-space-padding-inline-icon-start: $ouds-space-padding-inline-taller 
 
 // scss-docs-start ouds-component-indicator
 $ouds-indicator-skeleton-color-bg: var(--#{$prefix}color-action-support-enabled) !default;
-// $ouds-indicator-skeleton-color-gradient-middle: $ouds-color-opacity-black-80 !default;
+$ouds-indicator-skeleton-color-gradient-middle: var(--#{$prefix}color-action-support-focus) !default; // TODO right variable?
 // $ouds-indicator-skeleton-color-gradient-start-end: var(--#{$prefix}color-opacity-invisible-black) !default;
 // scss-docs-end ouds-component-indicator
 

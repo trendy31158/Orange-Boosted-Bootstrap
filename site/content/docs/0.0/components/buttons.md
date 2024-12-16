@@ -334,46 +334,64 @@ To cover cases where you have to keep the `href` attribute on a disabled link, t
 <a href="#" class="btn btn-strong disabled" tabindex="-1" role="button" aria-disabled="true">Strong link</a>
 {{< /example >}}
 
+<!-- OUDS mod: skeleton state -->
+## Skeleton state
+
+The skeleton state is to be used while some important elements of the page are still loading, before they can be fully displayed. This state improves the perceived loading time by providing a visual cue of where elements will appear once fully loaded.
+The `.skeleton` class must be used with the `disabled` attribute to prevent any interaction. This state shouldn't be used on colored backgrounds.
+
+ If the whole page is still loading, you may use a status message to indicate it to users with assistive technologies.
+
+{{< example >}}
+<button class="btn btn-default skeleton" disabled>Default</button>
+{{< /example >}}
+
 <!-- OUDS mod: loading state -->
 ## Loading state
 
-The loading state of a button indicates that an action is in progress. This state provides feedback to users, enhancing user experience.
-For an indeterminate loading time, use the class `.loading-indeterminate` and for a defined loading time, use the class `.loading-determinate`; this will add a visual information of the current state.
-You also have to add an `aria-label` to communicate the loading state to users with assistive technologies. Finally, while loading, the button must be disabled to prevent multiple submissions.
+The loading state of a button indicates that an action is currently processing or taking place. This state provides feedback to users, enhancing user experience.
 
-At the end of the loading, don't forget to remove the loading class, and the `disabled` and `aria-label` attributes.
+When the loading starts, you will have to:
+- Add the `disabled` attribute to the button to avoid any unwanted interactions.
+- Add the class `.loading-indeterminate` (for an indeterminate loading time) or `.loading-determinate` (for a defined loading time); this will provide an animation corresponding to the current state.
+- Update regularly the `<span>` containing the loading message in order to be vocalized by screen readers; if the loading time is defined, you should indicate the progression.
 
-{{< example >}}
-<button type="button" class="btn btn-default loading-indeterminate" disabled aria-label="Default is loading for an indeterminate time...">Default</button>
-<button type="button" class="btn btn-strong loading-indeterminate" disabled aria-label="Strong is loading for an indeterminate time...">Strong</button>
-<button type="button" class="btn btn-minimal loading-indeterminate" disabled aria-label="Minimal is loading for an indeterminate time...">Minimal</button>
-<button type="button" class="btn btn-negative loading-indeterminate" disabled aria-label="Negative is loading for an indeterminate time...">Negative</button>
-<br>
-<button type="button" class="btn btn-default loading-determinate" disabled aria-label="Default is loading...">Default</button>
-<button type="button" class="btn btn-strong loading-determinate" disabled aria-label="Strong is loading...">Strong</button>
-<button type="button" class="btn btn-minimal loading-determinate" disabled aria-label="Minimal is loading...">Minimal</button>
-<button type="button" class="btn btn-negative loading-determinate" disabled aria-label="Negative is loading...">Negative</button>
-{{< /example >}}
+At the end of the loading, you should:
+- Remove the `disabled` attribute to the button to restore its interactivity.
+- Remove the class `.loading-indeterminate` or `.loading-determinate` to restore its look.
+- Set a final status message, indicating the loading has ended.
 
-{{< example class="bg-primary">}}
-<button type="button" class="btn btn-default-on-colored-bg loading-indeterminate" disabled>Default</button>
-<button type="button" class="btn btn-strong-on-colored-bg loading-indeterminate" disabled>Strong</button>
-<button type="button" class="btn btn-minimal-on-colored-bg loading-indeterminate" disabled>Minimal</button>
-<br>
-<button type="button" class="btn btn-default-on-colored-bg loading-determinate" disabled>Default</button>
-<button type="button" class="btn btn-strong-on-colored-bg loading-determinate" disabled>Strong</button>
-<button type="button" class="btn btn-minimal-on-colored-bg loading-determinate" disabled>Minimal</button>
-{{< /example >}}
-
-<!-- OUDS mod: skeleton state -->
-## Skeleton state
-<!-- TODO -->
-Improves the perceived loading time by providing a visual cue of where elements will appear once fully loaded.
+See the buttons un cation in our [loading buttons live example]({{< docsref "/examples/loading-buttons" >}}).
 
 {{< example >}}
-
-<button class="btn btn-default skeleton" disabled>Default</button>
-
+<div class="p-short">
+  <button type="button" class="btn btn-default loading-indeterminate" id="loading-btn1" disabled>
+    Download file 1
+    <span role="status">
+      <span id="loading-btn-msg1" class="visually-hidden">Downloading file 1</span>
+    </span>
+  </button>
+  <button type="button" class="btn btn-default loading-determinate" id="loading-btn1" disabled>
+    Download file 1
+    <span role="status">
+      <span id="loading-btn-msg1" class="visually-hidden">Downloading file 1</span>
+    </span>
+  </button>
+</div>
+<div class="bg-primary p-short">
+  <button type="button" class="btn btn-default-on-colored-bg loading-indeterminate" id="loading-btn2" disabled>
+    Download file 2
+    <span role="status">
+      <span id="loading-btn-msg2" class="visually-hidden">Downloading file 1</span>
+    </span>
+  </button>
+  <button type="button" class="btn btn-default-on-colored-bg loading-determinate" id="loading-btn2" disabled>
+    Download file 2
+    <span role="status">
+      <span id="loading-btn-msg2" class="visually-hidden">Downloading file 1</span>
+    </span>
+  </button>
+</div>
 {{< /example >}}
 
 ## Block buttons
@@ -388,8 +406,6 @@ Please note that these **full-width** buttons should not be used on desktop scre
   <button class="btn btn-default" type="button">Button</button>
 </div>
 {{< /example >}}
-
-
 
 Here we create a responsive variation, starting with vertically stacked buttons until the `md` breakpoint, where `.d-md-block` replaces the `.d-grid` class, thus nullifying the `gap-short` utility. Resize your browser to see them change.
 
