@@ -371,24 +371,24 @@ See the buttons un cation in our [loading buttons live example]({{< docsref "/ex
       <span id="loading-btn-msg1" class="visually-hidden">Downloading file 1</span>
     </span>
   </button>
-  <button type="button" class="btn btn-default loading-determinate" id="loading-btn1" disabled>
-    Download file 1
+  <button type="button" class="btn btn-default loading-determinate" id="loading-btn2" disabled>
+    Download file 2
     <span role="status">
-      <span id="loading-btn-msg1" class="visually-hidden">Downloading file 1</span>
+      <span id="loading-btn-msg2" class="visually-hidden">Downloading file 2</span>
     </span>
   </button>
 </div>
 <div class="bg-primary p-short">
-  <button type="button" class="btn btn-default-on-colored-bg loading-indeterminate" id="loading-btn2" disabled>
-    Download file 2
+  <button type="button" class="btn btn-default-on-colored-bg loading-indeterminate" id="loading-btn3" disabled>
+    Download file 3
     <span role="status">
-      <span id="loading-btn-msg2" class="visually-hidden">Downloading file 1</span>
+      <span id="loading-btn-msg3" class="visually-hidden">Downloading file 3</span>
     </span>
   </button>
-  <button type="button" class="btn btn-default-on-colored-bg loading-determinate" id="loading-btn2" disabled>
-    Download file 2
+  <button type="button" class="btn btn-default-on-colored-bg loading-determinate" id="loading-btn4" disabled>
+    Download file 4
     <span role="status">
-      <span id="loading-btn-msg2" class="visually-hidden">Downloading file 1</span>
+      <span id="loading-btn-msg4" class="visually-hidden">Downloading file 4</span>
     </span>
   </button>
 </div>
