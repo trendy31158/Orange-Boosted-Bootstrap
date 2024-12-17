@@ -214,6 +214,10 @@ toc: true
 
 - <span class="badge text-bg-success">New</span> Text decoration utilities: `.text-decoration-underline`, `.text-decoration-line-through`, and `.text-decoration-none`.
 
+### Components
+
+- <span class="badge text-bg-success">New</span> Button component has been implemented.
+
 ### Examples
 
 - <span class="badge text-bg-success">New</span> New [Font example]({{< docsref "/examples/font" >}}).
@@ -221,6 +225,8 @@ toc: true
 - <span class="badge text-bg-success">New</span> New [Grid example]({{< docsref "/examples/grid" >}}).
 
 - <span class="badge text-bg-success">New</span> New [Grid system example]({{< docsref "/examples/grid-system" >}}).
+
+- <span class="badge text-bg-success">New</span> New [Loading buttons live example]({{< docsref "/examples/loading-buttons" >}}).
 
 ### CSS and Sass variables
 

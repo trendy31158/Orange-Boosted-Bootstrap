@@ -40,6 +40,11 @@
     margin-top: 2rem;
   }
 
+  &.colored-bg,
+  .colored-bg {
+    background: repeating-linear-gradient(-45deg, var(--bs-color-surface-brand-primary), var(--bs-color-surface-brand-primary) 40px, var(--bs-color-surface-status-warning-emphasized) 40px, var(--bs-color-surface-status-warning-emphasized) 80px, var(--bs-color-surface-status-negative-emphasized) 80px, var(--bs-color-surface-status-negative-emphasized) 120px, var(--bs-color-surface-status-positive-emphasized) 120px, var(--bs-color-surface-status-positive-emphasized) 160px, var(--bs-color-surface-status-info-emphasized) 160px, var(--bs-color-surface-status-info-emphasized) 200px);
+  }
+
   > .form-control {
     + .form-control {
       margin-top: .5rem;
@@ -73,10 +78,10 @@
   }
 
   // Buttons
-  > .btn,
-  > p > .btn,
-  > .btn-group,
-  > p > .btn-group {
+  .btn,
+  > p .btn,
+  .btn-group,
+  > p .btn-group {
     margin: .25rem .125rem;
   }
   > .btn-toolbar + .btn-toolbar {

@@ -46,18 +46,18 @@ OUDS Web includes several button variants, each serving its own semantic purpose
 
 <!-- OUDS mod: no accessibility tip callout about colored buttons since OUDS Web does not provide such buttons -->
 
-<!-- OUDS mod: variants on colored background -->
+<!-- OUDS mod: Variants on colored background added -->
 ## Variants on colored background
 
-OUDS Web proposes some variants to be used on colorful backgrounds (not primary, secondary, tertiary or emphasized).
+OUDS Web offers a few variations to use on colored backgrounds (non-primary, secondary, tertiary or emphasized). These buttons will not change regardless of the background color and color mode. Their accessibility (readability) is ensured by suitable semi-opaque backgrounds.
 
-{{< example class="bg-primary">}} <!-- TODO change background-color -->
+{{< example class="colored-bg">}}
 <button type="button" class="btn btn-default-on-colored-bg">Default</button>
 <button type="button" class="btn btn-strong-on-colored-bg">Strong</button>
 <button type="button" class="btn btn-minimal-on-colored-bg">Minimal</button>
 {{< /example >}}
 
-<!-- OUDS mod: with icon -->
+<!-- OUDS mod: With icon added -->
 ## With icon
 
 ### Text and icon
@@ -75,148 +75,130 @@ If really needed, you can use a font icon associated the `.icon` class to set co
 
 We strongly advise not using a `<img>`, in particular because the icon will not benefit from dynamic color changes on states (hover, focus, active) and the color mode system won't work.
 
-{{< example >}}
-<button type="button" class="btn btn-default">
-  <svg width="1rem" height="1rem" fill="currentColor" aria-hidden="true">
-    <use xlink:href="/docs/{{< param docs_version >}}/assets/img/ouds-web-sprite.svg#heart-recommend"/>
-  </svg>
-  Default
-</button>
-<button type="button" class="btn btn-strong">
-  <svg width="1rem" height="1rem" fill="currentColor" aria-hidden="true">
-    <use xlink:href="/docs/{{< param docs_version >}}/assets/img/ouds-web-sprite.svg#heart-recommend"/>
-  </svg>
-  Strong
-</button>
-<button type="button" class="btn btn-minimal">
-  <svg width="1rem" height="1rem" fill="currentColor" aria-hidden="true">
-    <use xlink:href="/docs/{{< param docs_version >}}/assets/img/ouds-web-sprite.svg#heart-recommend"/>
-  </svg>
-  Minimal
-</button>
-<button type="button" class="btn btn-negative">
-  <svg width="1rem" height="1rem" fill="currentColor" aria-hidden="true">
-    <use xlink:href="/docs/{{< param docs_version >}}/assets/img/ouds-web-sprite.svg#heart-recommend"/>
-  </svg>
-  Negative
-</button>
+{{< example class="p-none">}}
+<div class="p-tall">
+  <button type="button" class="btn btn-default">
+    <svg width="1rem" height="1rem" fill="currentColor" aria-hidden="true">
+      <use xlink:href="/docs/{{< param docs_version >}}/assets/img/ouds-web-sprite.svg#heart-recommend"/>
+    </svg>
+    Default
+  </button>
+  <button type="button" class="btn btn-strong">
+    <svg width="1rem" height="1rem" fill="currentColor" aria-hidden="true">
+      <use xlink:href="/docs/{{< param docs_version >}}/assets/img/ouds-web-sprite.svg#heart-recommend"/>
+    </svg>
+    Strong
+  </button>
+  <button type="button" class="btn btn-minimal">
+    <svg width="1rem" height="1rem" fill="currentColor" aria-hidden="true">
+      <use xlink:href="/docs/{{< param docs_version >}}/assets/img/ouds-web-sprite.svg#heart-recommend"/>
+    </svg>
+    Minimal
+  </button>
+  <button type="button" class="btn btn-negative">
+    <svg width="1rem" height="1rem" fill="currentColor" aria-hidden="true">
+      <use xlink:href="/docs/{{< param docs_version >}}/assets/img/ouds-web-sprite.svg#heart-recommend"/>
+    </svg>
+    Negative
+  </button>
 
-<button type="button" class="btn btn-default">
-  <span class="icon si si-settings" aria-hidden="true"></span>Default
-</button>
-{{< /example >}}
+  <button type="button" class="btn btn-default">
+    <span class="icon si si-settings" aria-hidden="true"></span>Default
+  </button>
+</div>
 
-{{< example class="bg-primary">}}
-<button type="button" class="btn btn-default-on-colored-bg">
-  <svg width="1rem" height="1rem" fill="currentColor" aria-hidden="true">
-    <use xlink:href="/docs/{{< param docs_version >}}/assets/img/ouds-web-sprite.svg#heart-recommend"/>
-  </svg>
-  Default
-</button>
-<button type="button" class="btn btn-strong-on-colored-bg">
-  <svg width="1rem" height="1rem" fill="currentColor" aria-hidden="true">
-    <use xlink:href="/docs/{{< param docs_version >}}/assets/img/ouds-web-sprite.svg#heart-recommend"/>
-  </svg>
-  Strong
-</button>
-<button type="button" class="btn btn-minimal-on-colored-bg">
-  <svg width="1rem" height="1rem" fill="currentColor" aria-hidden="true">
-    <use xlink:href="/docs/{{< param docs_version >}}/assets/img/ouds-web-sprite.svg#heart-recommend"/>
-  </svg>
-  Minimal
-</button>
+<div class="colored-bg p-tall">
+  <button type="button" class="btn btn-default-on-colored-bg">
+    <svg width="1rem" height="1rem" fill="currentColor" aria-hidden="true">
+      <use xlink:href="/docs/{{< param docs_version >}}/assets/img/ouds-web-sprite.svg#heart-recommend"/>
+    </svg>
+    Default
+  </button>
+  <button type="button" class="btn btn-strong-on-colored-bg">
+    <svg width="1rem" height="1rem" fill="currentColor" aria-hidden="true">
+      <use xlink:href="/docs/{{< param docs_version >}}/assets/img/ouds-web-sprite.svg#heart-recommend"/>
+    </svg>
+    Strong
+  </button>
+  <button type="button" class="btn btn-minimal-on-colored-bg">
+    <svg width="1rem" height="1rem" fill="currentColor" aria-hidden="true">
+      <use xlink:href="/docs/{{< param docs_version >}}/assets/img/ouds-web-sprite.svg#heart-recommend"/>
+    </svg>
+    Minimal
+  </button>
 
-<button type="button" class="btn btn-default-on-colored-bg">
-  <span class="icon si si-settings" aria-hidden="true"></span>
-  Default
-</button>
+  <button type="button" class="btn btn-default-on-colored-bg">
+    <span class="icon si si-settings" aria-hidden="true"></span>
+    Default
+  </button>
+</div>
 {{< /example >}}
 
 ### Icon only
 
 Add `.btn-icon` to get a squared button, meant to only contain an icon. Make sure to provide an accessible name to your button, either using a `.visually-hidden` content or a `aria-label` attribute.
 
-{{< example >}}
-<button type="button" class="btn btn-icon btn-default">
-  <svg width="1rem" height="1rem" fill="currentColor" aria-hidden="true">
-    <use xlink:href="/docs/{{< param docs_version >}}/assets/img/ouds-web-sprite.svg#heart-recommend"/>
-  </svg>
-  <span class="visually-hidden">Default</span>
-</button>
-<button type="button" class="btn btn-icon btn-strong">
-  <svg width="1rem" height="1rem" fill="currentColor" aria-hidden="true">
-    <use xlink:href="/docs/{{< param docs_version >}}/assets/img/ouds-web-sprite.svg#heart-recommend"/>
-  </svg>
-  <span class="visually-hidden">Strong</span>
-</button>
-<button type="button" class="btn btn-icon btn-minimal">
-  <svg width="1rem" height="1rem" fill="currentColor" aria-hidden="true">
-    <use xlink:href="/docs/{{< param docs_version >}}/assets/img/ouds-web-sprite.svg#heart-recommend"/>
-  </svg>
-  <span class="visually-hidden">Minimal</span>
-</button>
-<button type="button" class="btn btn-icon btn-negative">
-  <svg width="1rem" height="1rem" fill="currentColor" aria-hidden="true">
-    <use xlink:href="/docs/{{< param docs_version >}}/assets/img/ouds-web-sprite.svg#heart-recommend"/>
-  </svg>
-  <span class="visually-hidden">Negative</span>
-</button>
+{{< example class="p-none">}}
+<div class="p-tall">
+  <button type="button" class="btn btn-icon btn-default">
+    <svg width="1rem" height="1rem" fill="currentColor" aria-hidden="true">
+      <use xlink:href="/docs/{{< param docs_version >}}/assets/img/ouds-web-sprite.svg#heart-recommend"/>
+    </svg>
+    <span class="visually-hidden">Default</span>
+  </button>
+  <button type="button" class="btn btn-icon btn-strong">
+    <svg width="1rem" height="1rem" fill="currentColor" aria-hidden="true">
+      <use xlink:href="/docs/{{< param docs_version >}}/assets/img/ouds-web-sprite.svg#heart-recommend"/>
+    </svg>
+    <span class="visually-hidden">Strong</span>
+  </button>
+  <button type="button" class="btn btn-icon btn-minimal">
+    <svg width="1rem" height="1rem" fill="currentColor" aria-hidden="true">
+      <use xlink:href="/docs/{{< param docs_version >}}/assets/img/ouds-web-sprite.svg#heart-recommend"/>
+    </svg>
+    <span class="visually-hidden">Minimal</span>
+  </button>
+  <button type="button" class="btn btn-icon btn-negative">
+    <svg width="1rem" height="1rem" fill="currentColor" aria-hidden="true">
+      <use xlink:href="/docs/{{< param docs_version >}}/assets/img/ouds-web-sprite.svg#heart-recommend"/>
+    </svg>
+    <span class="visually-hidden">Negative</span>
+  </button>
 
-<button type="button" class="btn btn-icon btn-default">
-  <span class="icon si si-settings" aria-hidden="true"></span>
-  <span class="visually-hidden">Default</span>
-</button>
+  <button type="button" class="btn btn-icon btn-default">
+    <span class="icon si si-settings" aria-hidden="true"></span>
+    <span class="visually-hidden">Default</span>
+  </button>
+</div>
+
+<div class="colored-bg p-tall">
+  <button type="button" class="btn btn-icon btn-default-on-colored-bg">
+    <svg width="1rem" height="1rem" fill="currentColor" aria-hidden="true">
+      <use xlink:href="/docs/{{< param docs_version >}}/assets/img/ouds-web-sprite.svg#heart-recommend"/>
+    </svg>
+    <span class="visually-hidden">Default</span>
+  </button>
+  <button type="button" class="btn btn-icon btn-strong-on-colored-bg">
+    <svg width="1rem" height="1rem" fill="currentColor" aria-hidden="true">
+      <use xlink:href="/docs/{{< param docs_version >}}/assets/img/ouds-web-sprite.svg#heart-recommend"/>
+    </svg>
+    <span class="visually-hidden">Strong</span>
+  </button>
+  <button type="button" class="btn btn-icon btn-minimal-on-colored-bg">
+    <svg width="1rem" height="1rem" fill="currentColor" aria-hidden="true">
+      <use xlink:href="/docs/{{< param docs_version >}}/assets/img/ouds-web-sprite.svg#heart-recommend"/>
+    </svg>
+    <span class="visually-hidden">Minimal</span>
+  </button>
+
+  <button type="button" class="btn btn-icon btn-default-on-colored-bg">
+    <span class="icon si si-settings" aria-hidden="true"></span>
+    <span class="visually-hidden">Default</span>
+  </button>
+</div>
 {{< /example >}}
 
-{{< example class="bg-primary">}}
-<button type="button" class="btn btn-icon btn-default-on-colored-bg">
-  <svg width="1rem" height="1rem" fill="currentColor" aria-hidden="true">
-    <use xlink:href="/docs/{{< param docs_version >}}/assets/img/ouds-web-sprite.svg#heart-recommend"/>
-  </svg>
-  <span class="visually-hidden">Default</span>
-</button>
-<button type="button" class="btn btn-icon btn-strong-on-colored-bg">
-  <svg width="1rem" height="1rem" fill="currentColor" aria-hidden="true">
-    <use xlink:href="/docs/{{< param docs_version >}}/assets/img/ouds-web-sprite.svg#heart-recommend"/>
-  </svg>
-  <span class="visually-hidden">Strong</span>
-</button>
-<button type="button" class="btn btn-icon btn-minimal-on-colored-bg">
-  <svg width="1rem" height="1rem" fill="currentColor" aria-hidden="true">
-    <use xlink:href="/docs/{{< param docs_version >}}/assets/img/ouds-web-sprite.svg#heart-recommend"/>
-  </svg>
-  <span class="visually-hidden">Minimal</span>
-</button>
-
-<button type="button" class="btn btn-icon btn-default-on-colored-bg">
-  <span class="icon si si-settings" aria-hidden="true"></span>
-  <span class="visually-hidden">Default</span>
-</button>
-{{< /example >}}
-
-<!-- not implemented for now
-### Social buttons
-
-Use `.btn-social` to get a rounded button meant to display contact points links or actions. Use one of our modifier to specify a network. Make sure to provide an accessible name to your button, either using a `.visually-hidden` content or a `aria-label` attribute.
-
-{{< example >}}
-<a href="#" class="btn btn-icon btn-social btn-twitter"><span class="visually-hidden">Twitter</span></a>
-<a href="#" class="btn btn-icon btn-social btn-facebook"><span class="visually-hidden">Facebook</span></a>
-<a href="#" class="btn btn-icon btn-social btn-instagram"><span class="visually-hidden">Instagram</span></a>
-<a href="#" class="btn btn-icon btn-social btn-whatsapp"><span class="visually-hidden">Whatsapp</span></a>
-<a href="#" class="btn btn-icon btn-social btn-linkedin"><span class="visually-hidden">LinkedIn</span></a>
-<a href="#" class="btn btn-icon btn-social btn-youtube"><span class="visually-hidden">YouTube</span></a>
-<a href="#" class="btn btn-icon btn-social btn-snapchat"><span class="visually-hidden">Snapchat</span></a>
-<a href="#" class="btn btn-icon btn-social btn-pinterest"><span class="visually-hidden">Pinterest</span></a>
-<a href="#" class="btn btn-icon btn-social btn-mail"><span class="visually-hidden">Mail</span></a>
-<a href="#" class="btn btn-icon btn-social btn-tiktok"><span class="visually-hidden">TikTok</span></a>
-<a href="#" class="btn btn-icon btn-social btn-x"><span class="visually-hidden">X</span></a>
-{{< /example >}}
-
-Supported social networks are declared in a dedicated Sass map—meaning you're able to [add or remove a network from the following map]({{< docsref "/customize/sass#maps-and-loops" >}}).
-
-{{< scss-docs name="social-buttons" file="scss/_variables.scss" >}}
--->
+<!-- OUDS mod: Social buttons not implemented for now -->
 
 ## Disable text wrapping
 
@@ -252,57 +234,26 @@ In need of a button, but not the hefty background colors they bring? Replace the
 
 {{< /bootstrap-compatibility >}}
 
-<!-- not implemented for now
-## Sizes
-
-Fancy larger or smaller buttons? Add `.btn-lg` or `.btn-sm` for additional sizes.
-
-{{< example >}}
-<button type="button" class="btn btn-default btn-lg">Large button</button>
-<button type="button" class="btn btn-strong btn-lg">Large button</button>
-{{< /example >}}
-
-{{< example >}}
-<button type="button" class="btn btn-default btn-sm">Small button</button>
-<button type="button" class="btn btn-strong btn-sm">Small button</button>
-{{< /example >}}
-
-You can even roll your own custom sizing with CSS variables:
-
-<details>
-<summary>See Bootstrap examples that are incompatible with Orange Design System.</summary>
-<br>
-{{< design-callout-alert >}}
-This variant should not be used because it does not respect the Orange Design System specifications.
-
-Please refer to the [Buttons guidelines](https://system.design.orange.com/0c1af118d/p/278ebc-buttons-standard/b/247486) on the Orange Design System website.
-{{< /design-callout-alert >}}
-
-{{< example >}}
-<button type="button" class="btn btn-default"
-style="-bs-btn-padding-y: .25rem; -bs-btn-padding-x: .5rem; -bs-btn-font-size: .75rem;">
-Custom button
-</button>
-{{< /example >}}
-</details>
--->
+<!-- OUDS mod: Sizes not implemented for now -->
 
 ## Disabled state
 
 Make buttons look inactive by adding the `disabled` boolean attribute to any `<button>` element. Disabled buttons have `pointer-events: none` applied to, preventing hover and active states from triggering.
 
 <!--Boosted mod: no outline buttons-->
-{{< example >}}
-<button type="button" class="btn btn-default" disabled>Default</button>
-<button type="button" class="btn btn-strong" disabled>Strong</button>
-<button type="button" class="btn btn-minimal" disabled>Minimal</button>
-<button type="button" class="btn btn-negative" disabled>Negative</button>
-{{< /example >}}
+{{< example class="p-none" >}}
+<div class="p-tall">
+  <button type="button" class="btn btn-default" disabled>Default</button>
+  <button type="button" class="btn btn-strong" disabled>Strong</button>
+  <button type="button" class="btn btn-minimal" disabled>Minimal</button>
+  <button type="button" class="btn btn-negative" disabled>Negative</button>
+</div>
 
-{{< example class="bg-primary">}}
-<button type="button" class="btn btn-default-on-colored-bg" disabled>Default</button>
-<button type="button" class="btn btn-strong-on-colored-bg" disabled>Strong</button>
-<button type="button" class="btn btn-minimal-on-colored-bg" disabled>Minimal</button>
+<div class="colored-bg p-tall">
+  <button type="button" class="btn btn-default-on-colored-bg" disabled>Default</button>
+  <button type="button" class="btn btn-strong-on-colored-bg" disabled>Strong</button>
+  <button type="button" class="btn btn-minimal-on-colored-bg" disabled>Minimal</button>
+</div>
 {{< /example >}}
 
 Disabled buttons using the `<a>` element behave a bit different:
@@ -312,16 +263,14 @@ Disabled buttons using the `<a>` element behave a bit different:
 - Disabled buttons using `<a>` should include the `aria-disabled="true"` attribute to indicate the state of the element to assistive technologies.
 - Disabled buttons using `<a>` *should not* include the `href` attribute.
 
-{{< example >}}
-<div class="row">
-  <div class="col p-medium">
-    <a class="btn btn-default disabled" role="button" aria-disabled="true">Default link</a>
-    <a class="btn btn-strong disabled" role="button" aria-disabled="true">Strong link</a>
-  </div>
-  <div class="col bg-primary p-medium">
-    <a class="btn btn-default-on-colored-bg disabled" role="button" aria-disabled="true">Default link</a>
-    <a class="btn btn-strong-on-colored-bg disabled" role="button" aria-disabled="true">Strong link</a>
-  </div>
+{{< example class="p-none" >}}
+<div class="p-tall">
+  <a class="btn btn-default disabled" role="button" aria-disabled="true">Default link</a>
+  <a class="btn btn-strong disabled" role="button" aria-disabled="true">Strong link</a>
+</div>
+<div class="colored-bg p-tall">
+  <a class="btn btn-default-on-colored-bg disabled" role="button" aria-disabled="true">Default link</a>
+  <a class="btn btn-strong-on-colored-bg disabled" role="button" aria-disabled="true">Strong link</a>
 </div>
 {{< /example >}}
 
@@ -334,19 +283,27 @@ To cover cases where you have to keep the `href` attribute on a disabled link, t
 <a href="#" class="btn btn-strong disabled" tabindex="-1" role="button" aria-disabled="true">Strong link</a>
 {{< /example >}}
 
-<!-- OUDS mod: skeleton state -->
+<!-- OUDS mod: Skeleton state added -->
 ## Skeleton state
 
 The skeleton state is to be used while some important elements of the page are still loading, before they can be fully displayed. This state improves the perceived loading time by providing a visual cue of where elements will appear once fully loaded.
 The `.skeleton` class must be used with the `disabled` attribute to prevent any interaction. This state shouldn't be used on colored backgrounds.
 
- If the whole page is still loading, you may use a status message to indicate it to users with assistive technologies.
+If the whole page is still loading, you should use a status message to indicate it to users with assistive technologies.
+
+This state is not usable on colored backgrounds.
 
 {{< example >}}
 <button class="btn btn-default skeleton" disabled>Default</button>
 {{< /example >}}
 
-<!-- OUDS mod: loading state -->
+{{< bootstrap-compatibility >}}
+{{< example >}}
+<button class="btn btn-default placeholder" disabled>Default</button>
+{{< /example >}}
+{{< /bootstrap-compatibility >}}
+
+<!-- OUDS mod: Loading state added -->
 ## Loading state
 
 The loading state of a button indicates that an action is currently processing or taking place. This state provides feedback to users, enhancing user experience.
@@ -363,8 +320,8 @@ At the end of the loading, you should:
 
 See the buttons un cation in our [loading buttons live example]({{< docsref "/examples/loading-buttons" >}}).
 
-{{< example >}}
-<div class="p-short">
+{{< example class="p-none" >}}
+<div class="p-tall">
   <button type="button" class="btn btn-default loading-indeterminate" id="loading-btn1" disabled>
     Download file 1
     <span role="status">
@@ -378,7 +335,7 @@ See the buttons un cation in our [loading buttons live example]({{< docsref "/ex
     </span>
   </button>
 </div>
-<div class="bg-primary p-short">
+<div class="colored-bg p-tall">
   <button type="button" class="btn btn-default-on-colored-bg loading-indeterminate" id="loading-btn3" disabled>
     Download file 3
     <span role="status">
@@ -434,68 +391,7 @@ Additional utilities can be used to adjust the alignment of buttons when horizon
 </div>
 {{< /example >}}
 
-## Button plugin
-
-The button plugin allows you to create simple on/off toggle buttons.
-
-{{< callout info >}}
-Visually, these toggle buttons are identical to the [checkbox toggle buttons]({{< docsref "/forms/checks-radios#checkbox-toggle-buttons" >}}). However, they are conveyed differently by assistive technologies: the checkbox toggles will be announced by screen readers as "checked"/"not checked" (since, despite their appearance, they are fundamentally still checkboxes), whereas these toggle buttons will be announced as "button"/"button pressed". The choice between these two approaches will depend on the type of toggle you are creating, and whether or not the toggle will make sense to users when announced as a checkbox or as an actual button.
-{{< /callout >}}
-
-<!-- not implemented yet
-### Toggle states
-
-Add `data-bs-toggle="button"` to toggle a button's `active` state. If you're pre-toggling a button, you must manually add the `.active` class **and** `aria-pressed="true"` to ensure that it is conveyed appropriately to assistive technologies.
-
-<details>
-<summary>See Bootstrap examples that are incompatible with Orange Design System.</summary>
-<br>
-{{< design-callout-alert >}}
-These variants with only **one toggle button** should not be used because they do not respect the Orange Design System specifications. From the Orange Design System point of view and for usability reasons, a toggle button should not be used alone.
-
-Instead, consider using our [Checks component]({{< docsref "/forms/checks-radios#checks" >}}), [Radios component]({{< docsref "/forms/checks-radios#radios" >}}) or [Radio toggle buttons component]({{< docsref "/forms/checks-radios#radio-toggle-buttons" >}}).
-{{< /design-callout-alert >}}
-
-{{< example >}}
-<button type="button" class="btn btn-default" data-bs-toggle="button">Toggle button</button>
-<button type="button" class="btn btn-default active" data-bs-toggle="button" aria-pressed="true">Active toggle button</button>
-<button type="button" class="btn btn-default" disabled data-bs-toggle="button">Disabled toggle button</button>
-{{< /example >}}
-
-{{< example >}}
-<a href="#" class="btn btn-default" role="button" data-bs-toggle="button">Toggle link</a>
-<a href="#" class="btn btn-default active" role="button" data-bs-toggle="button" aria-pressed="true">Active toggle link</a>
-<a class="btn btn-default disabled" aria-disabled="true" role="button" data-bs-toggle="button">Disabled toggle link</a>
-{{< /example >}}
-</details>
-
-### Methods
-
-You can create a button instance with the button constructor, for example:
-
-
-```js
-const bsButton = new boosted.Button('#myButton')
-```
-
-{{< bs-table "table" >}}
-| Method | Description |
-| --- | --- |
-| `dispose` | Destroys an element's button. (Removes stored data on the DOM element) |
-| `getInstance` | Static method which allows you to get the button instance associated with a DOM element, you can use it like this: `boosted.Button.getInstance(element)`. |
-| `getOrCreateInstance` | Static method which returns a button instance associated with a DOM element or creates a new one in case it wasn't initialized. You can use it like this: `boosted.Button.getOrCreateInstance(element)`. |
-| `toggle` | Toggles push state. Gives the button the appearance that it has been activated. |
-{{< /bs-table >}}
-
-For example, to toggle all buttons
-
-```js
-document.querySelectorAll('.btn').forEach(buttonElement => {
-  const button = boosted.Button.getOrCreateInstance(buttonElement)
-  button.toggle()
-})
-```
--->
+<!-- OUDS mod: no Button plugin -->
 
 ## CSS
 
@@ -520,11 +416,12 @@ There are four mixins for buttons: button and button outline variant mixins (bot
 
 {{< scss-docs name="btn-variant-mixin" file="scss/mixins/_buttons.scss" >}}
 
-<!-- OUDS mod: button-outline-variant mixin -->
+<!-- OUDS mod: no button-outline-variant mixin -->
 
 <!-- OUDS mod: no button-size mixin for now  -->
 
-<!-- OUDS mod: button-icon mixin is not documented for now -->
+<!-- OUDS mod: button-icon mixin not used for now -->
+
 <!-- {{< scss-docs name="btn-icon" file="scss/mixins/_buttons.scss" >}} -->
 
 ### Sass loops

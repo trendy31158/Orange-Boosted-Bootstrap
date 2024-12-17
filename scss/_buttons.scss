@@ -6,8 +6,8 @@
   // scss-docs-start btn-css-vars
   --#{$prefix}btn-padding-x: #{$btn-padding-x};
   --#{$prefix}btn-padding-y: #{$btn-padding-y};
-  --#{$prefix}btn-min-width: #{$ouds-button-size-min-width}; // OUDS mod // TODO need intermediate sass var?
-  --#{$prefix}btn-min-height: #{$ouds-button-size-min-height}; // OUDS mod // TODO need intermediate sass var?
+  --#{$prefix}btn-min-width: #{$ouds-button-size-min-width}; // OUDS mod
+  --#{$prefix}btn-min-height: #{$ouds-button-size-min-height}; // OUDS mod
   --#{$prefix}btn-font-family: #{$btn-font-family};
   // OUDS mod: no `@include rfs($btn-font-size, --#{$prefix}btn-font-size)`
   --#{$prefix}btn-font-weight: #{$btn-font-weight};
@@ -222,6 +222,12 @@
     background-color: $ouds-indicator-skeleton-color-bg;
     border: #{$ouds-border-width-none};
     animation: skeleton-loading 1s linear infinite alternate;
+  }
+
+  @if $enable-bootstrap-compatibility {
+    &.placeholder {
+      @extend .skeleton;
+    }
   }
 
   @keyframes skeleton-loading {
