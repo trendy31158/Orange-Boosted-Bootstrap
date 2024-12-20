@@ -12,14 +12,19 @@ defer: true
   <h2 class="py-short">Loading buttons in an indeterminate time</h2>
 
   <div class="row py-taller">
-    <div class="col-3">
+    <div class="col-4">
       <button type="button" class="btn btn-default" id="load1">
-        Download file 1
-        <span role="status">
-          <span id="update1" class="visually-hidden"></span>
-        </span>
+        Download file 1 (indeterminate without span)
+        <span role="status" id="update1" class="visually-hidden"></span>
       </button>
     </div>
+    <div class="col-4">
+      <button type="button" class="btn btn-default" id="load3">
+        Download file 3 (indeterminate with span)
+        <span role="status" id="update3" class="visually-hidden"></span>
+      </button>
+    </div>
+
     <!--    <div class="col-3">-->
     <!--      <button type="button" class="btn btn-strong">-->
     <!--        Strong-->
@@ -60,10 +65,22 @@ defer: true
     <div class="col-3">
       <button type="button" class="btn btn-default" id="load2" style="--bs-button-loading-time: 10;">
         Download file 2
-        <span role="status" aria-live="assertive">
-          <span id="update2" class="visually-hidden"></span>
-        </span>
+        <span role="status" id="update2" class="visually-hidden"></span>
       </button>
+    </div>
+  </div>
+
+
+
+  <br><br>
+  <div class="example-hole">
+    <div class="btn btn-default">
+      <span class="loader-determinate">
+        <span class="fill"></span>
+      </span>
+      <span class="">
+        <span class="fill"></span>
+      </span>
     </div>
   </div>
 

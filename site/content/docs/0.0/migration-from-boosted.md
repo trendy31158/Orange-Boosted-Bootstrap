@@ -81,7 +81,7 @@ All responsive classes, helpers, and utilities have been updated accordingly to 
 ### Buttons
 
 - <span class="badge text-bg-success">New</span> `.btn-default`, `.btn-strong`, `.btn-minimal`, and `.btn-negative` have been added.
-- <span class="badge text-bg-success">New</span> `.btn-default-on-colored-bg`, `.btn-strong-on-colored-bg`, and `.btn-minimal-on-colored-bg` have been added.
+- <span class="badge text-bg-success">New</span> `.btn-default-on-colored-bg`, `.btn-strong-on-colored-bg`, and `.btn-minimal-on-colored-bg` have been added. <!-- TODO to confirm -->
 - <span class="badge text-bg-danger">Breaking</span> `.btn-primary`, `.btn-secondary`, `.btn-success`, `.btn-danger`, `.btn-warning`, `.btn-info`, `.btn-light`, and `.btn-dark` have been removed. You can still have them using `$enable-bootstrap-compatibility`. Here is the visual correspondence:
   - `.btn-primary` will look as `.btn-strong`
   - `.btn-secondary` will look as `.btn-default`
@@ -94,18 +94,15 @@ All responsive classes, helpers, and utilities have been updated accordingly to 
 - <span class="badge text-bg-danger">Breaking</span> `.btn-no-outline` has been removed. You can use `.btn-minimal` instead.
 - <span class="badge text-bg-danger">Breaking</span> `.btn-outline-*` have been removed. You can still have them using `$enable-bootstrap-compatibility`.
 - <span class="badge text-bg-warning">Warning</span> `.btn-sm` and `.btn-lg` have been removed.
-- <span class="badge text-bg-danger">Breaking</span> `.btn.placeholder` has been replaced by `.btn.skeleton` to indicate a preloading state. An animation has been added by default. You can still have `.btn.placeholder` using `$enable-bootstrap-compatibility`.
 - <span class="badge text-bg-danger">Breaking</span> Loading buttons implementation has changed. You should now use the classes `.loading-indeterminate` and `.loading-determinate` and no more spinner borders.
-
+<!-- TODO to confirm -->
 <div class="p-taller">
 
 For example, you should now write:
 ```html
 <button type="button" class="btn btn-default loading-indeterminate" id="loading-btn1" disabled>
   Download file 1
-  <span role="status">
-    <span id="loading-btn-msg1" class="visually-hidden">Downloading file 1</span>
-  </span>
+  <span role="status" id="loading-btn-msg1" class="visually-hidden">Downloading file 1</span>
 </button>
 ```
 Instead of:

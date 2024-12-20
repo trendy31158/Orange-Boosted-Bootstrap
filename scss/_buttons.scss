@@ -4,7 +4,8 @@
 
 .btn {
   // scss-docs-start btn-css-vars
-  --#{$prefix}btn-padding-x: #{$btn-padding-x};
+  --#{$prefix}btn-padding-start: #{$btn-padding-x};
+  --#{$prefix}btn-padding-end: #{$btn-padding-x};
   --#{$prefix}btn-padding-y: #{$btn-padding-y};
   --#{$prefix}btn-min-width: #{$ouds-button-size-min-width}; // OUDS mod
   --#{$prefix}btn-min-height: #{$ouds-button-size-min-height}; // OUDS mod
@@ -35,7 +36,11 @@
   justify-content: center; // OUDS mod
   min-width: var(--#{$prefix}btn-min-width); // OUDS mod
   min-height: var(--#{$prefix}btn-min-height); // OUDS mod
-  padding: subtract(var(--#{$prefix}btn-padding-y), var(--#{$prefix}btn-border-width)) subtract(var(--#{$prefix}btn-padding-x), var(--#{$prefix}btn-border-width)); // OUDS mod
+  padding:
+    subtract(var(--#{$prefix}btn-padding-y), var(--#{$prefix}btn-border-width))
+    subtract(var(--#{$prefix}btn-padding-end), var(--#{$prefix}btn-border-width))
+    subtract(var(--#{$prefix}btn-padding-y), var(--#{$prefix}btn-border-width))
+    subtract(var(--#{$prefix}btn-padding-start), var(--#{$prefix}btn-border-width)); // OUDS mod
   font-family: var(--#{$prefix}btn-font-family);
   @include get-font-size("label-large"); // OUDS mod
   font-weight: var(--#{$prefix}btn-font-weight);
@@ -56,7 +61,11 @@
   &:hover,
   &:focus-visible, // OUDS mod: apply hover styles to focus visible as well
   &:focus[data-focus-visible-added] { // OUDS mod: apply hover styles to focus visible as well
-    padding: subtract(var(--#{$prefix}btn-padding-y), var(--#{$prefix}btn-interaction-border-width)) subtract(var(--#{$prefix}btn-padding-x), var(--#{$prefix}btn-interaction-border-width)); // OUDS mod
+    padding:
+      subtract(var(--#{$prefix}btn-padding-y), var(--#{$prefix}btn-interaction-border-width))
+      subtract(var(--#{$prefix}btn-padding-end), var(--#{$prefix}btn-interaction-border-width))
+      subtract(var(--#{$prefix}btn-padding-y), var(--#{$prefix}btn-interaction-border-width))
+      subtract(var(--#{$prefix}btn-padding-start), var(--#{$prefix}btn-interaction-border-width)); // OUDS mod
     color: var(--#{$prefix}btn-hover-color);
     text-decoration: if($link-hover-decoration == underline, none, null);
     background-color: var(--#{$prefix}btn-hover-bg);
@@ -76,7 +85,11 @@
   &:active,
   &.active,
   &.show {
-    padding: subtract(var(--#{$prefix}btn-padding-y), var(--#{$prefix}btn-interaction-border-width)) subtract(var(--#{$prefix}btn-padding-x), var(--#{$prefix}btn-interaction-border-width)); // OUDS mod
+    padding:
+      subtract(var(--#{$prefix}btn-padding-y), var(--#{$prefix}btn-interaction-border-width))
+      subtract(var(--#{$prefix}btn-padding-end), var(--#{$prefix}btn-interaction-border-width))
+      subtract(var(--#{$prefix}btn-padding-y), var(--#{$prefix}btn-interaction-border-width))
+      subtract(var(--#{$prefix}btn-padding-start), var(--#{$prefix}btn-interaction-border-width)); // OUDS mod
     color: var(--#{$prefix}btn-active-color);
     background-color: var(--#{$prefix}btn-active-bg);
     // Remove CSS gradients if they're enabled
@@ -86,7 +99,6 @@
     // OUDS mod: no box shadow modification for the active state
     // OUDS mod: no &:focus-visible
   }
-
   // End mod
 
   // OUDS mod: no `.btn-check:checked:focus-visible + &` to handle box shadow
@@ -94,7 +106,7 @@
   // OUDS mod: selectors are slightly different to handle `.btn-check`
   // TODO how to handle to disable links with aria-disabled only
   .btn-check:disabled + &,
-  &:disabled:not(.loading-indeterminate):not(.loading-determinate):not(.skeleton),
+  &:disabled:not(.loading-indeterminate):not(.loading-determinate):not(.skeleton):not(:has(.loader-indeterminate-span)),
   &.disabled,
   fieldset:disabled & {
     color: var(--#{$prefix}btn-disabled-color);
@@ -111,25 +123,51 @@
   fieldset:disabled & {
     pointer-events: none;
   }
-
   // End mod
 
   // OUDS mod: buttons with icon and text
+  &:not(.btn-icon):has(> svg),
+  &:not(.btn-icon):has(> img),
+  &:not(.btn-icon):has(> .icon) {
+    --#{$prefix}btn-padding-start: #{$ouds-button-space-padding-inline-icon-start};
+    --#{$prefix}btn-padding-end: #{$ouds-button-space-padding-inline-start-icon-end};
+  }
+
   &:not(.btn-icon) > svg,
   &:not(.btn-icon) > img,
   &:not(.btn-icon) > .icon {
     width: $ouds-button-size-icon;
     height: $ouds-button-size-icon;
     margin-right: $ouds-button-space-column-gap-icon;
-    margin-left: subtract(var(--#{$prefix}icon-spacing), var(--#{$prefix}btn-padding-x));
     overflow: hidden;
     font-size: $ouds-button-size-icon;
     line-height: $ouds-button-size-icon;
   }
-
   // End mod
 
   // OUDS mod: loading buttons
+  &:has(.loader-indeterminate-span) {
+    color: transparent;
+  }
+
+  .loader-indeterminate-span {
+    position: absolute;
+    display: inline-block;
+    width: px-to-rem($ouds-button-size-loader);
+    height: px-to-rem($ouds-button-size-loader);
+    color: var(--#{$prefix}btn-color);
+    vertical-align: middle;
+    background-color: transparent;
+    border: 3px solid currentcolor;
+    border-right-color: transparent;
+    // stylelint-disable-next-line property-disallowed-list
+    border-radius: 50%;
+    animation: .75s linear infinite spinner-border;
+  }
+
+  @keyframes spinner-border {
+    to { transform: rotate(360deg) #{"/* rtl:ignore */"}; }
+  }
 
   &.loading-indeterminate,
   &.loading-determinate {
@@ -173,7 +211,8 @@
     }
   }
 
-  &[class*="loading"] {
+  &[class*="loading"],
+  &:has(.loader-indeterminate-span) {
     &.btn-default {
       --#{$prefix}btn-color: #{$ouds-button-color-content-default-loading};
       --#{$prefix}btn-bg: #{$ouds-button-color-bg-default-loading};
@@ -217,27 +256,27 @@
     }
   }
 
-  &.skeleton {
-    color: transparent;
-    background-color: $ouds-indicator-skeleton-color-bg;
-    border: #{$ouds-border-width-none};
-    animation: skeleton-loading 1s linear infinite alternate;
-  }
-
-  @if $enable-bootstrap-compatibility {
-    &.placeholder {
-      @extend .skeleton;
-    }
-  }
-
-  @keyframes skeleton-loading {
-    0% {
-      background-color: $ouds-indicator-skeleton-color-bg;
-    }
-    100% {
-      background-color: $ouds-indicator-skeleton-color-gradient-middle;
-    }
-  }
+  //&.skeleton {
+  //  color: transparent;
+  //  background-color: $ouds-indicator-skeleton-color-bg;
+  //  border: #{$ouds-border-width-none};
+  //  animation: skeleton-loading 1s linear infinite alternate; Animation disabled for now to be consistent with mobile devs
+  //}
+  //
+  //@if $enable-bootstrap-compatibility {
+  //  &.placeholder {
+  //    @extend .skeleton;
+  //  }
+  //}
+  //
+  //@keyframes skeleton-loading {  Animation disabled for now to be consistent with mobile devs
+  //  0% {
+  //    background-color: $ouds-indicator-skeleton-color-bg;
+  //  }
+  //  100% {
+  //    background-color: $ouds-indicator-skeleton-color-gradient-middle;
+  //  }
+  //}
   // End mod
 }
 
@@ -543,7 +582,8 @@
 
 // OUDS mod: icon button (icon only, without text)
 .btn-icon {
-  --#{$prefix}btn-padding-x: #{$ouds-button-space-inset-icon-alone};
+  --#{$prefix}btn-padding-start: #{$ouds-button-space-inset-icon-alone};
+  --#{$prefix}btn-padding-end: #{$ouds-button-space-inset-icon-alone};
 
   > svg,
   > img,

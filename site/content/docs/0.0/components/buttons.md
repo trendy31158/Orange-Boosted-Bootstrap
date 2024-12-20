@@ -283,31 +283,11 @@ To cover cases where you have to keep the `href` attribute on a disabled link, t
 <a href="#" class="btn btn-strong disabled" tabindex="-1" role="button" aria-disabled="true">Strong link</a>
 {{< /example >}}
 
-<!-- OUDS mod: Skeleton state added -->
-## Skeleton state
-
-The skeleton state is to be used while some important elements of the page are still loading, before they can be fully displayed. This state improves the perceived loading time by providing a visual cue of where elements will appear once fully loaded.
-The `.skeleton` class must be used with the `disabled` attribute to prevent any interaction. This state shouldn't be used on colored backgrounds.
-
-If the whole page is still loading, you should use a status message to indicate it to users with assistive technologies.
-
-This state is not usable on colored backgrounds.
-
-{{< example >}}
-<button class="btn btn-default skeleton" disabled>Default</button>
-{{< /example >}}
-
-{{< bootstrap-compatibility >}}
-{{< example >}}
-<button class="btn btn-default placeholder" disabled>Default</button>
-{{< /example >}}
-{{< /bootstrap-compatibility >}}
-
 <!-- OUDS mod: Loading state added -->
 ## Loading state
 
 The loading state of a button indicates that an action is currently processing or taking place. This state provides feedback to users, enhancing user experience.
-
+<!-- TODO to finalize depending on the chosen implementation -->
 When the loading starts, you will have to:
 - Add the `disabled` attribute to the button to avoid any unwanted interactions.
 - Add the class `.loading-indeterminate` (for an indeterminate loading time) or `.loading-determinate` (for a defined loading time); this will provide an animation corresponding to the current state.
@@ -318,35 +298,32 @@ At the end of the loading, you should:
 - Remove the class `.loading-indeterminate` or `.loading-determinate` to restore its look.
 - Set a final status message, indicating the loading has ended.
 
-See the buttons un cation in our [loading buttons live example]({{< docsref "/examples/loading-buttons" >}}).
+See the buttons un action in our [loading buttons live example]({{< docsref "/examples/loading-buttons" >}}).
 
 {{< example class="p-none" >}}
 <div class="p-tall">
+  <button type="button" class="btn btn-default" id="loading-btn0" disabled>
+    Download file 0
+    <span class="loader-indeterminate-span" aria-hidden="true"></span>
+    <span role="status" id="loading-btn-msg0" class="visually-hidden">Downloading file 0</span>
+  </button>
   <button type="button" class="btn btn-default loading-indeterminate" id="loading-btn1" disabled>
     Download file 1
-    <span role="status">
-      <span id="loading-btn-msg1" class="visually-hidden">Downloading file 1</span>
-    </span>
+    <span role="status" id="loading-btn-msg1" class="visually-hidden">Downloading file 1</span>
   </button>
   <button type="button" class="btn btn-default loading-determinate" id="loading-btn2" disabled>
     Download file 2
-    <span role="status">
-      <span id="loading-btn-msg2" class="visually-hidden">Downloading file 2</span>
-    </span>
+    <span role="status" id="loading-btn-msg2" class="visually-hidden">Downloading file 2</span>
   </button>
 </div>
 <div class="colored-bg p-tall">
   <button type="button" class="btn btn-default-on-colored-bg loading-indeterminate" id="loading-btn3" disabled>
     Download file 3
-    <span role="status">
-      <span id="loading-btn-msg3" class="visually-hidden">Downloading file 3</span>
-    </span>
+    <span role="status" id="loading-btn-msg3" class="visually-hidden">Downloading file 3</span>
   </button>
   <button type="button" class="btn btn-default-on-colored-bg loading-determinate" id="loading-btn4" disabled>
     Download file 4
-    <span role="status">
-      <span id="loading-btn-msg4" class="visually-hidden">Downloading file 4</span>
-    </span>
+    <span role="status" id="loading-btn-msg4" class="visually-hidden">Downloading file 4</span>
   </button>
 </div>
 {{< /example >}}
@@ -429,3 +406,7 @@ There are four mixins for buttons: button and button outline variant mixins (bot
 Button variants (for regular and outline buttons) use their respective mixins with our `$theme-colors` map to generate the modifier classes in `scss/_buttons.scss`.
 
 {{< scss-docs name="btn-variant-loops" file="scss/_buttons.scss" >}}
+
+### Component tokens
+
+{{< scss-docs name="ouds-component-button" file="scss/tokens/_component.scss" >}}

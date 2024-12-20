@@ -12,7 +12,6 @@
     statusMessage.innerHTML = 'Downloading file 1'
     updateStatusMessageCall = setInterval(() => {
       statusMessage.innerHTML = `${statusMessage.innerHTML}.`
-      // statusMessage.innerHTML = 'Fichier en téléchargement'
     }, 3000)
     // stop loading after 10 secondes for this demo
     setTimeout(() => {
@@ -23,14 +22,37 @@
     }, 10000)
   })
 
+  // Bootstrap compatibility for indeterminate loading time
+  const statusMessage3 = document.querySelector('#update3')
+  const loadingButton3 = document.querySelector('#load3')
+  let updateStatusMessageCall3
+  loadingButton3.addEventListener('click', () => {
+    // Change button's look by adding a loading icon and disable it
+    loadingButton3.setAttribute('disabled', '')
+    loadingButton3.innerHTML += '<span class="loader-indeterminate-span" id="loader3" aria-hidden="true"></span>'
+    // Update indeterminate loading status every 3 seconds
+    statusMessage3.innerHTML = 'Downloading file 3'
+    updateStatusMessageCall3 = setInterval(() => {
+      statusMessage3.innerHTML = `${statusMessage3.innerHTML}.`
+    }, 3000)
+    // stop loading after 10 secondes for this demo
+    setTimeout(() => {
+      clearTimeout(updateStatusMessageCall3)
+      statusMessage3.innerHTML = 'End of downloading file 3'
+      const span3 = document.querySelector('#loader3')
+      span3.remove()
+      loadingButton3.removeAttribute('disabled')
+    }, 10000)
+  })
+
   // Determinate loading time
   const statusMessage2 = document.querySelector('#update2')
   const loadingButton2 = document.querySelector('#load2')
   const loadingTime = getComputedStyle(loadingButton2).getPropertyValue('--bs-button-loading-time')
   let updateStatusMessageCall2
   const interval = 3000
-  let counter = 0
   loadingButton2.addEventListener('click', () => {
+    let counter = 0
     // Change button's look by adding a loading icon and disable it
     loadingButton2.classList.add('loading-determinate')
     loadingButton2.setAttribute('disabled', '')
