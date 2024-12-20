@@ -76,7 +76,47 @@ All responsive classes, helpers, and utilities have been updated accordingly to 
 
 ### Close button
 
-- <span class="badge text-bg-warning">Warning</span> `.btn-close-white` class has been removed as it was deprecated in Boosted v5.3.3.
+- <span class="badge text-bg-warning">Warning</span> `.btn-close-white` class has been removed as it was deprecated in Boosted v5.3.3. You can use contextual color mode instead.
+
+### Buttons
+
+- <span class="badge text-bg-success">New</span> `.btn-default`, `.btn-strong`, `.btn-minimal`, and `.btn-negative` have been added.
+- <span class="badge text-bg-success">New</span> `.btn-default-on-colored-bg`, `.btn-strong-on-colored-bg`, and `.btn-minimal-on-colored-bg` have been added. <!-- TODO to confirm -->
+- <span class="badge text-bg-danger">Breaking</span> `.btn-primary`, `.btn-secondary`, `.btn-success`, `.btn-danger`, `.btn-warning`, `.btn-info`, `.btn-light`, and `.btn-dark` have been removed. You can still have them using `$enable-bootstrap-compatibility`. Here is the visual correspondence:
+  - `.btn-primary` will look as `.btn-strong`
+  - `.btn-secondary` will look as `.btn-default`
+  - `.btn-success` will look as `.btn-default`
+  - `.btn-danger` will look as `.btn-negative`
+  - `.btn-warning` will look as `.btn-negative`
+  - `.btn-info` will look as `.btn-minimal`
+  - `.btn-light` will look as `.btn-minimal`
+  - `.btn-dark` will look as `.btn-strong`
+- <span class="badge text-bg-danger">Breaking</span> `.btn-no-outline` has been removed. You can use `.btn-minimal` instead.
+- <span class="badge text-bg-danger">Breaking</span> `.btn-outline-*` have been removed. You can still have them using `$enable-bootstrap-compatibility`.
+- <span class="badge text-bg-warning">Warning</span> `.btn-sm` and `.btn-lg` have been removed.
+- <span class="badge text-bg-danger">Breaking</span> Loading buttons implementation has changed. You should now use the classes `.loading-indeterminate` and `.loading-determinate` and no more spinner borders.
+<!-- TODO to confirm -->
+<div class="p-taller">
+
+For example, you should now write:
+```html
+<button type="button" class="btn btn-default loading-indeterminate" id="loading-btn1" disabled>
+  Download file 1
+  <span role="status" id="loading-btn-msg1" class="visually-hidden">Downloading file 1</span>
+</button>
+```
+Instead of:
+```html
+<button class="btn btn-default" type="button" disabled>
+  <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+  <span class="visually-hidden" role="status">Loading...</span>
+</button>
+```
+
+</div>
+
+- <span class="badge text-bg-danger">Breaking</span> Button plugin has been removed. <!-- TODO to be completed -->
+
 
 ## Forms
 
