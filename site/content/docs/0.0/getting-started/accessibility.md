@@ -24,7 +24,7 @@ OUDS Web's interactive components<!--—such as modal dialogs, dropdown menus, a
 
 Because OUDS Web's components are purposely designed to be fairly generic, authors may need to include further <abbr title="Accessible Rich Internet Applications">ARIA</abbr> roles and attributes, as well as JavaScript behavior, to more accurately convey the precise nature and functionality of their component. This is usually noted in the documentation.
 
-<!--### Color contrast
+<!-- TODO LM: ### Color contrast
 
 Some combinations of colors that currently make up OUDS Web's default palette—used throughout the framework for things such as button variations, alert variations, form validation indicators—may lead to *insufficient* color contrast (below the recommended [WCAG 2.1 text color contrast ratio of 4.5:1](https://www.w3.org/TR/WCAG/#contrast-minimum) and the [WCAG 2.1 non-text color contrast ratio of 3:1](https://www.w3.org/TR/WCAG21/#non-text-contrast)), particularly when used against a light background.
 

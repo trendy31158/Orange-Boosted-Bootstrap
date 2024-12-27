@@ -128,8 +128,7 @@ Here's how you should use these in your Sass:
 }
 ```
 
-<!-- [Color]({{< docsref "/utilities/colors" >}}) and -->
-[Background]({{< docsref "/utilities/background" >}}) utility classes are also available for setting <!--`color` and -->`background-color`.
+[Color]({{< docsref "/utilities/colors" >}}) and [Background]({{< docsref "/utilities/background" >}}) utility classes are also available for setting `color` and `background-color`.
 </details>
 
 ## CSS
